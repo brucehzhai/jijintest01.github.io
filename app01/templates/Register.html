@@ -193,45 +193,48 @@
                 </div>
                 <!--End Contact Page Right-->
 
-                <!--Start Contact Page Right-->
-                <div class="col-xl-8 col-lg-8">
-                    <div class="contact-page__right">
-                        <form action="../static/inc/sendemail.php" class="comment-one__form contact-form-validated" novalidate="novalidate">
-                            <div class="row">
-                                <div class="col-xl-6 col-lg-6">
-                                    <div class="comment-form__input-box">
-                                        <input type="text" placeholder="用户名" name="name">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6">
-                                    <div class="comment-form__input-box">
-                                        <input type="text" placeholder="邮箱" name="email">
-                                    </div>
-                                </div>
+
+        <!--Start Contact Page Right-->
+        <div class="col-xl-8 col-lg-8">
+            <div class="contact-page__right">
+                <form action="/register/" method="post" class="comment-one__form contact-form-validated" novalidate="novalidate">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="comment-form__input-box">
+                                <input type="text" placeholder="用户名" name="name">
                             </div>
-                            <div class="row">
-                                <div class="col-xl-6 col-lg-6">
-                                    <div class="comment-form__input-box">
-                                        <input type="text" placeholder="登录密码" name="password">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6">
-                                    <div class="comment-form__input-box">
-                                        <input type="email" placeholder="确认密码" name="Re-password">
-                                    </div>
-                                </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="comment-form__input-box">
+                                <input type="email" placeholder="邮箱" name="email">
                             </div>
-                            <div class="row">
-                                <div class="col-xl-12 col-lg-12">
-                                    <button type="submit" class="thm-btn comment-form__btn" style = "width:320px;float: left">注册</button>
-                                    <a href="Login.html">
-                                        <button type="button" class="thm-btn comment-form__btn " style = "width:320px;float: right">已有账号？</button>
-                                    </a>
-                                </div>
-                            </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="comment-form__input-box">
+                                <input type="text" placeholder="登录密码" name="password">
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="comment-form__input-box">
+                                <input type="text" placeholder="确认密码" name="Re-password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12">
+                            <button type="submit" class="thm-btn comment-form__btn" style="width:320px;float:left">注册</button>
+                            <a href="Login.html">
+                                <button type="button" class="thm-btn comment-form__btn" style="width:320px;float:right">已有账号？</button>
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
                 <!--End Contact Page Right-->
             </div>
         </div>

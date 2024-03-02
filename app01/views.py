@@ -1,23 +1,31 @@
 from django.shortcuts import render,HttpResponse
 from django.db.models import Q
+from app01 import models
+from django.shortcuts import render, redirect
+from django.contrib.auth.hashers import make_password, check_password
+from django.http import HttpResponseServerError
+
+from app01.models import userinfo
+
 # Create your views here.
 def index(request):
     return HttpResponse('HELLO WORLD')
 
 
 def register(request):
-    if request.method == "GET":
-        return render(request, "Register.html")
-    username = request.POST.get("name")
-    if models.Userinfo.objects.filter(name=username):
-        return render(request, "Login.html", {"error_msg": "该账号已被注册"})
-    password = request.POST.get("password")
-    if not username or not password:
-        return render(request, "Register.html", {"error_msg": "用户名或密码不能为空"})
-    email = request.POST.get("email")
-    models.Userinfo.objects.create(name=username, pwd=password)
-    print("注册成功")
-    return render(request, "Login.html", {"error_msg": "您已注册成功，请登录！~"})
+        if request.method == 'POST':
+            # 如果是POST请求，则执行以下代码
+            name = request.POST.get('name')
+            password = request.POST.get('password')
+            email = request.POST.get('email')
+
+            # 在这里进行用户输入的验证逻辑
+
+            userinfo.objects.create(name=name, email=email, password=password)
+            return render(request, 'Login.html')
+        else:
+            # 如果是GET请求，则执行以下代码
+            return render(request, 'register.html')
 
 def login(request):
     if request.method == "GET":
@@ -36,6 +44,6 @@ def login(request):
         print(request.session["info"])
         request.session.set_expiry(60 * 60 * 24 * 7)
 
-        return redirect("index.html")
+
     else:
         return render(request, "Login.html", {"error_msg": "用户名或密码错误"})

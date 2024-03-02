@@ -285,7 +285,6 @@ button {
     color: var(--thm-primary);
     font-size: 14px;
     font-weight: 700;
-    text-transform: uppercase;
     padding: 18px 50px 18px;
     border-radius: 10px;
     letter-spacing: 0.1em;
@@ -348,7 +347,6 @@ button {
     font-size: 14px;
     line-height: 20px;
     font-weight: 500;
-    text-transform: uppercase;
     letter-spacing: 0.1em;
 }
 
@@ -356,7 +354,6 @@ button {
     font-size: 50px;
     line-height: 1em;
     font-weight: 700;
-    text-transform: none;
     letter-spacing: -0.04em;
 }
 
@@ -630,7 +627,6 @@ button {
     color: var(--thm-color-1);
     font-size: 16px;
     font-weight: 500;
-    text-transform: none;
     transition: all 500ms ease;
     font-family: var(--thm-font);
     padding-top: 38px;
@@ -1852,7 +1848,6 @@ button {
     font-size: 16px;
     line-height: 26px;
     font-weight: 500;
-    text-transform: uppercase;
     letter-spacing: 0.1em;
     opacity: 0;
     transition: all 1000ms ease;
@@ -2129,7 +2124,6 @@ button {
     font-size: 14px;
     line-height: 24px;
     font-weight: 500;
-    text-transform: uppercase;
     letter-spacing: 0.1em;
     font-family: var(--thm-font);
 }
@@ -2455,7 +2449,6 @@ button {
     font-size: 14px;
     line-height: 24px;
     font-weight: 500;
-    text-transform: uppercase;
     letter-spacing: 0.1em;
 }
 
@@ -3083,7 +3076,6 @@ button {
     font-size: 12px;
     line-height: 22px;
     font-weight: 700;
-    text-transform: uppercase;
     letter-spacing: 0.1em;
     background: var(--thm-base);
     padding: 5px 20px 5px;
@@ -4057,7 +4049,6 @@ button {
     border-radius: 40px;
     transition: all 500ms ease;
     font-family: var(--thm-font);
-    text-transform: none;
     outline: none;
 }
 
@@ -4088,7 +4079,6 @@ button {
     font-size: 12px;
     line-height: 50px;
     font-weight: 700;
-    text-transform: uppercase;
     border-radius: 50%;
     background: var(--thm-primary);
     transition: all 300ms ease 100ms;
@@ -4412,7 +4402,6 @@ button {
 .features-two__call-box-inner .title p {
     color: var(--thm-primary);
     font-size: 14px;
-    text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 10px;
 }
@@ -4577,7 +4566,6 @@ button {
     font-size: 16px;
     font-weight: 500;
     line-height: 40px;
-    text-transform: none;
     margin-bottom: 0px;
     font-family: var(--thm-font);
 }
@@ -4642,7 +4630,6 @@ button {
     font-size: 14px;
     font-weight: 400;
     font-family: var(--thm-font);
-    text-transform: uppercase;
     letter-spacing: 0.1em;
 }
 
@@ -5210,7 +5197,6 @@ button {
     font-size: 12px;
     line-height: 18px;
     font-weight: 500;
-    text-transform: uppercase;
     letter-spacing: 0.1em;
 }
 
@@ -5959,7 +5945,6 @@ button {
     font-size: 14px;
     color: #727d73;
     font-weight: 400;
-    text-transform: none;
     font-family: var(--thm-font);
 }
 
@@ -5975,7 +5960,6 @@ button {
     outline: none;
     margin-bottom: 10px;
     font-weight: 400;
-    text-transform: none;
 }
 
 /***
@@ -6386,7 +6370,6 @@ button {
     font-size: 12px;
     line-height: 18px;
     font-weight: 700;
-    text-transform: uppercase;
     letter-spacing: 0.1em;
     font-family: var(--thm-font);
     margin-top: 4px;
@@ -6824,7 +6807,6 @@ Sidebar
     line-height: 22px;
     font-weight: 700;
     font-family: var(--thm-font);
-    text-transform: uppercase;
     border-radius: 10px;
     background: #ffffff;
     padding: 8px 20px 8px;
@@ -7014,7 +6996,6 @@ Sidebar
     font-size: 12px;
     line-height: 22px;
     font-weight: 700;
-    text-transform: uppercase;
     letter-spacing: 0.1em;
     background: #f6f4ec;
     padding: 8px 20px 8px;
