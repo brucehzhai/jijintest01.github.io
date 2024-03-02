@@ -5959,7 +5959,7 @@ button {
     font-size: 14px;
     color: #727d73;
     font-weight: 400;
-    text-transform: capitalize;
+    text-transform: none;
     font-family: var(--thm-font);
 }
 
