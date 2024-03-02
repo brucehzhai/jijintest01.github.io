@@ -4057,7 +4057,7 @@ button {
     border-radius: 40px;
     transition: all 500ms ease;
     font-family: var(--thm-font);
-    text-transform: capitalize;
+    text-transform: none;
     outline: none;
 }
 
@@ -4577,7 +4577,7 @@ button {
     font-size: 16px;
     font-weight: 500;
     line-height: 40px;
-    text-transform: capitalize;
+    text-transform: none;
     margin-bottom: 0px;
     font-family: var(--thm-font);
 }
@@ -5975,7 +5975,7 @@ button {
     outline: none;
     margin-bottom: 10px;
     font-weight: 400;
-    text-transform: capitalize;
+    text-transform: none;
 }
 
 /***
