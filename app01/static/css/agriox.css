@@ -5975,7 +5975,7 @@ button {
     outline: none;
     margin-bottom: 10px;
     font-weight: 400;
-    text-transform: capitalize;
+    text-transform: none;
 }
 
 /***
