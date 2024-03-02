@@ -20,4 +20,6 @@ from app01 import views
 
 urlpatterns = [
     path('index/', views.index)
+
+
 ]
