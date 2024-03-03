@@ -334,6 +334,13 @@ button {
     margin-bottom: 50px;
 }
 
+.sec-title {
+    position: relative;
+    display: block;
+    margin-top: -7px;
+    margin-bottom: 50px;
+}
+
 .sec-title .icon {
     position: relative;
     display: block;
@@ -3776,6 +3783,13 @@ button {
     padding: 135px 0px 110px;
 }
 
+.footer-one__top__s {
+    position: relative;
+    display: block;
+    background: var(--thm-primary);
+    padding: 10px 0px 10px;
+}
+
 .footer-one__top-wrapper {
     position: relative;
     display: block;
@@ -5093,6 +5107,20 @@ button {
     z-index: 2;
 }
 
+.meet-farmers-one-t-m {
+    position: relative;
+    display: block;
+    background: #ffffff;
+    padding: 0px 0px 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: -120px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 2;
+}
+
+
 .meet-farmers-one .sec-title {
     margin-bottom: 53px;
 }
@@ -5216,6 +5244,14 @@ button {
     color: var(--thm-base);
 }
 
+.meet-farmers-one--about-t-s {
+    position: relative;
+    display: block;
+    padding: 20px 0px 20px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+}
 
 .meet-farmers-one--about {
     position: relative;
