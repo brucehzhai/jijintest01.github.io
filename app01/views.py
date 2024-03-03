@@ -1,4 +1,4 @@
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render,HttpResponse,redirect
 from django.db.models import Q
 from app01 import models
 from django.shortcuts import render, redirect
@@ -22,7 +22,7 @@ def register(request):
             # 在这里进行用户输入的验证逻辑
 
             userinfo.objects.create(name=name, email=email, password=password)
-            return render(request, 'Login.html')
+            return render(request, "Login.html")
         else:
             # 如果是GET请求，则执行以下代码
             return render(request, 'register.html')
@@ -47,3 +47,8 @@ def login(request):
 
     else:
         return render(request, "Login.html", {"error_msg": "用户名或密码错误"})
+def test(request):
+    if request.method == "GET":
+        return render(request, "test.html")
+    elif request.method == 'POST':
+        return HttpResponse('添加成功')
