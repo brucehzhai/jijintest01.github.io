@@ -17,6 +17,7 @@ def register(request):
     if request.method == 'POST':
 
         # 如果是POST请求，则执行以下代码
+
         name = request.POST.get('name')
         password = request.POST.get('password')
 
