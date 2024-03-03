@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
 
-
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../static/plugins/animate/animate.min.css" />
     <link rel="stylesheet" href="../static/plugins/animate/custom-animate.css" />
@@ -117,12 +117,17 @@
                                     <a href="#" class="cart mini-cart__toggler"><span class="icon-shopping-cart"></span></a>
                                 </div>
                                 <div class="contact-box">
-                                    <div class="icon">
-                                        <span class="icon-phone-call-2"></span>
+                                    <div class="">
+                                        <a href="#"><i class="fa fa-user" style="font-size: 35px;margin-top: 8px"></i></a>
                                     </div>
                                     <div class="text">
-                                        <p>Call Anytime</p>
-                                        <a href="tel:123456789">666 888 0000</a>
+                                         <li class="dropdown"> <a href class="dropdown-toggle" data-toggle="dropdown">{{ request.session.info.name }}</a>
+                                            <ul class="dropdown-menu">
+                                             <li><a href="/logout/">注销</a></li>
+                                              <li><a >邀请码：{{ ivt }}</a></li>
+                                              <li><a >积分：{{ score }}</a></li>
+                                            </ul>
+                                             </li>
                                     </div>
                                 </div>
                             </div>
