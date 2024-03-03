@@ -19,6 +19,8 @@ def register(request):
         # 如果是POST请求，则执行以下代码
         name = request.POST.get('name')
         password = request.POST.get('password')
+
+
         email = request.POST.get('email')
 
         # 在这里进行用户输入的验证逻辑
