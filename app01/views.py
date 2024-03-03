@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.db.models import Q
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
@@ -59,6 +60,7 @@ def login(request):
         request.session.set_expiry(60 * 60 * 24 * 7)
 
         return redirect('/contact/')
-
+def contact(request):
+    return  render(request,'contact.html')
 
 
