@@ -196,26 +196,27 @@
                 <!--Start Contact Page Right-->
                 <div class="col-xl-8 col-lg-8">
                     <div class="contact-page__right">
-                        <form action="../static/inc/sendemail.php" class="comment-one__form contact-form-validated" novalidate="novalidate">
+                        <form action="/login/" method="post" class="comment-one__form" novalidate="novalidate">
+                            {% csrf_token %}
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12">
                                     <div class="comment-form__input-box">
-                                        <input type="text" placeholder="请输入您的用户名或邮箱" name="name_or_email">
+                                        <input type="text" placeholder="请输入您的用户名或邮箱" name="name">
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12">
                                     <div class="comment-form__input-box">
-                                        <input type="text" placeholder="请输入您的登录密码" name="password">
+                                        <input type="password" placeholder="请输入您的登录密码" name="password">
                                     </div>
                                 </div>
 
                             </div>
                             <div class="row">
                                 <div class="col-xl-12 col-lg-12">
-                                    <button type="submit" class="thm-btn comment-form__btn" style = "width:320px;float: left">登录</button>
-                                    <a href="Register.html"><button type="button" class="thm-btn comment-form__btn " style = "width:320px;float: right">没有账号?</button></a>
+                                    <button type="submit" class="thm-btn " style = "width:320px;float: left">登录</button>
+                                    <a href="http://127.0.0.1:8000/register/"><button type="button" class="thm-btn" style = "width:320px;float: right">没有账号?</button></a>
                                 </div>
                             </div>
                         </form>

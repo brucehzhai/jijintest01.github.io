@@ -5933,7 +5933,9 @@ button {
 }
 
 .comment-form__input-box input[type="text"],
-.comment-form__input-box input[type="email"] {
+.comment-form__input-box input[type="email"],
+.comment-form__input-box input[type="password"]
+{
     height: 70px;
     width: 100%;
     border: none;
