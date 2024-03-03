@@ -38,6 +38,26 @@
     <!-- template styles -->
     <link rel="stylesheet" href="../static/css/agriox.css"/>
     <link rel="stylesheet" href="../static/css/agriox-responsive.css"/>
+    <style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
 </head>
 
 <body>
@@ -120,14 +140,15 @@
                                     <div class="">
                                         <a href="#"><i class="fa fa-user" style="font-size: 35px;margin-top: 8px"></i></a>
                                     </div>
-                                    <div class="text">
-                                         <li class="dropdown"> <a href class="dropdown-toggle" data-toggle="dropdown">{{ request.session.info.name }}</a>
-                                            <ul class="dropdown-menu">
-                                             <li><a href="/logout/">注销</a></li>
-                                              <li><a >邀请码：{{ ivt }}</a></li>
-                                              <li><a >积分：{{ score }}</a></li>
-                                            </ul>
-                                             </li>
+                                    <div >
+                                    <li>
+                                         <li class="dropdown">
+                                             <a href="#" >{{ request.session.info.name }}</a>
+                                             <ul class="dropdown-content">
+                                                    <li><a href="/contact/">注销</a></li>
+                                             </ul>
+                                        </li>
+                                    </li>
                                     </div>
                                 </div>
                             </div>

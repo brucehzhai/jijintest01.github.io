@@ -4,13 +4,16 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponse, HttpResponseServerError
 from app01 import models
-
+from django.db.models import Q
 
 from app01.models import userinfo
 
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
+
+def contact(request):
+    return render(request, 'contact.html')
 
 
 def register(request):
@@ -49,8 +52,13 @@ def login(request):
     if models.userinfo.objects.filter(
             Q(name=name) & Q(password=password)
     ):
+        # 网站生成随机字符串; 写到用户浏览器的cookie中；在写入到session中；
+        request.session["info"] = {'name': name}
+        # session可以保存7天
+        print(request.session["info"])
+        request.session.set_expiry(60 * 60 * 24 * 7)
 
-        return redirect('/index/')
+        return redirect('/contact/')
 
 
 
