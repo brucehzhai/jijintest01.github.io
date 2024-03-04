@@ -23,10 +23,15 @@ urlpatterns = [
     path('register/', views.register),
     path('login/', views.login),
     path('contact/', views.contact),
-
-
-
-
-
+    path('trace/', views.trace),
+    path('travel/', views.travel),
+    path('kepu/', views.travel),
+    path('safety/', views.safety),
+    path('information/', views.information),
+    path('question/', views.question),
+    path('sow/', views.sow),
+    path('transport/', views.transport),
+    path('cook/', views.cook),
+    path('effect/', views.effect),
 
 ]

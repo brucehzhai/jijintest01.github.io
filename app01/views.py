@@ -61,6 +61,26 @@ def login(request):
 
         return redirect('/contact/')
 def contact(request):
-    return  render(request,'contact.html')
+    return  render(request, 'contact.html')
+def trace(request):
+    return render(request, 'trace.html')
 
+def travel(request):
+    return render(request, 'travel.html')
+def kepu(request):
+    return render(request, 'kepu.html')
+def safety(request):
+    return render(request, 'safety.html')
+def information(request):
+    return render(request, 'information.html')
+def question(request):
+    return render(request, 'question.html')
+def sow(request):
+    return render(request, 'sow.html')
+def transport(request):
+    return render(request, 'transport.html')
+def cook(request):
+    return render(request, 'cook.html')
 
+def effect(request):
+    return render(request, 'effect.html')
