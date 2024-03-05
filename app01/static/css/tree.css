@@ -1,0 +1,22 @@
+   .container-s {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100vh; /* 设置容器高度为视口高度 */
+          overflow: hidden
+    }
+
+    .left-s, .right-s {
+      flex: 1; /* 平分剩余空间 */
+    }
+
+    .center-s {
+      flex: 3; /* 占据3份空间，即比左右多 */
+    }
+
+    .container-s img {
+      max-width: 100%; /* 图片宽度最大不超过容器宽度 */
+        max-height: 100%;
+      height: auto; /* 根据宽度自适应高度 */
+        display: block;
+    }
