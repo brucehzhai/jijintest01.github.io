@@ -38,34 +38,7 @@
     <!-- template styles -->
     <link rel="stylesheet" href="../static/css/agriox.css"/>
     <link rel="stylesheet" href="../static/css/agriox-responsive.css"/>
-    <style>
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        /* 新增针对.dropdown-content内的a标签的样式 */
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px; /* 将内边距应用于每个链接 */
-            text-decoration: none;
-            display: block; /* 确保a标签以块状元素显示，占满整行 */
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-    </style>
 </head>
 
 <body>
@@ -153,17 +126,17 @@
                                                    style="font-size: 35px;margin-top: 8px;margin-right:30px"></i></a>
                                 </div>
                                 <div>
-                                    <li>
-                                    <li class="dropdown">
-                                        <a href="#">{{ request.session.info.name }}</a>
-                                        <ul class="dropdown-content" style="margin-top: 20px">
-
-                                            <li><a href="">注销</a></li>
-                                            <li><a href="">个人中心</a></li>
+                                    <div class="dropdown">
+                                        <button class="btn btn-body dropdown-toggle" type="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                            {{ request.session.info.name }}
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li style="margin-bottom: 10px"><a class="dropdown-item" href="#">注销</a></li>
+                                            <li style="margin-bottom: 10px"><a class="dropdown-item" href="#">个人中心</a></li>
 
                                         </ul>
-                                    </li>
-                                    </li>
+                                    </div>
 
                                 </div>
 

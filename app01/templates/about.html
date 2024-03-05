@@ -126,14 +126,26 @@
                                 <a href="#" class="cart mini-cart__toggler"><span
                                         class="icon-shopping-cart"></span></a>
                             </div>
-                            <div class="contact-box">
-                                <div class="icon">
-                                    <span class="icon-phone-call-2"></span>
+                             <div class="contact-box">
+                                <div class="">
+                                    <a href="#"><i class="fa fa-user"
+                                                   style="font-size: 35px;margin-top: 8px;margin-right:30px"></i></a>
                                 </div>
-                                <div class="text">
-                                    <p>Call Anytime</p>
-                                    <a href="tel:123456789">666 888 0000</a>
+                                <div>
+                                    <div class="dropdown">
+                                        <button class="btn btn-body dropdown-toggle" type="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                            {{ request.session.info.name }}
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li style="margin-bottom: 10px"><a class="dropdown-item" href="#">注销</a></li>
+                                            <li style="margin-bottom: 10px"><a class="dropdown-item" href="#">个人中心</a></li>
+
+                                        </ul>
+                                    </div>
+
                                 </div>
+
                             </div>
                         </div>
 
@@ -172,15 +184,15 @@
 
                 <div class="left-s">
 
-                    <img src="../static/images/about/about-v1-img1.jpg" alt="" style="margin-bottom: 20%">
-                    <img src="../static/images/about/about-v1-img1.jpg" alt="">
+                    <img src="../static/images/services/services-v1-img1.jpg" alt="" style="margin-bottom: 20%">
+                    <img src="../static/images/services/services-v1-img2.jpg" alt="">
                 </div>
                 <div >
                     <img src="../static/images/trace/tree.png   " alt="" style="width: 100%;height: auto">
                 </div>
                 <div class="right-s">
-                    <img src="../static/images/about/about-v1-img1.jpg" alt="" style="margin-top: 20%;margin-bottom: 10%">
-                    <img src="../static/images/about/about-v1-img1.jpg" alt="">
+                    <img src="../static/images/services/services-v1-img3.jpg" alt="" style="margin-top: 20%;margin-bottom: 10%">
+                    <img src="../static/images/services/services-v1-img4.jpg" alt="">
 
                 </div>
 
