@@ -33,5 +33,7 @@ urlpatterns = [
     path('transport/', views.transport),
     path('cook/', views.cook),
     path('effect/', views.effect),
+    path('petshop/', views.petshop),
+    path('policy/', views.policy),
 
 ]
