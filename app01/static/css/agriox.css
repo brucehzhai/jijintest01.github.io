@@ -2908,6 +2908,7 @@ button {
     z-index: 5;
     transition: all 200ms linear;
     transition-delay: 0.1s;
+    padding-top: 20px;
 }
 
 .services-one__single:hover .services-one__single-img-icon {
