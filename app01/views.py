@@ -59,7 +59,7 @@ def login(request):
         print(request.session["info"])
         request.session.set_expiry(60 * 60 * 24 * 7)
 
-        return redirect('/contact/')
+        return redirect('/index/')
 def contact(request):
     return  render(request, 'contact.html')
 def trace(request):
