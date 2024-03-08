@@ -59,7 +59,7 @@ def login(request):
         print(request.session["info"])
         request.session.set_expiry(60 * 60 * 24 * 7)
 
-        return redirect('/contact/')
+        return redirect('/index/')
 def contact(request):
     return  render(request, 'contact.html')
 def trace(request):
@@ -88,3 +88,9 @@ def petshop(request):
     return render(request,'Pet_shop.html')
 def policy(request):
     return render(request,'policy.html')
+def news(request):
+    return render(request,'news.html')
+def about(request):
+    return render(request,'about.html')
+def error(request):
+    return render(request,'error.html')
