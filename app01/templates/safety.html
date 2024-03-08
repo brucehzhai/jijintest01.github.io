@@ -5,6 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects Details</title>
+
+
     <!-- favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="../static/images/favicons/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicons/favicon-32x32.png" />
@@ -548,7 +550,9 @@
 
     </div><!-- /.page-wrapper -->
 
-
+<!-- /.12 -->
+    <div id="main" style="width: 100%;height: 100%"></div>
+    <!-- /.12 -->
 
     <div class="mobile-nav__wrapper">
         <div class="mobile-nav__overlay mobile-nav__toggler"></div>
@@ -608,6 +612,11 @@
 
     <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="icon-right-arrow-2"></i></a>
 
+    <script src="../static/echarts/echarts.min.js"></script>
+
+
+
+
 
     <script src="../static/plugins/jquery/jquery-3.5.1.min.js"></script>
     <script src="../static/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -636,6 +645,68 @@
 
     <!-- template js -->
     <script src="../static/js/agriox.js"></script>
+
+    <script>
+
+    var chartDom = document.getElementById('main');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    myChart.showLoading();
+    $.getJSON( '../static/les-miserables.json', function (graph) {
+        myChart.hideLoading();
+        graph.nodes.forEach(function (node) {
+            node.label = {
+                show: node.symbolSize > 30
+            };
+        });
+        option = {
+            title: {
+                text: 'Les Miserables',
+                subtext: 'Circular layout',
+                top: 'bottom',
+                left: 'right'
+            },
+            tooltip: {},
+            legend: [
+                {
+                    data: graph.categories.map(function (a) {
+                        return a.name;
+                    })
+                }
+            ],
+            animationDurationUpdate: 1500,
+            animationEasingUpdate: 'quinticInOut',
+            series: [
+                {
+                    name: 'Les Miserables',
+                    type: 'graph',
+                    layout: 'circular',
+                    circular: {
+                        rotateLabel: true
+                    },
+                    data: graph.nodes,
+                    links: graph.links,
+                    categories: graph.categories,
+                    roam: true,
+                    label: {
+                        position: 'right',
+                        formatter: '{b}'
+                    },
+                    lineStyle: {
+                        color: 'source',
+                        curveness: 0.3
+                    }
+                }
+            ]
+        };
+        myChart.setOption(option);
+    });
+
+    option && myChart.setOption(option);
+
+
+</script>
 
 
 </body>
