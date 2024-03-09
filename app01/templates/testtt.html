@@ -1,81 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Website Title</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>可拖动的弹出窗口</title>
     <style>
-body, html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-}
+        /* 弹出窗口的基本样式 */
+        .draggable {
+            width: 300px;
+            height: 200px;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            z-index: 1000;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  height: 100vh;
-}
-
-.box {
-  width: 45%; /* Adjust the width as needed */
-  height: 45vh; /* Adjust the height as needed */
-  margin: 2%; /* Adjust the margin as needed */
-  /* Add more styles as needed */
-}
-
-.branch-container {
-  position: absolute;
-  width: 10%; /* Adjust the width as needed */
-  left: 45%; /* Adjust to center the branch */
-  top: 25%; /* Adjust as needed */
-  z-index: 1;
-}
-
-.branch-container img {
-  width: 100%;
-  height: auto;
-}
-
-
-
-
+        /* 窗口顶部的拖动把手 */
+        .header {
+            padding: 10px;
+            cursor: move;
+            background-color: #4CAF50;
+            color: #fff;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="box" id="box1">
-        <div class="services-one__single">
-            <div class="services-one__single-img">
-                <div class="services-one__single-img-inner">
-                    <img src="../static/images/services/services-v1-img1.jpg" alt=""/>
-                </div>
-                <div class="services-one__single-img-icon">
-                    <span class="icon-agriculture"></span>
-                </div>
-            </div>
-            <div class="services-one__single-content text-center">
-                <h3><a href="../templates/services-details.html">Agriculture<br> Products</a></h3>
-                <p>Lorem ium dolor sit ametad pisicing elit sed simply do ut.</p>
-                <a href="../templates/services-details.html" class="read-more-btn"><span
-                        class="icon-right-arrow-2"></span></a>
-            </div>
-        </div>
-    </div>
-
-    <div class="box" id="box2"> <!-- Content for Box 2 --></div>
-    <div class="branch-container">
-        <!-- Insert your branch image here, or use CSS to draw it -->
-        <img src="branch.png" alt="Branch">
-    </div>
-    <div class="box" id="box3"> <!-- Content for Box 3 --></div>
-    <div class="box" id="box4"> <!-- Content for Box 4 --></div>
+<!-- 弹出窗口 -->
+<div class="draggable" id="mydiv">
+    <div class="header" id="mydivheader">点击这里拖动</div>
+    <p>这是一个可拖动的弹出窗口。</p>
 </div>
+
+<script>
+// JavaScript 实现窗口拖动功能
+dragElement(document.getElementById("mydiv"));
+
+function dragElement(elmnt) {
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    if (document.getElementById(elmnt.id + "header")) {
+        // 如果存在header，则在header上添加拖动事件
+        document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+    } else {
+        // 否则，在整个元素上添加拖动事件
+        elmnt.onmousedown = dragMouseDown;
+    }
+
+    function dragMouseDown(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // 获取鼠标光标开始位置
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = closeDragElement;
+        // 当鼠标移动时调用元素移动函数
+        document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        // 计算鼠标移动距离
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        // 设置元素新位置
+        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    }
+
+    function closeDragElement() {
+        // 停止移动时解除绑定事件
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
+}
+</script>
 
 </body>
 </html>
