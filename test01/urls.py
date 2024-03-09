@@ -25,7 +25,7 @@ urlpatterns = [
     path('contact/', views.contact),
     path('trace/', views.trace),
     path('travel/', views.travel),
-    path('kepu/', views.travel),
+    path('kepu/', views.kepu),
     path('safety/', views.safety),
     path('information/', views.information),
     path('question/', views.question),
