@@ -84,7 +84,7 @@ def cook(request):
 
 def effect(request):
     return render(request, 'effect.html')
-def petshop(request):
+def Pet_shop(request):
     return render(request,'Pet_shop.html')
 def policy(request):
     return render(request,'policy.html')
