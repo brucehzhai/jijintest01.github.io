@@ -7592,3 +7592,14 @@ Sidebar
     padding-top: 33px;
     padding-bottom: 33px;
 }
+.map_china_1 {
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+.map_china_1_id {
+    width: 900px;
+    height: 600px;
+}
