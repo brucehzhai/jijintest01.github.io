@@ -5600,11 +5600,17 @@ button {
     Services Details
 =============================================
 ***/
+.services-details_header {
+    position: relative;
+    display: block;
+    background: #ffffff;
+    padding: 120px 0px 20px;
+}
 .services-details {
     position: relative;
     display: block;
     background: #ffffff;
-    padding: 120px 0px 110px;
+    padding: 20px 0px 110px;
 }
 
 .services-details__sidebar {
@@ -7601,5 +7607,5 @@ Sidebar
 }
 .map_china_1_id {
     width: 900px;
-    height: 600px;
+    height: 300px;
 }
