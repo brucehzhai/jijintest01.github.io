@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="../static/css/agriox.css"/>
     <link rel="stylesheet" href="../static/css/agriox-responsive.css"/>
     <link rel="stylesheet" href="../static/css/city-picker.css"/>
+    <link rel="stylesheet" href="../static/css/bootstrap-datetimepicker.min.css">
 
 
 </head>
@@ -261,7 +262,7 @@
                     <h1>运输</h1>
                     <div class="col-lg-3" style="display: inline-block">
                         <label style="margin-top: 10px;margin-bottom: 5px">采摘时间</label>
-                        <input type="text" class="form-control" placeholder="请输入采摘时间">
+                        <input type="text" class="form-control datetimepicker" id = "cztime" placeholder="请输入采摘时间">
                     </div>
                     <div class="col-lg-3" style="display: inline-block">
                         <label style="margin-top: 10px;margin-bottom: 5px">采摘</label>
@@ -359,15 +360,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3" style="display: inline-block">
+                    <div class="col-lg-5" style="display: inline-block">
                         <label style="margin-top: 10px;margin-bottom: 5px">运输距离</label>
                         <input type="text" class="form-control" placeholder="请输入运输路程(Km)">
                     </div>
-                    <div class="col-lg-3" style="display: inline-block">
-                        <label style="margin-top: 10px;margin-bottom: 5px">运输时间</label>
-                        <input type="text" class="form-control" placeholder="运输时间(h)">
-                    </div>
-                    <div class="col-lg-4" style="display: inline-block">
+                    <div class="col-lg-5" style="display: inline-block">
                         <label style="margin-top: 10px;margin-bottom: 5px">运输工具</label>
                         <select class="form-select" id="specificSizeSelect">
                             <option selected>请选择运输工具</option>
@@ -377,8 +374,16 @@
                         </select>
                     </div>
                     <div class="col-lg-5" style="display: inline-block">
+                        <label style="margin-top: 10px;margin-bottom: 5px">开始时间</label>
+                        <input type="text" class="form-control" id="kstime" placeholder="运输开始时间">
+                    </div>
+                    <div class="col-lg-5" style="display: inline-block">
+                        <label style="margin-top: 10px;margin-bottom: 5px">结束时间</label>
+                        <input type="text" class="form-control" id="jstime" placeholder="运输结束时间">
+                    </div>
+                    <div class="col-lg-5" style="display: inline-block">
                         <label style="margin-top: 10px;margin-bottom: 5px">保鲜时间</label>
-                        <input type="text" class="form-control" placeholder="请输入保鲜时间">
+                        <input type="text" class="form-control" id="bxtime" placeholder="请输入保鲜时间">
                     </div>
                       <div class="col-lg-5" style="display: inline-block">
                         <label style="margin-top: 10px;margin-bottom: 5px">销售方式</label>
@@ -396,7 +401,7 @@
                     </div>
                     <div class="col-lg-5" style="display: inline-block">
                         <label style="margin-top: 10px;margin-bottom: 5px">上架时间</label>
-                        <input type="text" class="form-control" placeholder="请输入加工时间">
+                        <input type="text" class="form-control" id="sjtime" placeholder="请输入上架时间">
                     </div>
                     <div class=“col-lg-10”>
                         <label style="margin-top: 10px;margin-bottom: 5px">上架区域</label>
@@ -662,56 +667,14 @@
 <script src="../static/plugins/tilt.js/tilt.jquery.js"></script>
 <script type="text/javascript" src="../static/picker/citydata.js"></script>
 <script type="text/javascript" src="../static/picker/cityPicker-1.0.0.js?v=1"></script>
-
-
+<script type="text/javascript" src="../static/picker/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="../static/picker/bootstrap-datetimepicker.zh-CN.js"></script>
+<script type="text/javascript" src="../static/picker/time-address.js"></script>
 <script src="https://ditu.google.cn/maps/api/js?key=AIzaSyATY4Rxc8jNvDpsK8ZetC7JyN4PFVYGCGM"></script>
 
 <!-- template js -->
 <script src="../static/js/agriox.js"></script>
-<script type="text/javascript">
-    $(function () {
-        //模拟城市-无联动/无搜索
-        var selector = $('#city-picker-selector').cityPicker({
-            dataJson: cityData,
-            renderMode: true,
-            search: false,
-            linkage: false
-        })
-        $('#city-picker-selector').on('choose-province.citypicker', function (event, tagert, storage) {
-            console.log(storage);
-        });
-        //
-          var selector = $('#city-picker-selector-start').cityPicker({
-            dataJson: cityData,
-            renderMode: true,
-            search: false,
-            linkage: false
-        })
-        $('#city-picker-selector-start').on('choose-province.citypicker', function (event, tagert, storage) {
-            console.log(storage);
-        });
-          //
-          var selector = $('#city-picker-selector-end').cityPicker({
-            dataJson: cityData,
-            renderMode: true,
-            search: false,
-            linkage: false
-        })
-        $('#city-picker-selector-end').on('choose-province.citypicker', function (event, tagert, storage) {
-            console.log(storage);
-        });
-           //
-          var selector = $('#city-picker-selector-area').cityPicker({
-            dataJson: cityData,
-            renderMode: true,
-            search: false,
-            linkage: false
-        })
-        $('#city-picker-selector-area').on('choose-province.citypicker', function (event, tagert, storage) {
-            console.log(storage);
-        });
-    });
-</script>
+
 
 </body>
 
