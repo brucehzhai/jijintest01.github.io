@@ -94,3 +94,6 @@ def about(request):
     return render(request,'about.html')
 def error(request):
     return render(request,'error.html')
+
+def testtt(request):
+    return render(request,'testtt.html')
