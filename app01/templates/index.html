@@ -56,7 +56,7 @@
             <div class="main-header--one__bottom clearfix">
                 <div class="auto-container">
                     <div class="main-header--one__bottom-inner ">
-                        <div class="main-header--one__bottom-middel">
+                        <div class="main-header--one__bottom-middel" style="width: 5%">
                             <div class="logo">
                                 <a href="../index"><img src="../static/images/logo/Logo-us-small.png"/></a>
                             </div>
@@ -115,28 +115,24 @@
                         </nav>
 
                         <div class="main-header--one__bottom-right clearfix">
-                            <div class="search-cart">
-                                <a href="#" class="search search-toggler"><span
-                                        class="icon-magnifying-glass"></span></a>
-                                <a href="../Pet_shop" class="cart"><span
-                                        class="icon-shopping-cart"></span></a>
-                            </div>
-                            <div class="contact-box">
-                                <div class="">
-                                    <a href="#"><i class="fa fa-user"
-                                                   style="font-size: 35px;margin-top: 8px;margin-right:30px"></i></a>
+                                <div class="search-cart">
+                                    <a href="#" class="search search-toggler"><span class="icon-magnifying-glass"></span></a>
+                                    <a href="../Pet_shop" class="cart"><span class="icon-shopping-cart"></span></a>
                                 </div>
-                                <div class="">
+                                <div class="contact-box">
+                                    <div class="">
+                                        <a href="#"><i class="fa fa-user"
+                                                       style="font-size: 35px;margin-top: 8px;margin-right:30px"></i></a>
+                                    </div>
+                                <div>
                                     <div class="dropdown">
                                         <button class="btn btn-body dropdown-toggle" type="button"
                                                 data-bs-toggle="dropdown" aria-expanded="false">
                                             {{ request.session.info.name }}
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <li style="margin-bottom: 10px"><a class="dropdown-item" href="#">注销</a>
-                                            </li>
-                                            <li style="margin-bottom: 10px"><a class="dropdown-item"
-                                                                               href="#">个人中心</a></li>
+                                            <li style="margin-bottom: 10px"><a class="dropdown-item" href="#">注销</a></li>
+                                            <li style="margin-bottom: 10px"><a class="dropdown-item" href="#">个人中心</a></li>
 
                                         </ul>
                                     </div>
@@ -144,7 +140,7 @@
                                 </div>
 
                             </div>
-                        </div>
+                            </div>
                     </div>
 
                 </div>
@@ -1141,7 +1137,7 @@
                         aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <video style="height: 100%;width: 100%" controls autoplay>
+                <video style="height: 100%;width: 100%" controls>
                     <source src="../static/video/food_safe.mp4" type="video/mp4">
                     您的浏览器不支持视频标签。
                 </video>
