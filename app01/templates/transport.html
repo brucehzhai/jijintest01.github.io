@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>丰衣足食</title>
+    <title>物流详情</title>
     <!-- favicons Icons -->
+     <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .slow-appear {
+            opacity: 0; /* 初始状态为完全透明 */
+            animation: fadeIn 10s forwards; /* 应用动画，持续2秒，动画结束后保持最后一帧的状态 */
+        }
+    </style>
     <link rel="apple-touch-icon" sizes="180x180" href="../static/images/favicons/apple-touch-icon.png"/>
     <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicons/favicon-32x32.png"/>
     <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicons/favicon-16x16.png"/>
@@ -81,11 +92,11 @@
                                             <ul>
 
                                                 <li>
-                                                <li><a href="../sow">丰衣足食</a>
+                                                <li><a href="../sow">沃土丰熟</a>
                                                 </li>
-                                                <li><a href="../transport">物流精密</a></li>
+                                                <li><a href="../transport">精密物流</a></li>
                                                 <li><a href="../cook">烹调艺术</a></li>
-                                                <li><a href="../effect">美味功效</a></li>
+                                                <li><a href="../effect">健康食效</a></li>
                                             </ul>
                                         </li>
                                         <li class="dropdown">
@@ -174,7 +185,7 @@
                     <!-- <li>Services</li> -->
                     <li>详细</li>
                 </ul>
-                <h2>丰衣足食</h2>
+                <h2>沃土丰熟</h2>
             </div>
         </div>
     </section>
@@ -193,16 +204,17 @@
                             <div class="services-details__sidebar-single-services wow fadeInUp animated animated animated"
                                  data-wow-delay="0.1s" data-wow-duration="1200m">
                                 <div class="title">
-                                    <h2>松茸</h2>
+
+                                       <h2 class="slow-appear">松茸</h2>
                                 </div>
                                 <ul>
-                                    <li><a href="../sow">丰衣足食 <i
+                                    <li><a href="../sow">沃土丰熟 <i
                                             class="fa fa-angle-right"></i></a></li>
-                                    <li><a href="../transport">物流精密 <i
+                                    <li><a href="../transport">精密物流 <i
                                             class="fa fa-angle-right"></i></a></li>
                                     <li><a href="../cook">烹调艺术 <i
                                             class="fa fa-angle-right"></i></a></li>
-                                    <li><a href="../effect">美味功效 <i
+                                    <li><a href="../effect">健康食效 <i
                                             class="fa fa-angle-right"></i></a></li>
 
                                 </ul>
@@ -223,7 +235,7 @@
                 <!--Start Services Details Content-->
                 <div class="col-xl-8 col-lg-8" >
                     <div class="services-details__content-img">
-                        <img src="../static/images/sow/sr_1.jpg" alt="" style="height: 371px;border-radius: 10px"/>
+                        <img src="../static/images/trace/transport-1.jpg" alt="" style="height: 371px;border-radius: 10px"/>
                     </div>
                 </div>
                 <!--End Services Details Content-->
@@ -519,6 +531,10 @@
 <!-- template js -->
 <script src="../static/js/agriox.js"></script>
 <script src="../static/js/tree.js"></script>
+<script>
+        // 可以使用JavaScript在页面加载后触发动画
+        document.querySelector('.slow-appear').style.animationPlayState = 'running';
+    </script>
 
 
 </body>
