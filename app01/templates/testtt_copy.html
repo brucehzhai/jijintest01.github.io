@@ -173,6 +173,7 @@
         </div>
         <!--Start Contact Page-->
         <section class="contact-page">
+            <p id='demo'></p>
 
             <div class="container">
                 <form method="post" action="">
@@ -180,11 +181,11 @@
                         <h1>种植</h1>
                         <div class="col-lg-5" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">商品码</label>
-                            <input type="text" id='plantid' class="form-control" placeholder="请输入商品码">
+                            <input type="text" id="commodityCode" class="form-control" placeholder="请输入商品码">
                         </div>
                         <div class="col-lg-5" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">品类</label>
-                            <select class="form-select" id="specificSizeSelect">
+                            <select class="form-select" id="category">
                                 <option selected>请选择对应品类</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -193,11 +194,11 @@
                         </div>
                         <div class="col-lg-5" style="display: inline-block;margin-top: 10px">
                             <label style="margin-top: 10px;margin-bottom: 5px">所属科目</label>
-                            <input type="text" class="form-control" placeholder="请输入科目">
+                            <input type="text" id="subject" class="form-control" placeholder="请输入科目">
                         </div>
                         <div class="col-lg-5" style="display: inline-block;margin-top: 10px">
                             <label style="margin-top: 10px;margin-bottom: 5px">所属门类</label>
-                            <input type="text" class="form-control" placeholder="请输入门类">
+                            <input type="text" id="classmen" class="form-control" placeholder="请输入门类">
                         </div>
                         <div class=“col-lg-12”>
                             <label style="margin-top: 10px;margin-bottom: 5px">所属地区</label>
@@ -241,11 +242,11 @@
 
                         <div class="col-lg-10">
                             <label style="margin-top: 10px;margin-bottom: 5px">培育环境</label>
-                            <input type="text" class="form-control" placeholder="请描述其生长环境">
+                            <input type="text" id="growthEnvironment" class="form-control" placeholder="请描述其生长环境">
                         </div>
                         <div class="col-lg-10">
                             <label style="margin-top: 10px;margin-bottom: 5px">生长周期</label>
-                            <select class="form-select" id="specificSizeSelect">
+                            <select class="form-select" id="growthCycle">
                                 <option value="3">2~3周</option>
                                 <option value="4">3~4周</option>
                                 <option value="5">4~5周</option>
@@ -260,8 +261,10 @@
                         </div>
                         <div class="col-lg-10">
                             <label style="margin-top: 10px;margin-bottom: 5px">生长管理</label>
-                            <input type="text" class="form-control" placeholder="请输入生长管理方式">
+                            <input type="text" id="growthManagement" class="form-control" placeholder="请输入生长管理方式">
                         </div>
+
+
 
                         <h1>运输</h1>
                         <div class="col-lg-3" style="display: inline-block">
@@ -659,16 +662,41 @@
                 "inputs": [
                     {
                         "internalType": "string",
-                        "name": "_name",
+                        "name": "commodityCode",
                         "type": "string"
                     },
                     {
-                        "internalType": "uint256",
-                        "name": "_favoriteNumber",
-                        "type": "uint256"
+                        "internalType": "string",
+                        "name": "category",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "subject",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "class",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "growthEnvironment",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "growthCycle",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "growthManagement",
+                        "type": "string"
                     }
                 ],
-                "name": "addPerson",
+                "name": "addPlanting",
                 "outputs": [],
                 "stateMutability": "nonpayable",
                 "type": "function"
@@ -681,12 +709,47 @@
                         "type": "string"
                     }
                 ],
-                "name": "nameToFavoriteNumber",
+                "name": "foodInfos",
                 "outputs": [
                     {
-                        "internalType": "uint256",
-                        "name": "",
-                        "type": "uint256"
+                        "internalType": "string",
+                        "name": "commodityCode",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "category",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "subject",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "class",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "growthEnvironment",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "growthCycle",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "growthManagement",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "region",
+                        "type": "string"
                     }
                 ],
                 "stateMutability": "view",
@@ -695,83 +758,67 @@
             {
                 "inputs": [
                     {
-                        "internalType": "uint256",
-                        "name": "",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "people",
-                "outputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "favoriteNumber",
-                        "type": "uint256"
-                    },
-                    {
                         "internalType": "string",
-                        "name": "name",
+                        "name": "commodityCode",
                         "type": "string"
                     }
                 ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [],
                 "name": "retrieve",
                 "outputs": [
                     {
-                        "internalType": "uint256",
+                        "components": [
+                            {
+                                "internalType": "string",
+                                "name": "commodityCode",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "category",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "subject",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "class",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "growthEnvironment",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "growthCycle",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "growthManagement",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "region",
+                                "type": "string"
+                            }
+                        ],
+                        "internalType": "struct FoodTraceability.FoodInfo",
                         "name": "",
-                        "type": "uint256"
+                        "type": "tuple"
                     }
                 ],
                 "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [],
-                "name": "retrievetext",
-                "outputs": [
-                    {
-                        "internalType": "string",
-                        "name": "",
-                        "type": "string"
-                    }
-                ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "_favoriteNumber",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "store",
-                "outputs": [],
-                "stateMutability": "nonpayable",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "string",
-                        "name": "_name",
-                        "type": "string"
-                    }
-                ],
-                "name": "storetext",
-                "outputs": [],
-                "stateMutability": "nonpayable",
                 "type": "function"
             }
         ];
 
-
-        const address = '0x12AAA1563f47166Fc44e6cD30F175003bDcD141A';
+        const address = '0x7ff2177230B7322165f1DfC8962b6Eb53cc10a83';
         const contractInstance = new web3.eth.Contract(abi, address);
 
         // to test if initialized web3 works fine
@@ -783,16 +830,68 @@
         // to test if web3.eth.Contract works
         console.log("***contractInstance.abi***:");
         console.log(contractInstance.options.jsonInterface);
+        
+        contractInstance.methods.retrieve('111').call().then(function (result) {
+            console.log(result); // Log the result to the console
+
+            // Create a mapping from English to Chinese
+            let mapping = {
+                'commodityCode': '商品码',
+                'category': '品类',
+                'subject': '所属科目',
+                'class': '所属门类',
+                'growthEnvironment': '培育环境',
+                'growthCycle': '生长周期',
+                'growthManagement': '生长管理',
+                'region': '地区'
+            };
+
+            // Create an HTML string
+            let html = '<ul>';
+            for (let key in result) {
+                if (result.hasOwnProperty(key) && isNaN(key)) { // Ignore numeric keys and __length__
+                    let chineseKey = mapping[key] || key; // Use the Chinese key if it exists, otherwise use the English key
+                    html += `<li>${chineseKey}: ${result[key]}</li>`;
+                }
+            }
+            html += '</ul>';
+
+            $("#demo").html(html); // Display the formatted result
+        })
 
 
-        contractInstance.methods.retrieve().call().then((result) => {
+
+
+
+        /*contractInstance.methods.retrieve('111').call().then((result) => {
             console.log("***retrievetext()***:");
             console.log(result);
         });
+        contractInstance.methods.retrieve('111').call().then(function (result) {
+            console.log(result); // Log the result to the console
 
-        contractInstance.methods.retrievetext().call().then(function (result) {
+            // Create an HTML string
+            let html = '<ul>';
+            for (let key in result) {
+                if (result.hasOwnProperty(key) && isNaN(key)) { // Ignore numeric keys and __length__
+                    html += `<li>${key}: ${result[key]}</li>`;
+                }
+            }
+            html += '</ul>';
+
+            $("#demo").html(html); // Display the formatted result
+        })*/
+
+
+
+
+        /*contractInstance.methods.retrieve('111').call().then(function (result) {
+            console.log(result); // Log the result to the console
+            $("#demo").html(JSON.stringify(result)); // Convert the result to a string before displaying it
+        })*/
+        /*contractInstance.methods.retrieve('111').call().then(function (result) {
             $("#demo").html(result);
-        })
+        })*/
 
 
 
@@ -801,11 +900,26 @@
 
         function getInfo() {
             // Get the number from the input field
-            var number = $("#plantid").val();
+            // Retrieve values from the form
+            var commodityCode = $("#commodityCode").val();
+            var category = $("#category").val();
+            var subject = $("#subject").val();
+            var classmen = $("#classmen").val();
+            var growthEnvironment = $("#growthEnvironment").val();
+            var growthCycle = $("#growthCycle").val();
+            var growthManagement = $("#growthManagement").val();
 
             // Use the number as the argument for the store function
-            let transaction = contractInstance.methods.storetext(number).encodeABI();
-            let account = '0x12AAA1563f47166Fc44e6cD30F175003bDcD141A';
+            let transaction = contractInstance.methods.addPlanting(
+                commodityCode,
+                category,
+                subject,
+                classmen,
+                growthEnvironment,
+                growthCycle,
+                growthManagement
+            ).encodeABI();
+            let account = '0x7ff2177230B7322165f1DfC8962b6Eb53cc10a83';
             let nonce = web3.eth.getTransactionCount();
             let privateKey = 'c56286692110e5321e4b060d32d55b8516ae21562e222425926b3613f9d242b3'; // Replace with your private key
 
@@ -822,7 +936,7 @@
                         data: transaction,
                         gas: 2000000,
                         gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
-                        nonce: 30
+                        nonce: 32
                     };
 
                     return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
@@ -880,9 +994,9 @@
             console.log(result);
         });*/
 
-        contractInstance.methods.retrievetext().call().then(function (result) {
+        /*contractInstance.methods.retrievetext().call().then(function (result) {
             document.getElementById("demo").innerHTML = result;
-        })
+        })*/
     </script>
 
 
