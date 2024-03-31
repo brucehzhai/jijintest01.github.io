@@ -97,3 +97,6 @@ def error(request):
 
 def testtt(request):
     return render(request,'testtt.html')
+
+def testtt_copy(request):
+    return render(request,'testtt_copy.html')

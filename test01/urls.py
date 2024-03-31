@@ -39,6 +39,7 @@ urlpatterns = [
     path('about/', views.about),
     path('error/', views.error),
     path('testtt/', views.testtt),
+    path('testtt_copy/', views.testtt_copy),
 
 
 ]

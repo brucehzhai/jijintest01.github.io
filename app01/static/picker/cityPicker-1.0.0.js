@@ -108,7 +108,7 @@
                     //模拟
                     selectemplet += '<div class="selector-item storey ' + citygrade + '" data-index="' + i + '">'
                         +'<a href="javascript:;" class="selector-name reveal df-color ' + forbid + '">' + placeholder + '</a>'
-                        +'<input type=hidden name="' + field + '" class="input-price val-error" value="" data-required="' + field + '">'
+                        +'<input id = "hiddentest" type=hidden name="' + field + '" class="input-price val-error" value="" data-required="' + field + '">'
                         +'<div class="selector-list listing hide">'+ searchStr +'<ul></ul></div>'
                     +'</div>';
                 } else {
