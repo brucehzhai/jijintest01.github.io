@@ -143,8 +143,7 @@ option = {
 option && myChart.setOption(option);
 
 })();
-(function (
-) {
+(function () {
 
 
 var chartDom = document.getElementById('cxhist');
