@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Dairy Products || Services Details</title>
+    <title>健康食效果</title>
     <!-- favicons Icons -->
+     <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .slow-appear {
+            opacity: 0; /* 初始状态为完全透明 */
+            animation: fadeIn 10s forwards; /* 应用动画，持续2秒，动画结束后保持最后一帧的状态 */
+        }
+    </style>
     <link rel="apple-touch-icon" sizes="180x180" href="../static/images/favicons/apple-touch-icon.png"/>
     <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicons/favicon-32x32.png"/>
     <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicons/favicon-16x16.png"/>
@@ -47,11 +58,14 @@
 <div class="preloader">
     <img class="preloader__image" width="60" src="../static/images/loader.png" alt=""/>
 </div>
+
 <!-- /.preloader -->
 <div class="page-wrapper">
 
     <header class="main-header main-header--one  clearfix">
         <div class="main-header--one__wrapper">
+
+
             <div class="main-header--one__bottom clearfix">
                 <div class="auto-container">
                     <div class="main-header--one__bottom-inner">
@@ -78,11 +92,11 @@
                                             <ul>
 
                                                 <li>
-                                                <li><a href="../sow">丰衣足食</a>
+                                                <li><a href="../sow">沃土丰熟</a>
                                                 </li>
-                                                <li><a href="../transport">物流精密</a></li>
+                                                <li><a href="../transport">精密物流</a></li>
                                                 <li><a href="../cook">烹调艺术</a></li>
-                                                <li><a href="../effect">美味功效</a></li>
+                                                <li><a href="../effect">健康食效</a></li>
                                             </ul>
                                         </li>
                                         <li class="dropdown">
@@ -119,7 +133,7 @@
                             <div class="search-cart">
                                 <a href="#" class="search search-toggler"><span
                                         class="icon-magnifying-glass"></span></a>
-                                <a href="../Pet_shop" class="cart"><span
+                                <a href="../Pet_shop" class="cart "><span
                                         class="icon-shopping-cart"></span></a>
                             </div>
                             <div class="contact-box">
@@ -134,8 +148,10 @@
                                             {{ request.session.info.name }}
                                         </button>
                                         <ul class="dropdown-menu">
-                                            <li style="margin-bottom: 10px"><a class="dropdown-item" href="#">注销</a></li>
-                                            <li style="margin-bottom: 10px"><a class="dropdown-item" href="#">个人中心</a></li>
+                                            <li style="margin-bottom: 10px"><a class="dropdown-item" href="#">注销</a>
+                                            </li>
+                                            <li style="margin-bottom: 10px"><a class="dropdown-item"
+                                                                               href="#">个人中心</a></li>
 
                                         </ul>
                                     </div>
@@ -165,11 +181,11 @@
         <div class="container">
             <div class="page-header__inner text-center clearfix">
                 <ul class="thm-breadcrumb">
-                    <li><a href="../index">Home</a></li>
-                    <li><a href="../services">Services</a></li>
-                    <li>Service Details</li>
+                    <li><a href="../index">首页</a></li>
+                    <!-- <li>Services</li> -->
+                    <li>详细</li>
                 </ul>
-                <h2>Dairy Products</h2>
+                <h2>沃土丰熟</h2>
             </div>
         </div>
     </section>
@@ -177,7 +193,7 @@
 
 
     <!--Start Services Details-->
-    <section class="services-details">
+    <section class="services-details_header">
         <div class="container">
             <div class="row">
                 <!--Start Services Details Sidebar-->
@@ -188,169 +204,127 @@
                             <div class="services-details__sidebar-single-services wow fadeInUp animated animated animated"
                                  data-wow-delay="0.1s" data-wow-duration="1200m">
                                 <div class="title">
-                                    <h3>All Services</h3>
+
+                                       <h2 class="slow-appear">松茸</h2>
                                 </div>
                                 <ul>
-                                    <li><a href="../sow">Agriculture Products <i
+                                    <li><a href="../sow">沃土丰熟 <i
                                             class="fa fa-angle-right"></i></a></li>
-                                    <li><a href="../transport">Fresh Vegetable <i
+                                    <li><a href="../transport">精密物流 <i
                                             class="fa fa-angle-right"></i></a></li>
-                                    <li><a href="../cook">Organic Products <i
+                                    <li><a href="../cook">烹调艺术 <i
                                             class="fa fa-angle-right"></i></a></li>
-                                    <li><a href="../effect">Dairy Products <i
+                                    <li><a href="../effect">健康食效 <i
                                             class="fa fa-angle-right"></i></a></li>
+
                                 </ul>
                             </div>
                         </div>
                         <!--End Services Details Sidebar Single-->
 
                         <!--Start Services Details Sidebar Single-->
-                        <div class="services-details__sidebar-single">
-                            <div class="services-details__sidebar-single-contact-box text-center wow fadeInUp animated animated animated"
-                                 data-wow-delay="0.3s" data-wow-duration="1200m"
-                                 style="background-image:url(../static/images/resources/services-details-contact-box-bg.jpg);">
-                                <div class="icon">
-                                    <span class="icon-phone-call-2"></span>
-                                </div>
-                                <div class="title">
-                                    <h2>Selling <br>agriculture<br> products</h2>
-                                </div>
-                                <p class="phone"><a href="tel:123456789">666 888 0000</a></p>
-                                <p>Call Us Anytime</p>
-                            </div>
-                        </div>
+
                         <!--End Services Details Sidebar Single-->
 
                         <!--Start Services Details Sidebar Single-->
-                        <div class="services-details__sidebar-single">
-                            <div class="services-details__sidebar-single-btn text-center wow fadeInUp animated animated animated"
-                                 data-wow-delay="0.5s" data-wow-duration="1200m">
-                                <a href="#" class="thm-btn"><span class="icon-pdf"></span> download pdf file</a>
-                            </div>
-                        </div>
                         <!--End Services Details Sidebar Single-->
                     </div>
                 </div>
                 <!--End Services Details Sidebar-->
 
                 <!--Start Services Details Content-->
-                <div class="col-xl-8 col-lg-8">
-                    <div class="services-details__content">
-                        <div class="services-details__content-img">
-                            <img src="../static/images/resources/services-details-content-img-dairy.jpg" alt=""/>
-                        </div>
-                        <div class="services-details__content-icon">
-                            <span class="icon-harvest"></span>
-                        </div>
-                        <h2 class="services-details__content-title">Dairy Products</h2>
-                        <p class="services-details__content-text1">Lorem ipsum is simply free text used by
-                            copytyping refreshing. Neque porro est qui dolorem ipsum quia quaed inventore veritatis
-                            et quasi architecto beatae vitae dicta sunt explicabo. Aelltes port lacus quis enim var
-                            sed efficitur turpis gilla sed sit amet finibus eros. Lorem Ipsum is simply dummy text
-                            of the printing and typesetting industry. Lorem Ipsum has been the ndustry standard
-                            dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book.</p>
-                        <p class="services-details__content-text2">When an unknown printer took a galley of type and
-                            scrambled it to make a type specimen book. It has survived not only five centuries, but
-                            also the leap into electronic typesetting, remaining essentially unchanged. </p>
-
-                        <div class="services-details__content-text3">
-                            <div class="img-box">
-                                <img src="../static/images/resources/services-details-content-dairy.jpg" alt=""/>
-                            </div>
-                            <div class="text-box">
-                                <ul>
-                                    <li>
-                                        <div class="icon">
-                                            <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="text">
-                                            <p>Research beyond the business plan work here</p>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="icon">
-                                            <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="text">
-                                            <p>Marketing options and rates lipsum</p>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="icon">
-                                            <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="text">
-                                            <p>The ability to turnaround working on it</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="faq-one__accordions faq-one__accordions--services-details">
-                            <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
-                                <!--Start Faq One Single-->
-                                <div class="accrodion active  wow fadeInUp" data-wow-delay="0ms"
-                                     data-wow-duration="1000ms">
-                                    <div class="accrodion-title">
-                                        <h4>Company Provides a Full Range of Services?</h4>
-                                    </div>
-                                    <div class="accrodion-content">
-                                        <div class="inner">
-                                            <p>Suspendisse finibus urna mauris, vitae consequat quam vel. Vestibulum
-                                                leo ligula, vitae commodo nisl. Lorem ipsum is simply free text
-                                                available in the market adipisi cing elit.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Faq One Single-->
-
-                                <!--Start Faq One Single-->
-                                <div class="accrodion wow fadeInUp" data-wow-delay="100ms"
-                                     data-wow-duration="1000ms">
-                                    <div class="accrodion-title">
-                                        <h4>Home Improvement Works are Expensive?</h4>
-                                    </div>
-                                    <div class="accrodion-content">
-                                        <div class="inner">
-                                            <p>Suspendisse finibus urna mauris, vitae consequat quam vel. Vestibulum
-                                                leo ligula, vitae commodo nisl. Lorem ipsum is simply free text
-                                                available in the market adipisi cing elit.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Faq One Single-->
-
-                                <!--Start Faq One Single-->
-                                <div class="accrodion wow fadeInUp" data-wow-delay="200ms"
-                                     data-wow-duration="1000ms">
-                                    <div class="accrodion-title">
-                                        <h4>Home Improvement Works are Expensive?</h4>
-                                    </div>
-                                    <div class="accrodion-content">
-                                        <div class="inner">
-                                            <p>Suspendisse finibus urna mauris, vitae consequat quam vel. Vestibulum
-                                                leo ligula, vitae commodo nisl. Lorem ipsum is simply free text
-                                                available in the market adipisi cing elit.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Faq One Single-->
-                            </div>
-
-                        </div>
-
+                <div class="col-xl-8 col-lg-8" >
+                    <div class="services-details__content-img">
+                        <img src="../static/images/trace/effect-1.png" alt="" style="height: 371px;border-radius: 10px"/>
                     </div>
                 </div>
                 <!--End Services Details Content-->
             </div>
+
         </div>
+
     </section>
     <!--End Services Details-->
+    <div class="container">
+        <div class = 'row'>
+            <div class="col-xl-4 col-lg-4">
+                <h3 class="services-details__content-title">简介</h3>
+                <p style="text-indent:2em"> 松茸菌，英文名Tricholoma matsutake，又名松口蘑，是一种珍贵的真菌。
+                    味道鲜美，营养丰富，具有很高的药用食疗作用。松茸菌秋季生于松林或针阔混交林地上，在我国东北地区和西南地区都有分布，国外日本和朝鲜也有分布。</p>
+            </div>
+            <div class="col-xl-8 col-lg-8">
+                 <div class="map_china_1">
+                <div id="tree"  class="map_china_1_id" ></div>
+        </div>
+            </div>
 
+        </div>
+    </div>
+    <section class="services-details">
+        <div class="container">
+        <div class="services-details__content">
+
+            <h2 class="services-details__content-title"><span class="icon-harvest" style="padding-right: 10px"></span>生长环境与条件</h2>
+
+            <p class="services-details__content-text1" style="text-indent:2em">秋季生于松林或针阔混交林地上，群生或散生，有时形成蘑菇圈。
+                松茸自然生于海拔2000～4000米及以上的无任何污染的松树和栎树自然杂交林中，松茸的生长需要与松树的根系形成共生关系。
+                这种共生关系是通过菌丝和菌塘的形成实现的。共生树种的年龄必须在50年以上，以确保这种关系的稳定性,这对于松茸的健康生长至关重要。
+                松茸不仅依赖松树，还需要阔叶树种的支持。
+                柏树、栎树等阔叶树为松茸提供营养，帮助其形成健康的子实体。</p>
+            <div class="services-details__content-img">
+                <img src="../static/images/sow/zrhj.jpg" alt="" style="height: 30%;border-radius: 10px"/>
+            </div>
+
+            <p class="services-details__content-text2" style="text-indent:2em">
+                松茸喜欢在温暖而潮湿的环境中生长。一般来说，松茸的生长温度范围是10-20摄氏度。在夏季高温时期，松茸会进入休眠状态，
+                待温度降低后才能继续生长。此外，松茸对光照的要求不高，通常喜欢在阴凉的地方生长。 </p>
+            <!--培育方法-->
+
+
+            <h2 class="services-details__content-title "><span class="icon-growth" style="padding-right: 10px"></span>培育方法</h2>
+            <p class="services-details__content-text1">
+                目前人工无法种植松茸，市面上的松茸完全依赖野生采集。</p>
+            <h2 class="services-details__content-title "><span class="icon-farm" style="padding-right: 10px"></span>生长区域</h2>
+            <div class="services-details__content-text3">
+                <div class="box">
+                       <div id="maptt" style="width: 800px;height:700px;"></div>
+                </div>
+                <div class="text-box">
+                    <ul>
+                        <li>
+                            <div class="icon">
+                                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                            </div>
+                            <div class="text">
+                                <p>Research beyond the business plan work here</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="icon">
+                                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                            </div>
+                            <div class="text">
+                                <p>Marketing options and rates lipsum</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="icon">
+                                <i class="fa fa-check-circle" aria-hidden="true"></i>
+                            </div>
+                            <div class="text">
+                                <p>The ability to turnaround working on it</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <h2 class="services-details__content-title "><span class="icon-conveyor" style="padding-right: 10px"></span>生长阶段</h2>
+
+        </div>
+        </div>
+    </section>
 
     <!--Start Footer One-->
     <footer class="footer-one">
@@ -528,7 +502,7 @@
 
 <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="icon-right-arrow-2"></i></a>
 
-
+<script src="../static/echarts/echarts4.2.min.js"></script>
 <script src="../static/plugins/jquery/jquery-3.5.1.min.js"></script>
 <script src="../static/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="../static/plugins/jarallax/jarallax.min.js"></script>
@@ -556,6 +530,11 @@
 
 <!-- template js -->
 <script src="../static/js/agriox.js"></script>
+<script src="../static/js/tree.js"></script>
+<script>
+        // 可以使用JavaScript在页面加载后触发动画
+        document.querySelector('.slow-appear').style.animationPlayState = 'running';
+    </script>
 
 
 </body>
