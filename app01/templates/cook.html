@@ -398,46 +398,46 @@
         </div>
     </section>
     <!--Projects One End-->
-<!--Start Contact Page Right-->
-                <div class="col-xl-8 col-lg-8" style="margin: 0 auto">
-
-                        <form action="assets/inc/sendemail.php" class="comment-one__form contact-form-validated" novalidate="novalidate">
-                            <div class="row">
-                                <div class="col-xl-6 col-lg-6">
-                                    <div class="comment-form__input-box">
-                                        <input type="text" placeholder="Your name" name="name">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6">
-                                    <div class="comment-form__input-box">
-                                        <input type="text" placeholder="Email address" name="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xl-6 col-lg-6">
-                                    <div class="comment-form__input-box">
-                                        <input type="text" placeholder="Phone number" name="phone">
-                                    </div>
-                                </div>
-                                <div class="col-xl-6 col-lg-6">
-                                    <div class="comment-form__input-box">
-                                        <input type="email" placeholder="Subject" name="Subject">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xl-12 col-lg-12">
-                                    <div class="comment-form__input-box">
-                                        <textarea name="message" placeholder="Write message"></textarea>
-                                    </div>
-                                    <button type="submit" class="thm-btn comment-form__btn">点击计算</button>
-                                </div>
-                            </div>
-                        </form>
-
-                <!--End Contact Page Right-->
+    <!--Start Contact Page Right-->
+    <section>
+    <div class="col-xl-8 col-lg-8" style="margin: 0 auto">
+        <div id="input-container" class="container gutter-y-30">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="food-select" class="form-label ">选择食材:</label>
+                <select id="food-select" class="form-control bootstrap-select form-select">
+                    <option value="" selected disabled>请选择...</option>
+                    <!-- 其他选项 -->
+                </select>
             </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="food-weight" class="form-label">食材重量 (克):</label>
+                <input type="number" id="food-weight" class="form-control " min="50" value="100">
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="form-label">图表类型:</label>
+                <select id="chart-type" class="form-control bootstrap-select form-select">
+                    <option value="line">折线图</option>
+                    <option value="bar">柱状图</option>
+                    <option value="pie">饼图</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <button id="submit" class="thm-btn" style="margin-top:30px ">生成图表</button>
+        </div>
+    </div>
+</div>
+        <div id="chart-container" STYLE="width: 100%;height: 400px"></div>
+
+        <!--End Contact Page Right-->
+    </div>
+        </section>
 
     <!--End Contact Page-->
 
@@ -662,6 +662,167 @@
         });
     });
 
+</script>
+<!--计算-->
+<script type="text/javascript">
+    const chartContainer = document.getElementById('chart-container');
+    const foodWeightInput = document.getElementById('food-weight');
+    const chartTypeSelect = document.getElementById('chart-type');
+    const submitButton = document.getElementById('submit');
+    const foodSelect = document.getElementById('food-select');
+
+    // 人体每日所需营养成分
+    const dailyNutritionRequirements = {
+        '蛋白质': 30,
+        '脂肪': 3,
+        '碳水化合物': 10,
+        '纤维素': 10,
+        '维生素D': 30,
+        '钾': 450,
+        '钠': 30,
+        '钙': 20,
+        '铁': 1.5,
+        '磷': 150
+    };
+
+    // 食材及营养成分数据
+    let nutritionData = {};
+
+    // 初始化食材选择列表
+    function initFoodSelect() {
+        nutritionData = {};
+        Object.keys(nutritionRandomData).forEach((food) => {
+            nutritionData[food] = nutritionRandomData[food];
+            const option = document.createElement('option');
+            option.text = food;
+            option.value = food;
+            foodSelect.add(option);
+        });
+    }
+
+    // 随机生成食材营养成分数据
+    const nutritionRandomData = {
+        '三菌炒饭': {
+            '蛋白质': Math.floor(Math.random() * 15) + 12, // 15-30g
+            '脂肪': Math.floor(Math.random() * 0.8) + 0.2, // 0.1-0.9g
+            '碳水化合物': Math.floor(Math.random() * 5) + 5, // 5-10g
+            '纤维素': Math.floor(Math.random() * 5) + 5, // 5-10g
+            '维生素D': Math.floor(Math.random() * 10) + 10, // 10-20μg
+            '钾': Math.floor(Math.random() * 150) + 200, // 200-350mg
+            '钠': Math.floor(Math.random() * 20) + 10, // 10-30mg
+            '钙': Math.floor(Math.random() * 10) + 10, // 10-20mg
+            '铁': Math.floor(Math.random() * 1) + 0.2, // 0-1mg
+            '磷': Math.floor(Math.random() * 50) + 30, // 50-100mg
+        },
+        // 可以添加更多食材数据
+        '凉拌松茸': {
+            '蛋白质': Math.floor(Math.random() * 15) + 12, // 15-30g
+            '脂肪': Math.floor(Math.random() * 0.8) + 0.2, // 0.1-0.9g
+            '碳水化合物': Math.floor(Math.random() * 5) + 5, // 5-10g
+            '纤维素': Math.floor(Math.random() * 5) + 5, // 5-10g
+            '维生素D': Math.floor(Math.random() * 10) + 10, // 10-20μg
+            '钾': Math.floor(Math.random() * 150) + 200, // 200-350mg
+            '钠': Math.floor(Math.random() * 20) + 10, // 10-30mg
+            '钙': Math.floor(Math.random() * 10) + 10, // 10-20mg
+            '铁': Math.floor(Math.random() * 1) + 0, // 0-1mg
+            '磷': Math.floor(Math.random() * 50) + 30, // 50-100mg
+        }
+    };
+
+    // 绘制图表
+    function drawChart(nutritionData, type, weight) {
+        let chart = echarts.init(chartContainer);
+        let seriesData = Object.keys(nutritionData).map(nutrient => {
+            return {
+                name: nutrient,
+                value: nutritionData[nutrient] / dailyNutritionRequirements[nutrient] * 100
+            };
+        });
+
+        let option;
+        switch (type) {
+            case 'line':
+                option = {
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: {
+                            type: 'cross',
+                            label: {
+                                backgroundColor: '#6a7985'
+                            }
+                        }
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: seriesData.map(d => d.name)
+                    },
+                    yAxis: {
+                        type: 'value',
+                        name: '百分比 (%)'
+                    },
+                    series: [{
+                        type: 'line',
+                        data: seriesData
+                    }]
+                };
+                break;
+            case 'bar':
+                option = {
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{a} <br/>{b}: {c} (%)'
+                    },
+                    xAxis: {
+                        type: 'value',
+                        name: '百分比 (%)'
+                    },
+                    yAxis: {
+                        type: 'category',
+                        data: seriesData.map(d => d.name)
+                    },
+                    series: [{
+                        data: seriesData.map(d => d.value),
+                        type: 'bar',
+                        name: foodSelect.value
+                    }]
+                };
+                break;
+            case 'pie':
+                option = {
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{a} <br/>{b}: {c} ({d}%)'
+                    },
+                    series: [{
+                        name: foodSelect.value,
+                        type: 'pie',
+                        radius: '55%',
+                        data: seriesData,
+                        emphasis: {
+                            label: {
+                                formatter: '{b}: {c} ({d}%)'
+                            }
+                        }
+                    }]
+                };
+                break;
+        }
+        chart.setOption(option);
+    }
+
+    // 监听提交按钮
+    submitButton.addEventListener('click', () => {
+        const selectedFood = foodSelect.value;
+        const weight = foodWeightInput.value;
+        if (!nutritionData[selectedFood]) {
+            alert('该食材的营养成分数据尚未生成，请选择其他食材。');
+            return;
+        }
+        drawChart(nutritionData[selectedFood], chartTypeSelect.value, weight);
+    });
+
+    // 初始化食材选择列表
+    initFoodSelect();
 </script>
 
 
