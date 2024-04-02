@@ -266,6 +266,7 @@
 
 
 
+
                         <h1>运输</h1>
                         <div class="col-lg-3" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">采摘时间</label>
@@ -273,7 +274,7 @@
                         </div>
                         <div class="col-lg-3" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">采摘</label>
-                            <select class="form-select" id="specificSizeSelect">
+                            <select class="form-select" id="harvestMethod">
                                 <option selected>勾选采摘方式</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -282,7 +283,7 @@
                         </div>
                         <div class="col-lg-4" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">存储方式</label>
-                            <select class="form-select" id="specificSizeSelect">
+                            <select class="form-select" id="storageMethod">
                                 <option selected>勾选存储方式</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -369,11 +370,11 @@
                         </div>
                         <div class="col-lg-5" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">运输距离</label>
-                            <input type="text" class="form-control" placeholder="请输入运输路程(Km)">
+                            <input type="text" id="transportDistance" class="form-control" placeholder="请输入运输路程(Km)">
                         </div>
                         <div class="col-lg-5" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">运输工具</label>
-                            <select class="form-select" id="specificSizeSelect">
+                            <select class="form-select" id="transportTool">
                                 <option selected>请选择运输工具</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -382,19 +383,19 @@
                         </div>
                         <div class="col-lg-5" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">开始时间</label>
-                            <input type="text" class="form-control" id="kstime" placeholder="运输开始时间">
+                            <input type="text" id="kstime" class="form-control" placeholder="请输入运输开始时间">
                         </div>
                         <div class="col-lg-5" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">结束时间</label>
-                            <input type="text" class="form-control" id="jstime" placeholder="运输结束时间">
+                            <input type="text" id="jstime" class="form-control" placeholder="请输入运输结束时间">
                         </div>
                         <div class="col-lg-5" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">保鲜时间</label>
-                            <input type="text" class="form-control" id="bxtime" placeholder="请输入保鲜时间">
+                            <input type="text" id="bxtime" class="form-control" placeholder="请输入保鲜时间">
                         </div>
                         <div class="col-lg-5" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">销售方式</label>
-                            <select class="form-select" id="specificSizeSelect">
+                            <select class="form-select" id="salesMethod">
                                 <option selected>请选择销售方式</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
@@ -404,7 +405,7 @@
                         <h1>加工</h1>
                         <div class="col-lg-5" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">加工方式</label>
-                            <input type="text" class="form-control" placeholder="请输入加工方式">
+                            <input type="text" class="form-control" id="processingMethod" placeholder="请输入加工方式">
                         </div>
                         <div class="col-lg-5" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">上架时间</label>
@@ -451,7 +452,7 @@
                         </div>
                         <div class="col-lg-10">
                             <label style="margin-top: 10px;margin-bottom: 5px">菜品名</label>
-                            <input type="text" class="form-control" placeholder="请输入对应菜品">
+                            <input type="text" class="form-control" id="dishName" placeholder="请输入对应菜品">
                         </div>
                     </div>
                     <input type="button" class="btn" value="提交" onclick="getInfo()">
@@ -694,6 +695,66 @@
                         "internalType": "string",
                         "name": "growthManagement",
                         "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "harvestTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "harvestMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "storageMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportDistance",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportTool",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportStartTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportEndTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "preservationTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "salesMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "processingMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "shelfTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "dishName",
+                        "type": "string"
                     }
                 ],
                 "name": "addPlanting",
@@ -733,6 +794,11 @@
                     },
                     {
                         "internalType": "string",
+                        "name": "region",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
                         "name": "growthEnvironment",
                         "type": "string"
                     },
@@ -748,7 +814,77 @@
                     },
                     {
                         "internalType": "string",
-                        "name": "region",
+                        "name": "harvestTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "harvestMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "storageMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "startPoint",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "endPoint",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportDistance",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportTool",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportStartTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportEndTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "preservationTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "salesMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "processingMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "shelfTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "shelfArea",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "dishName",
                         "type": "string"
                     }
                 ],
@@ -789,6 +925,11 @@
                             },
                             {
                                 "internalType": "string",
+                                "name": "region",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
                                 "name": "growthEnvironment",
                                 "type": "string"
                             },
@@ -804,7 +945,77 @@
                             },
                             {
                                 "internalType": "string",
-                                "name": "region",
+                                "name": "harvestTime",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "harvestMethod",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "storageMethod",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "startPoint",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "endPoint",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "transportDistance",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "transportTool",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "transportStartTime",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "transportEndTime",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "preservationTime",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "salesMethod",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "processingMethod",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "shelfTime",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "shelfArea",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "dishName",
                                 "type": "string"
                             }
                         ],
@@ -818,7 +1029,7 @@
             }
         ];
 
-        const address = '0x7ff2177230B7322165f1DfC8962b6Eb53cc10a83';
+        const address = '0x877D1E76FAD0EA72263583C147CE8f92f4BF27F5';
         const contractInstance = new web3.eth.Contract(abi, address);
 
         // to test if initialized web3 works fine
@@ -830,20 +1041,37 @@
         // to test if web3.eth.Contract works
         console.log("***contractInstance.abi***:");
         console.log(contractInstance.options.jsonInterface);
-        
+
+
+
         contractInstance.methods.retrieve('111').call().then(function (result) {
             console.log(result); // Log the result to the console
 
             // Create a mapping from English to Chinese
             let mapping = {
-                'commodityCode': '商品码',
-                'category': '品类',
-                'subject': '所属科目',
-                'class': '所属门类',
-                'growthEnvironment': '培育环境',
+                'commodityCode': '商品代码',
+                'category': '类别',
+                'subject': '主题',
+                'classmen': '班级',
+                'region': '区域',
+                'growthEnvironment': '生长环境',
                 'growthCycle': '生长周期',
                 'growthManagement': '生长管理',
-                'region': '地区'
+                'harvestTime': '收获时间',
+                'harvestMethod': '收获方法',
+                'storageMethod': '存储方法',
+                'startPoint': '起点',
+                'endPoint': '终点',
+                'transportDistance': '运输距离',
+                'transportTool': '运输工具',
+                'transportStartTime': '运输开始时间',
+                'transportEndTime': '运输结束时间',
+                'preservationTime': '保鲜时间',
+                'salesMethod': '销售方式',
+                'processingMethod': '加工方式',
+                'shelfTime': '上架时间',
+                'shelfArea': '上架区域',
+                'dishName': '菜品名称'
             };
 
             // Create an HTML string
@@ -857,7 +1085,63 @@
             html += '</ul>';
 
             $("#demo").html(html); // Display the formatted result
-        })
+        });
+
+
+        /*contractInstance.methods.retrieve('111').call().then(function (result) {
+            console.log(result); // Log the result to the console
+            $("#demo").html(JSON.stringify(result)); // Convert the result to a string before displaying it*/
+
+        // Create a mapping from English to Chinese
+        /*let mapping = {
+            'commodityCode': '商品码',
+            'category': '品类'
+        };
+
+        // Create an HTML string
+        let html = '<ul>';
+        for (let key in mapping) { // Only loop over the keys in the mapping
+            if (result.hasOwnProperty(key)) {
+                let chineseKey = mapping[key];
+                html += `<li>${chineseKey}: ${result[key]}</li>`;
+            }
+        }
+        html += '</ul>';
+
+        $("#demo").html(html); // Display the formatted result*/
+
+
+
+
+
+
+
+
+
+        // Create a mapping from English to Chinese
+        /*let mapping = {
+            'commodityCode': '商品码',
+            'category': '品类',
+            'subject': '所属科目',
+            'class': '所属门类',
+            'growthEnvironment': '培育环境',
+            'growthCycle': '生长周期',
+            'growthManagement': '生长管理',
+            'region': '地区'
+        };
+
+        // Create an HTML string
+        let html = '<ul>';
+        for (let key in result) {
+            if (result.hasOwnProperty(key) && isNaN(key)) { // Ignore numeric keys and __length__
+                let chineseKey = mapping[key] || key; // Use the Chinese key if it exists, otherwise use the English key
+                html += `<li>${chineseKey}: ${result[key]}</li>`;
+            }
+        }
+        html += '</ul>';
+
+        $("#demo").html(html); // Display the formatted result
+    })*/
 
 
 
@@ -908,6 +1192,49 @@
             var growthEnvironment = $("#growthEnvironment").val();
             var growthCycle = $("#growthCycle").val();
             var growthManagement = $("#growthManagement").val();
+            var harvestTime = $("#cztime").val();
+            var harvestMethod = $("#harvestMethod").val();
+            var storageMethod = $("#storageMethod").val();
+            var transportDistance = $("#transportDistance").val();
+            var transportTool = $("#transportTool").val();
+            var transportStartTime = $("#kstime").val();
+            var transportEndTime = $("#jstime").val();
+            var preservationTime = $("#bxtime").val();
+            var salesMethod = $("#salesMethod").val();
+            var processingMethod = $("#processingMethod").val();
+            var shelfTime = $("#sjtime").val();
+            var dishName = $("#dishName").val();
+            console.log('commodityCode:', commodityCode);
+            console.log('category:', category);
+            console.log('subject:', subject);
+            console.log('classmen:', classmen);
+            console.log('growthEnvironment:', growthEnvironment);
+            console.log('growthCycle:', growthCycle);
+            console.log('growthManagement:', growthManagement);
+            console.log('harvestTime:', harvestTime);
+            console.log('harvestMethod:', harvestMethod);
+            console.log('storageMethod:', storageMethod);
+            console.log('transportDistance:', transportDistance);
+            console.log('transportTool:', transportTool);
+            console.log('transportStartTime:', transportStartTime);
+            console.log('transportEndTime:', transportEndTime);
+            console.log('preservationTime:', preservationTime);
+            console.log('salesMethod:', salesMethod);
+            console.log('processingMethod:', processingMethod);
+            console.log('shelfTime:', shelfTime);
+            console.log('dishName:', dishName);
+
+            //2
+            /*var harvestTime = $("#harvestTime2").val();
+            var harvestMethod = $("#harvestMethod2").val();
+            var storageMethod = $("#storageMethod2").val();
+            var transportDistance = $("#transportDistance2").val();
+            var transportTool = $("#transportTool2").val();
+            var transportStartTime = $("#transportStartTime2").val();
+            var transportEndTime = $("#transportEndTime2").val();
+            var preservationTime = $("#preservationTime2").val();
+            var salesMethod = $("#salesMethod2").val();*/
+
 
             // Use the number as the argument for the store function
             let transaction = contractInstance.methods.addPlanting(
@@ -917,9 +1244,21 @@
                 classmen,
                 growthEnvironment,
                 growthCycle,
-                growthManagement
+                growthManagement,
+                harvestTime,
+                harvestMethod,
+                storageMethod,
+                transportDistance,
+                transportTool,
+                transportStartTime,
+                transportEndTime,
+                preservationTime,
+                salesMethod,
+                processingMethod,
+                shelfTime,
+                dishName
             ).encodeABI();
-            let account = '0x7ff2177230B7322165f1DfC8962b6Eb53cc10a83';
+            let account = '0x877D1E76FAD0EA72263583C147CE8f92f4BF27F5';
             let nonce = web3.eth.getTransactionCount();
             let privateKey = 'c56286692110e5321e4b060d32d55b8516ae21562e222425926b3613f9d242b3'; // Replace with your private key
 
@@ -936,7 +1275,7 @@
                         data: transaction,
                         gas: 2000000,
                         gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
-                        nonce: 32
+                        nonce: 39
                     };
 
                     return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
@@ -944,59 +1283,95 @@
                 .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
                 .then(receipt => console.log('Transaction receipt: ', receipt))
                 .catch(err => console.error('Error sending transaction: ', err));
+
+
+
+            /*let transaction2 = contractInstance.methods.addPlanting2(
+                commodityCode,
+                harvestTime,
+                harvestMethod,
+                storageMethod,
+                transportDistance,
+                transportTool,
+                transportStartTime,
+                transportEndTime,
+                preservationTime,
+                salesMethod
+            ).encodeABI();
+    
+    
+            web3.eth.getTransactionCount(account)
+                .then(nonce => {
+                    let rawTransaction = {
+                        from: account,
+                        to: contractInstance.options.address,
+                        data: transaction2,
+                        gas: 2000000,
+                        gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
+                        nonce: 34
+                    };
+    
+                    return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
+                })
+                .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
+                .then(receipt => console.log('Transaction receipt: ', receipt))
+                .catch(err => console.error('Error sending transaction: ', err));
+    
+    
+        }*/
+
+
+
+            /*
+            let transaction = contractInstance.methods.store(123).encodeABI();
+    
+            web3.eth.getTransactionCount(account)
+                .then(nonce => {
+                    let rawTransaction = {
+                        from: account,
+                        to: contractInstance.options.address,
+                        data: transaction,
+                        gas: 2000000,
+                        gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
+                        nonce: 21
+                    };
+    
+                    return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
+                })
+                .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
+                .then(receipt => console.log('Transaction receipt: ', receipt))
+                .catch(err => console.error('Error sending transaction: ', err));*/
+
+
+
+
+            /*let rawTransaction = {
+                from: account,
+                to: contractInstance.options.address,
+                data: transaction,
+                gas: 2000000,
+                gasPrice: web3.utils.toWei('20', 'gwei') // 20 Gwei
+    
+    
+            };
+    
+            web3.eth.accounts.signTransaction(rawTransaction, privateKey)
+                .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
+                .then(receipt => console.log('Transaction receipt: ', receipt))
+                .catch(err => console.error('Error sending transaction: ', err));*/
+
+
+
+
+            /*contractInstance.methods.store(123).send({ from: '0x82C07955eD5f47F31B946DC506EF5885a17dD3Cc' }).then(function (result) {
+                console.log("***store(123)***:");
+                console.log(result);
+            });*/
+
+            /*contractInstance.methods.retrievetext().call().then(function (result) {
+                document.getElementById("demo").innerHTML = result;
+            })*/
         }
-
-
-
-        /*
-        let transaction = contractInstance.methods.store(123).encodeABI();
-
-        web3.eth.getTransactionCount(account)
-            .then(nonce => {
-                let rawTransaction = {
-                    from: account,
-                    to: contractInstance.options.address,
-                    data: transaction,
-                    gas: 2000000,
-                    gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
-                    nonce: 21
-                };
-
-                return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
-            })
-            .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
-            .then(receipt => console.log('Transaction receipt: ', receipt))
-            .catch(err => console.error('Error sending transaction: ', err));*/
-
-
-
-
-        /*let rawTransaction = {
-            from: account,
-            to: contractInstance.options.address,
-            data: transaction,
-            gas: 2000000,
-            gasPrice: web3.utils.toWei('20', 'gwei') // 20 Gwei
-
-
-        };
-
-        web3.eth.accounts.signTransaction(rawTransaction, privateKey)
-            .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
-            .then(receipt => console.log('Transaction receipt: ', receipt))
-            .catch(err => console.error('Error sending transaction: ', err));*/
-
-
-
-
-        /*contractInstance.methods.store(123).send({ from: '0x82C07955eD5f47F31B946DC506EF5885a17dD3Cc' }).then(function (result) {
-            console.log("***store(123)***:");
-            console.log(result);
-        });*/
-
-        /*contractInstance.methods.retrievetext().call().then(function (result) {
-            document.getElementById("demo").innerHTML = result;
-        })*/
     </script>
 
 

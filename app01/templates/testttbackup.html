@@ -188,290 +188,290 @@
                     <input type="button" class="btn" value="提交" onclick="getInfo()">
                 </form>
             </div>
-    
-
-
-        ————————————————
 
 
 
+            ————————————————
 
-        <div class="container">
-            <form method="post" action="">
-                <div class="form-control">
-                    <h1>种植</h1>
-                    <div class="col-lg-5" style="display: inline-block">
-                        <label style="margin-top: 10px;margin-bottom: 5px">商品码</label>
-                        <input type="text" id='shangpinid' class="form-control" placeholder="请输入商品码">
-                    </div>
-                    <div class="col-lg-5" style="display: inline-block">
-                        <label style="margin-top: 10px;margin-bottom: 5px">品类</label>
-                        <select class="form-select" id="specificSizeSelect">
-                            <option selected>请选择对应品类</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-5" style="display: inline-block;margin-top: 10px">
-                        <label style="margin-top: 10px;margin-bottom: 5px">所属科目</label>
-                        <input type="text" class="form-control" placeholder="请输入科目">
-                    </div>
-                    <div class="col-lg-5" style="display: inline-block;margin-top: 10px">
-                        <label style="margin-top: 10px;margin-bottom: 5px">所属门类</label>
-                        <input type="text" class="form-control" placeholder="请输入门类">
-                    </div>
-                    <div class=“col-lg-12”>
-                        <label style="margin-top: 10px;margin-bottom: 5px">所属地区</label>
-                        <div class="city-picker-selector" id="city-picker-selector">
-                            <div class="selector-item storey province">
-                                <a href="javascript:;" class="selector-name reveal">北京市</a>
-                                <input type="hidden" name="userProvinceId" class="input-price val-error" value="110000"
-                                    data-required="userProvinceId">
-                                <div class="selector-list listing hide">
-                                    <ul>
-                                        <li>北京市</li>
-                                        <li>天津市</li>
-                                        <li>河北省</li>
-                                        <li>山西省</li>
-                                    </ul>
+
+
+
+            <div class="container">
+                <form method="post" action="">
+                    <div class="form-control">
+                        <h1>种植</h1>
+                        <div class="col-lg-5" style="display: inline-block">
+                            <label style="margin-top: 10px;margin-bottom: 5px">商品码</label>
+                            <input type="text" id='shangpinid' class="form-control" placeholder="请输入商品码">
+                        </div>
+                        <div class="col-lg-5" style="display: inline-block">
+                            <label style="margin-top: 10px;margin-bottom: 5px">品类</label>
+                            <select class="form-select" id="specificSizeSelect">
+                                <option selected>请选择对应品类</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-5" style="display: inline-block;margin-top: 10px">
+                            <label style="margin-top: 10px;margin-bottom: 5px">所属科目</label>
+                            <input type="text" class="form-control" placeholder="请输入科目">
+                        </div>
+                        <div class="col-lg-5" style="display: inline-block;margin-top: 10px">
+                            <label style="margin-top: 10px;margin-bottom: 5px">所属门类</label>
+                            <input type="text" class="form-control" placeholder="请输入门类">
+                        </div>
+                        <div class=“col-lg-12”>
+                            <label style="margin-top: 10px;margin-bottom: 5px">所属地区</label>
+                            <div class="city-picker-selector" id="city-picker-selector">
+                                <div class="selector-item storey province">
+                                    <a href="javascript:;" class="selector-name reveal">北京市</a>
+                                    <input type="hidden" name="userProvinceId" class="input-price val-error"
+                                        value="110000" data-required="userProvinceId">
+                                    <div class="selector-list listing hide">
+                                        <ul>
+                                            <li>北京市</li>
+                                            <li>天津市</li>
+                                            <li>河北省</li>
+                                            <li>山西省</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="selector-item storey city">
-                                <a href="javascript:;" class="selector-name reveal">北京市</a>
-                                <input type="hidden" name="userCityId" class="input-price val-error" value="110100"
-                                    data-required="userCityId">
-                                <div class="selector-list listing hide">
-                                    <ul>
-                                        <li>北京市</li>
-                                    </ul>
+                                <div class="selector-item storey city">
+                                    <a href="javascript:;" class="selector-name reveal">北京市</a>
+                                    <input type="hidden" name="userCityId" class="input-price val-error" value="110100"
+                                        data-required="userCityId">
+                                    <div class="selector-list listing hide">
+                                        <ul>
+                                            <li>北京市</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="selector-item storey district">
-                                <a href="javascript:;" class="selector-name reveal">海淀区</a>
-                                <input type="hidden" name="userDistrictId" class="input-price val-error" value="110108"
-                                    data-required="userDistrictId">
-                                <div class="selector-list listing hide">
-                                    <ul>
-                                        <li>东城区</li>
-                                        <li>西城区</li>
-                                    </ul>
+                                <div class="selector-item storey district">
+                                    <a href="javascript:;" class="selector-name reveal">海淀区</a>
+                                    <input type="hidden" name="userDistrictId" class="input-price val-error"
+                                        value="110108" data-required="userDistrictId">
+                                    <div class="selector-list listing hide">
+                                        <ul>
+                                            <li>东城区</li>
+                                            <li>西城区</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-10">
-                        <label style="margin-top: 10px;margin-bottom: 5px">培育环境</label>
-                        <input type="text" class="form-control" placeholder="请描述其生长环境">
-                    </div>
-                    <div class="col-lg-10">
-                        <label style="margin-top: 10px;margin-bottom: 5px">生长周期</label>
-                        <select class="form-select" id="specificSizeSelect">
-                            <option value="3">2~3周</option>
-                            <option value="4">3~4周</option>
-                            <option value="5">4~5周</option>
-                            <option value="6">5~6周</option>
-                            <option value="7">6~7周</option>
-                            <option value="8">7~8周</option>
-                            <option value="9">8~9周</option>
-                            <option value="10">9~10周</option>
-                            <option value="11">10~11周</option>
-                            <option value="12">11~12周</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-10">
-                        <label style="margin-top: 10px;margin-bottom: 5px">生长管理</label>
-                        <input type="text" class="form-control" placeholder="请输入生长管理方式">
-                    </div>
+                        <div class="col-lg-10">
+                            <label style="margin-top: 10px;margin-bottom: 5px">培育环境</label>
+                            <input type="text" class="form-control" placeholder="请描述其生长环境">
+                        </div>
+                        <div class="col-lg-10">
+                            <label style="margin-top: 10px;margin-bottom: 5px">生长周期</label>
+                            <select class="form-select" id="specificSizeSelect">
+                                <option value="3">2~3周</option>
+                                <option value="4">3~4周</option>
+                                <option value="5">4~5周</option>
+                                <option value="6">5~6周</option>
+                                <option value="7">6~7周</option>
+                                <option value="8">7~8周</option>
+                                <option value="9">8~9周</option>
+                                <option value="10">9~10周</option>
+                                <option value="11">10~11周</option>
+                                <option value="12">11~12周</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-10">
+                            <label style="margin-top: 10px;margin-bottom: 5px">生长管理</label>
+                            <input type="text" class="form-control" placeholder="请输入生长管理方式">
+                        </div>
 
-                    <h1>运输</h1>
-                    <div class="col-lg-3" style="display: inline-block">
-                        <label style="margin-top: 10px;margin-bottom: 5px">采摘时间</label>
-                        <input type="text" class="form-control" placeholder="请输入采摘时间">
-                    </div>
-                    <div class="col-lg-3" style="display: inline-block">
-                        <label style="margin-top: 10px;margin-bottom: 5px">采摘</label>
-                        <select class="form-select" id="specificSizeSelect">
-                            <option selected>勾选采摘方式</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-4" style="display: inline-block">
-                        <label style="margin-top: 10px;margin-bottom: 5px">存储方式</label>
-                        <select class="form-select" id="specificSizeSelect">
-                            <option selected>勾选存储方式</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div>
-                    <div class=“col-lg-10”>
-                        <label style="margin-top: 10px;margin-bottom: 5px">起点</label>
-                        <div class="city-picker-selector" id="city-picker-selector-start">
-                            <div class="selector-item storey province">
-                                <a href="javascript:;" class="selector-name reveal">北京市</a>
-                                <input type="hidden" name="userProvinceId" class="input-price val-error" value="110000"
-                                    data-required="userProvinceId">
-                                <div class="selector-list listing hide">
-                                    <ul>
-                                        <li>北京市</li>
-                                        <li>天津市</li>
-                                        <li>河北省</li>
-                                        <li>山西省</li>
-                                    </ul>
+                        <h1>运输</h1>
+                        <div class="col-lg-3" style="display: inline-block">
+                            <label style="margin-top: 10px;margin-bottom: 5px">采摘时间</label>
+                            <input type="text" class="form-control" placeholder="请输入采摘时间">
+                        </div>
+                        <div class="col-lg-3" style="display: inline-block">
+                            <label style="margin-top: 10px;margin-bottom: 5px">采摘</label>
+                            <select class="form-select" id="specificSizeSelect">
+                                <option selected>勾选采摘方式</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-4" style="display: inline-block">
+                            <label style="margin-top: 10px;margin-bottom: 5px">存储方式</label>
+                            <select class="form-select" id="specificSizeSelect">
+                                <option selected>勾选存储方式</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class=“col-lg-10”>
+                            <label style="margin-top: 10px;margin-bottom: 5px">起点</label>
+                            <div class="city-picker-selector" id="city-picker-selector-start">
+                                <div class="selector-item storey province">
+                                    <a href="javascript:;" class="selector-name reveal">北京市</a>
+                                    <input type="hidden" name="userProvinceId" class="input-price val-error"
+                                        value="110000" data-required="userProvinceId">
+                                    <div class="selector-list listing hide">
+                                        <ul>
+                                            <li>北京市</li>
+                                            <li>天津市</li>
+                                            <li>河北省</li>
+                                            <li>山西省</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="selector-item storey city">
-                                <a href="javascript:;" class="selector-name reveal">北京市</a>
-                                <input type="hidden" name="userCityId" class="input-price val-error" value="110100"
-                                    data-required="userCityId">
-                                <div class="selector-list listing hide">
-                                    <ul>
-                                        <li>北京市</li>
-                                    </ul>
+                                <div class="selector-item storey city">
+                                    <a href="javascript:;" class="selector-name reveal">北京市</a>
+                                    <input type="hidden" name="userCityId" class="input-price val-error" value="110100"
+                                        data-required="userCityId">
+                                    <div class="selector-list listing hide">
+                                        <ul>
+                                            <li>北京市</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="selector-item storey district">
-                                <a href="javascript:;" class="selector-name reveal">海淀区</a>
-                                <input type="hidden" name="userDistrictId" class="input-price val-error" value="110108"
-                                    data-required="userDistrictId">
-                                <div class="selector-list listing hide">
-                                    <ul>
-                                        <li>东城区</li>
-                                        <li>西城区</li>
-                                    </ul>
+                                <div class="selector-item storey district">
+                                    <a href="javascript:;" class="selector-name reveal">海淀区</a>
+                                    <input type="hidden" name="userDistrictId" class="input-price val-error"
+                                        value="110108" data-required="userDistrictId">
+                                    <div class="selector-list listing hide">
+                                        <ul>
+                                            <li>东城区</li>
+                                            <li>西城区</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class=“col-lg-10”>
-                        <label style="margin-top: 10px;margin-bottom: 5px">终点</label>
-                        <div class="city-picker-selector" id="city-picker-selector-end">
-                            <div class="selector-item storey province">
-                                <a href="javascript:;" class="selector-name reveal">北京市</a>
-                                <input type="hidden" name="userProvinceId" class="input-price val-error" value="110000"
-                                    data-required="userProvinceId">
-                                <div class="selector-list listing hide">
-                                    <ul>
-                                        <li>北京市</li>
-                                        <li>天津市</li>
-                                        <li>河北省</li>
-                                        <li>山西省</li>
-                                    </ul>
+                        <div class=“col-lg-10”>
+                            <label style="margin-top: 10px;margin-bottom: 5px">终点</label>
+                            <div class="city-picker-selector" id="city-picker-selector-end">
+                                <div class="selector-item storey province">
+                                    <a href="javascript:;" class="selector-name reveal">北京市</a>
+                                    <input type="hidden" name="userProvinceId" class="input-price val-error"
+                                        value="110000" data-required="userProvinceId">
+                                    <div class="selector-list listing hide">
+                                        <ul>
+                                            <li>北京市</li>
+                                            <li>天津市</li>
+                                            <li>河北省</li>
+                                            <li>山西省</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="selector-item storey city">
-                                <a href="javascript:;" class="selector-name reveal">北京市</a>
-                                <input type="hidden" name="userCityId" class="input-price val-error" value="110100"
-                                    data-required="userCityId">
-                                <div class="selector-list listing hide">
-                                    <ul>
-                                        <li>北京市</li>
-                                    </ul>
+                                <div class="selector-item storey city">
+                                    <a href="javascript:;" class="selector-name reveal">北京市</a>
+                                    <input type="hidden" name="userCityId" class="input-price val-error" value="110100"
+                                        data-required="userCityId">
+                                    <div class="selector-list listing hide">
+                                        <ul>
+                                            <li>北京市</li>
+                                        </ul>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="selector-item storey district">
-                                <a href="javascript:;" class="selector-name reveal">海淀区</a>
-                                <input type="hidden" name="userDistrictId" class="input-price val-error" value="110108"
-                                    data-required="userDistrictId">
-                                <div class="selector-list listing hide">
-                                    <ul>
-                                        <li>东城区</li>
-                                        <li>西城区</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3" style="display: inline-block">
-                        <label style="margin-top: 10px;margin-bottom: 5px">运输距离</label>
-                        <input type="text" class="form-control" placeholder="请输入运输路程(Km)">
-                    </div>
-                    <div class="col-lg-3" style="display: inline-block">
-                        <label style="margin-top: 10px;margin-bottom: 5px">运输时间</label>
-                        <input type="text" class="form-control" placeholder="运输时间(h)">
-                    </div>
-                    <div class="col-lg-4" style="display: inline-block">
-                        <label style="margin-top: 10px;margin-bottom: 5px">运输工具</label>
-                        <select class="form-select" id="specificSizeSelect">
-                            <option selected>请选择运输工具</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-5" style="display: inline-block">
-                        <label style="margin-top: 10px;margin-bottom: 5px">保鲜时间</label>
-                        <input type="text" class="form-control" placeholder="请输入保鲜时间">
-                    </div>
-                    <div class="col-lg-5" style="display: inline-block">
-                        <label style="margin-top: 10px;margin-bottom: 5px">销售方式</label>
-                        <select class="form-select" id="specificSizeSelect">
-                            <option selected>请选择销售方式</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div>
-                    <h1>加工</h1>
-                    <div class="col-lg-5" style="display: inline-block">
-                        <label style="margin-top: 10px;margin-bottom: 5px">加工方式</label>
-                        <input type="text" class="form-control" placeholder="请输入加工方式">
-                    </div>
-                    <div class="col-lg-5" style="display: inline-block">
-                        <label style="margin-top: 10px;margin-bottom: 5px">上架时间</label>
-                        <input type="text" class="form-control" placeholder="请输入加工时间">
-                    </div>
-                    <div class=“col-lg-10”>
-                        <label style="margin-top: 10px;margin-bottom: 5px">上架区域</label>
-                        <div class="city-picker-selector" id="city-picker-selector-area">
-                            <div class="selector-item storey province">
-                                <a href="javascript:;" class="selector-name reveal">北京市</a>
-                                <input type="hidden" name="userProvinceId" class="input-price val-error" value="110000"
-                                    data-required="userProvinceId">
-                                <div class="selector-list listing hide">
-                                    <ul>
-                                        <li>北京市</li>
-                                        <li>天津市</li>
-                                        <li>河北省</li>
-                                        <li>山西省</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="selector-item storey city">
-                                <a href="javascript:;" class="selector-name reveal">北京市</a>
-                                <input type="hidden" name="userCityId" class="input-price val-error" value="110100"
-                                    data-required="userCityId">
-                                <div class="selector-list listing hide">
-                                    <ul>
-                                        <li>北京市</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="selector-item storey district">
-                                <a href="javascript:;" class="selector-name reveal">海淀区</a>
-                                <input type="hidden" name="userDistrictId" class="input-price val-error" value="110108"
-                                    data-required="userDistrictId">
-                                <div class="selector-list listing hide">
-                                    <ul>
-                                        <li>东城区</li>
-                                        <li>西城区</li>
-                                    </ul>
+                                <div class="selector-item storey district">
+                                    <a href="javascript:;" class="selector-name reveal">海淀区</a>
+                                    <input type="hidden" name="userDistrictId" class="input-price val-error"
+                                        value="110108" data-required="userDistrictId">
+                                    <div class="selector-list listing hide">
+                                        <ul>
+                                            <li>东城区</li>
+                                            <li>西城区</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-3" style="display: inline-block">
+                            <label style="margin-top: 10px;margin-bottom: 5px">运输距离</label>
+                            <input type="text" class="form-control" placeholder="请输入运输路程(Km)">
+                        </div>
+                        <div class="col-lg-3" style="display: inline-block">
+                            <label style="margin-top: 10px;margin-bottom: 5px">运输时间</label>
+                            <input type="text" class="form-control" placeholder="运输时间(h)">
+                        </div>
+                        <div class="col-lg-4" style="display: inline-block">
+                            <label style="margin-top: 10px;margin-bottom: 5px">运输工具</label>
+                            <select class="form-select" id="specificSizeSelect">
+                                <option selected>请选择运输工具</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-5" style="display: inline-block">
+                            <label style="margin-top: 10px;margin-bottom: 5px">保鲜时间</label>
+                            <input type="text" class="form-control" placeholder="请输入保鲜时间">
+                        </div>
+                        <div class="col-lg-5" style="display: inline-block">
+                            <label style="margin-top: 10px;margin-bottom: 5px">销售方式</label>
+                            <select class="form-select" id="specificSizeSelect">
+                                <option selected>请选择销售方式</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <h1>加工</h1>
+                        <div class="col-lg-5" style="display: inline-block">
+                            <label style="margin-top: 10px;margin-bottom: 5px">加工方式</label>
+                            <input type="text" class="form-control" placeholder="请输入加工方式">
+                        </div>
+                        <div class="col-lg-5" style="display: inline-block">
+                            <label style="margin-top: 10px;margin-bottom: 5px">上架时间</label>
+                            <input type="text" class="form-control" placeholder="请输入加工时间">
+                        </div>
+                        <div class=“col-lg-10”>
+                            <label style="margin-top: 10px;margin-bottom: 5px">上架区域</label>
+                            <div class="city-picker-selector" id="city-picker-selector-area">
+                                <div class="selector-item storey province">
+                                    <a href="javascript:;" class="selector-name reveal">北京市</a>
+                                    <input type="hidden" name="userProvinceId" class="input-price val-error"
+                                        value="110000" data-required="userProvinceId">
+                                    <div class="selector-list listing hide">
+                                        <ul>
+                                            <li>北京市</li>
+                                            <li>天津市</li>
+                                            <li>河北省</li>
+                                            <li>山西省</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="selector-item storey city">
+                                    <a href="javascript:;" class="selector-name reveal">北京市</a>
+                                    <input type="hidden" name="userCityId" class="input-price val-error" value="110100"
+                                        data-required="userCityId">
+                                    <div class="selector-list listing hide">
+                                        <ul>
+                                            <li>北京市</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="selector-item storey district">
+                                    <a href="javascript:;" class="selector-name reveal">海淀区</a>
+                                    <input type="hidden" name="userDistrictId" class="input-price val-error"
+                                        value="110108" data-required="userDistrictId">
+                                    <div class="selector-list listing hide">
+                                        <ul>
+                                            <li>东城区</li>
+                                            <li>西城区</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-10">
+                            <label style="margin-top: 10px;margin-bottom: 5px">菜品名</label>
+                            <input type="text" class="form-control" placeholder="请输入对应菜品">
+                        </div>
                     </div>
-                    <div class="col-lg-10">
-                        <label style="margin-top: 10px;margin-bottom: 5px">菜品名</label>
-                        <input type="text" class="form-control" placeholder="请输入对应菜品">
-                    </div>
-                </div>
-                <input type="button" class="btn" value="提交" onclick="getInfo()">
-            </form>
-        </div>
+                    <input type="button" class="btn" value="提交" onclick="getInfo()">
+                </form>
+            </div>
         </section>
         <!--End Contact Page-->
 
@@ -677,16 +677,101 @@
                 "inputs": [
                     {
                         "internalType": "string",
-                        "name": "_name",
+                        "name": "commodityCode",
                         "type": "string"
                     },
                     {
-                        "internalType": "uint256",
-                        "name": "_favoriteNumber",
-                        "type": "uint256"
+                        "internalType": "string",
+                        "name": "category",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "subject",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "class",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "growthEnvironment",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "growthCycle",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "growthManagement",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "harvestTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "harvestMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "storageMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportDistance",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportTool",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportStartTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportEndTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "preservationTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "salesMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "processingMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "shelfTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "dishName",
+                        "type": "string"
                     }
                 ],
-                "name": "addPerson",
+                "name": "addPlanting",
                 "outputs": [],
                 "stateMutability": "nonpayable",
                 "type": "function"
@@ -699,12 +784,122 @@
                         "type": "string"
                     }
                 ],
-                "name": "nameToFavoriteNumber",
+                "name": "foodInfos",
                 "outputs": [
                     {
-                        "internalType": "uint256",
-                        "name": "",
-                        "type": "uint256"
+                        "internalType": "string",
+                        "name": "commodityCode",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "category",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "subject",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "class",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "region",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "growthEnvironment",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "growthCycle",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "growthManagement",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "harvestTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "harvestMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "storageMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "startPoint",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "endPoint",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportDistance",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportTool",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportStartTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportEndTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "preservationTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "salesMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "processingMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "shelfTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "shelfArea",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "dishName",
+                        "type": "string"
                     }
                 ],
                 "stateMutability": "view",
@@ -713,56 +908,142 @@
             {
                 "inputs": [
                     {
-                        "internalType": "uint256",
-                        "name": "",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "people",
-                "outputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "favoriteNumber",
-                        "type": "uint256"
-                    },
-                    {
                         "internalType": "string",
-                        "name": "name",
+                        "name": "commodityCode",
                         "type": "string"
                     }
                 ],
-                "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [],
                 "name": "retrieve",
                 "outputs": [
                     {
-                        "internalType": "uint256",
+                        "components": [
+                            {
+                                "internalType": "string",
+                                "name": "commodityCode",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "category",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "subject",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "class",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "region",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "growthEnvironment",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "growthCycle",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "growthManagement",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "harvestTime",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "harvestMethod",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "storageMethod",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "startPoint",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "endPoint",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "transportDistance",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "transportTool",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "transportStartTime",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "transportEndTime",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "preservationTime",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "salesMethod",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "processingMethod",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "shelfTime",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "shelfArea",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "dishName",
+                                "type": "string"
+                            }
+                        ],
+                        "internalType": "struct FoodTraceability.FoodInfo",
                         "name": "",
-                        "type": "uint256"
+                        "type": "tuple"
                     }
                 ],
                 "stateMutability": "view",
-                "type": "function"
-            },
-            {
-                "inputs": [
-                    {
-                        "internalType": "uint256",
-                        "name": "_favoriteNumber",
-                        "type": "uint256"
-                    }
-                ],
-                "name": "store",
-                "outputs": [],
-                "stateMutability": "nonpayable",
                 "type": "function"
             }
         ];
 
-        const address = '0x82C07955eD5f47F31B946DC506EF5885a17dD3Cc';
+        const address = '0xF2b57c919D4bCd23698257c2d2A6ACF3e1fE980b';
         const contractInstance = new web3.eth.Contract(abi, address);
 
         // to test if initialized web3 works fine
@@ -787,7 +1068,7 @@
 
 
 
-        let account = '0x82C07955eD5f47F31B946DC506EF5885a17dD3Cc';
+        let account = '0xF2b57c919D4bCd23698257c2d2A6ACF3e1fE980b';
         let nonce = web3.eth.getTransactionCount();
         let privateKey = 'c56286692110e5321e4b060d32d55b8516ae21562e222425926b3613f9d242b3'; // Replace with your private key
 
@@ -860,7 +1141,7 @@
 
 
 
-        /*contractInstance.methods.store(123).send({ from: '0x82C07955eD5f47F31B946DC506EF5885a17dD3Cc' }).then(function (result) {
+        /*contractInstance.methods.store(123).send({ from: '0xF2b57c919D4bCd23698257c2d2A6ACF3e1fE980b' }).then(function (result) {
             console.log("***store(123)***:");
             console.log(result);
         });*/
