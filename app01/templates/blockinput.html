@@ -455,7 +455,8 @@
                             <input type="text" class="form-control" id="dishName" placeholder="请输入对应菜品">
                         </div>
                     </div>
-                    <input type="button" class="btn" value="提交" onclick="getInfo(); redirectToBlockVisual();">
+                    <input type="button" class="btn" value="提交" onclick="getInfo();">
+                    <!--<input type="button" class="btn" value="提交" onclick="getInfo(); redirectToBlockVisual();">-->
 
                 </form>
             </div>
@@ -628,7 +629,7 @@
         <!-- /.mobile-nav__content -->
     </div>
     <!-- /.mobile-nav__wrapper -->
-
+    <div id="nValue">41</div>
 
     <div class="search-popup">
         <div class="search-popup__overlay search-toggler"></div>
@@ -646,6 +647,7 @@
     </div>
     <!-- /.search-popup -->
 
+
     <a href="#" data-target="html" class="scroll-to-target scroll-to-top">
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="70" fill="currentColor" class="bi bi-arrow-up-circle"
             viewBox="0 0 16 16">
@@ -660,6 +662,7 @@
         function redirectToBlockVisual() {
             window.location.href = '../blockvisual/';
         }
+
 
 
 
@@ -1194,6 +1197,8 @@
 
 
         function getInfo() {
+          
+            console.log(nonceValue);
             // Get the number from the input field
             // Retrieve values from the form
             var commodityCode = $("#commodityCode").val();
@@ -1270,7 +1275,8 @@
                 dishName
             ).encodeABI();
             let account = '0x877D1E76FAD0EA72263583C147CE8f92f4BF27F5';
-            let nonce = web3.eth.getTransactionCount();
+            var nonce1 = nonceValue;
+            console.log(nonce1);
             let privateKey = 'c56286692110e5321e4b060d32d55b8516ae21562e222425926b3613f9d242b3'; // Replace with your private key
 
             if (!account) {
@@ -1286,7 +1292,7 @@
                         data: transaction,
                         gas: 2000000,
                         gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
-                        nonce: 39
+                        nonce: nonce1
                     };
 
                     return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
