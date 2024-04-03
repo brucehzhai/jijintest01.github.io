@@ -38,8 +38,8 @@ urlpatterns = [
     path('news/', views.news),
     path('about/', views.about),
     path('error/', views.error),
-    path('testtt/', views.testtt),
-    path('testtt_copy/', views.testtt_copy),
+    path('blockinput/', views.blockinput),
+    path('blockvisual/', views.blockvisual),
 
 
 ]
