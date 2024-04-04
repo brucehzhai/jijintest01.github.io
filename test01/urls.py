@@ -40,6 +40,7 @@ urlpatterns = [
     path('error/', views.error),
     path('blockinput/', views.blockinput),
     path('blockvisual/', views.blockvisual),
+    path('trace_copy/', views.trace_copy),
 
 
 ]

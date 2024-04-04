@@ -1,3 +1,5 @@
+<html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -171,23 +173,26 @@
         </div>-->
         <!--Start Contact Page-->
         <section class="contact-page">
-
+            <!--<p id='demo'></p>-->
 
             <div class="container">
-                <form method="post" action="">
+                <form method="post" action="/blockinput/">
+                    {% csrf_token %}
                     <div class="form-control">
                         <h1>种植</h1>
                         <div class="col-lg-5" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">商品码</label>
-                            <input type="text" id="commodityCode" class="form-control" placeholder="请输入商品码">
+                            <input type="text" id="commodityCode" class="form-control" placeholder="请输入商品码"
+                                name="commoditycode">
                         </div>
                         <div class="col-lg-5" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">品类</label>
                             <select class="form-select" id="category">
                                 <option selected>请选择对应品类</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option value="1">茶树菇</option>
+                                <option value="2">牛肝菌</option>
+                                <option value="3">松茸</option>
+                                <option value="4">姬松茸</option>
                             </select>
                         </div>
                         <div class="col-lg-5" style="display: inline-block;margin-top: 10px">
@@ -274,18 +279,19 @@
                             <label style="margin-top: 10px;margin-bottom: 5px">采摘</label>
                             <select class="form-select" id="harvestMethod">
                                 <option selected>勾选采摘方式</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option value="1">手工采摘</option>
+                                <option value="2">机械采摘</option>
+                                <option value="3">野外采集</option>
                             </select>
                         </div>
                         <div class="col-lg-4" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">存储方式</label>
                             <select class="form-select" id="storageMethod">
                                 <option selected>勾选存储方式</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option value="1">低温冷藏</option>
+                                <option value="2">干燥保存</option>
+                                <option value="3">真空包装</option>
+                                <option value="4">新鲜保鲜</option>
                             </select>
                         </div>
                         <div class=“col-lg-10”>
@@ -374,9 +380,10 @@
                             <label style="margin-top: 10px;margin-bottom: 5px">运输工具</label>
                             <select class="form-select" id="transportTool">
                                 <option selected>请选择运输工具</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option value="1">冷藏车</option>
+                                <option value="2">普通车辆</option>
+                                <option value="3">空运</option>
+
                             </select>
                         </div>
                         <div class="col-lg-5" style="display: inline-block">
@@ -395,11 +402,12 @@
                             <label style="margin-top: 10px;margin-bottom: 5px">销售方式</label>
                             <select class="form-select" id="salesMethod">
                                 <option selected>请选择销售方式</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option value="1">线下销售</option>
+                                <option value="2">电商平台</option>
+                                <option value="3">农贸市场</option>
                             </select>
                         </div>
+
                         <h1>加工</h1>
                         <div class="col-lg-5" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">加工方式</label>
@@ -452,9 +460,52 @@
                             <label style="margin-top: 10px;margin-bottom: 5px">菜品名</label>
                             <input type="text" class="form-control" id="dishName" placeholder="请输入对应菜品">
                         </div>
+
+
                     </div>
-                    <input type="button" class="btn" value="提交" onclick="getInfo();">
-                    <!--<input type="button" class="btn" value="提交" onclick="getInfo(); redirectToBlockVisual();">-->
+                    <!--<style>
+                        <style>.container {
+                            text-align: left;
+                        }
+
+                        .bttn {
+                            width: 49%;
+                            box-sizing: border-box;
+                            display: inline-block;
+                            padding: 20px 0;
+                            /* Adjust padding to center text vertically */
+                            margin: 0;
+                            border: 2px solid #7a5757;
+                            /* Add a border */
+                            font-size: 20px;
+                            /* Increase font size */
+                            text-align: center;
+                            /* Center text horizontally */
+                        }
+                    </style>-->
+
+                    <style>
+                        .btn {
+                            margin-top: 20px;
+                            margin-bottom: 20px;
+                            display: inline-block;
+                            /* Add this line */
+                            width: 49%;
+                            /* Adjust this value */
+                        }
+                    </style>
+                    <div class="container">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="getInfo()">提交</button>
+                        <button type="button" class="btn btn-secondary btn-lg btn-block"
+                            onclick="redirectToBlockVisual();">跳转</button>
+
+                        <!--<button type="button" class="btn btn-lg btn-primary" disabled>Primary button</button>
+                        <button type="button" class="btn btn-light">Light</button>
+                        <input type="button" class="bttn" value="提交" onclick="getInfo()">
+                        <input type="button" class="bttn" value="跳转" onclick="redirectToBlockVisual();">-->
+                    </div>
+
+
 
                 </form>
             </div>
@@ -627,7 +678,7 @@
         <!-- /.mobile-nav__content -->
     </div>
     <!-- /.mobile-nav__wrapper -->
-    <div id="nValue">41</div>
+
 
     <div class="search-popup">
         <div class="search-popup__overlay search-toggler"></div>
@@ -645,7 +696,6 @@
     </div>
     <!-- /.search-popup -->
 
-
     <a href="#" data-target="html" class="scroll-to-target scroll-to-top">
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="70" fill="currentColor" class="bi bi-arrow-up-circle"
             viewBox="0 0 16 16">
@@ -656,15 +706,12 @@
 
     <script src="../static/js/web3.min.js"></script>
     <script src="../static/js/jquery.min.js"></script>
+
     <script>
+
         function redirectToBlockVisual() {
             window.location.href = '../blockvisual/';
         }
-
-
-
-
-
 
 
 
@@ -1195,8 +1242,6 @@
 
 
         function getInfo() {
-
-
             // Get the number from the input field
             // Retrieve values from the form
             var commodityCode = $("#commodityCode").val();
@@ -1273,9 +1318,8 @@
                 dishName
             ).encodeABI();
             let account = '0x877D1E76FAD0EA72263583C147CE8f92f4BF27F5';
-            let nonce = web3.eth.getTransactionCount(account);
+            let nonce = web3.eth.getTransactionCount();
             let privateKey = 'c56286692110e5321e4b060d32d55b8516ae21562e222425926b3613f9d242b3'; // Replace with your private key
-
 
             if (!account) {
                 console.error('Account is not defined');
@@ -1289,8 +1333,8 @@
                         to: contractInstance.options.address,
                         data: transaction,
                         gas: 2000000,
-                        gasPrice: web3.utils.toWei('100', 'gwei'), // 20 Gwei
-                        nonce: 52
+                        gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
+                        nonce: 46
                     };
 
                     return web3.eth.accounts.signTransaction(rawTransaction, privateKey);

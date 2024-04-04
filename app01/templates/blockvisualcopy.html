@@ -1,3 +1,5 @@
+<html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,6 +13,7 @@
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
+
     <link
         href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Shadows+Into+Light&display=swap"
         rel="stylesheet">
@@ -39,6 +42,19 @@
     <link rel="stylesheet" href="../static/css/agriox-responsive.css" />
     <link rel="stylesheet" href="../static/css/city-picker.css" />
     <link rel="stylesheet" href="../static/css/bootstrap-datetimepicker.min.css">
+
+
+
+
+    <link rel="stylesheet" href="../static/stylesheets/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/stylesheets/lib/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../static/stylesheets/lib/bootstrap-horizon.css">
+    <link rel="stylesheet" href="../static/stylesheets/lib/ladda-themeless.min.css">
+    <link rel="stylesheet" href="../static/stylesheets/lib/ie10-viewport-bug-workaround.css">
+    <link rel="stylesheet" href="../static/stylesheets/blockchain.css">
+
+
+
 
 
 </head>
@@ -166,299 +182,8 @@
 
         <!--Page Header End-->
 
-        <!--<div>
-            <p id='demo'></p>
-        </div>-->
+
         <!--Start Contact Page-->
-        <section class="contact-page">
-
-
-            <div class="container">
-                <form method="post" action="">
-                    <div class="form-control">
-                        <h1>种植</h1>
-                        <div class="col-lg-5" style="display: inline-block">
-                            <label style="margin-top: 10px;margin-bottom: 5px">商品码</label>
-                            <input type="text" id="commodityCode" class="form-control" placeholder="请输入商品码">
-                        </div>
-                        <div class="col-lg-5" style="display: inline-block">
-                            <label style="margin-top: 10px;margin-bottom: 5px">品类</label>
-                            <select class="form-select" id="category">
-                                <option selected>请选择对应品类</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-5" style="display: inline-block;margin-top: 10px">
-                            <label style="margin-top: 10px;margin-bottom: 5px">所属科目</label>
-                            <input type="text" id="subject" class="form-control" placeholder="请输入科目">
-                        </div>
-                        <div class="col-lg-5" style="display: inline-block;margin-top: 10px">
-                            <label style="margin-top: 10px;margin-bottom: 5px">所属门类</label>
-                            <input type="text" id="classmen" class="form-control" placeholder="请输入门类">
-                        </div>
-                        <div class=“col-lg-12”>
-                            <label style="margin-top: 10px;margin-bottom: 5px">所属地区</label>
-                            <div class="city-picker-selector" id="city-picker-selector">
-                                <div class="selector-item storey province">
-                                    <a href="javascript:;" class="selector-name reveal">北京市</a>
-                                    <input type="hidden" name="userProvinceId" class="input-price val-error"
-                                        value="110000" data-required="userProvinceId">
-                                    <div class="selector-list listing hide">
-                                        <ul>
-                                            <li>北京市</li>
-                                            <li>天津市</li>
-                                            <li>河北省</li>
-                                            <li>山西省</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="selector-item storey city">
-                                    <a href="javascript:;" class="selector-name reveal">北京市</a>
-                                    <input type="hidden" name="userCityId" class="input-price val-error" value="110100"
-                                        data-required="userCityId">
-                                    <div class="selector-list listing hide">
-                                        <ul>
-                                            <li>北京市</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="selector-item storey district">
-                                    <a href="javascript:;" class="selector-name reveal">海淀区</a>
-                                    <input type="hidden" name="userDistrictId" class="input-price val-error"
-                                        value="110108" data-required="userDistrictId">
-                                    <div class="selector-list listing hide">
-                                        <ul>
-                                            <li>东城区</li>
-                                            <li>西城区</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-10">
-                            <label style="margin-top: 10px;margin-bottom: 5px">培育环境</label>
-                            <input type="text" id="growthEnvironment" class="form-control" placeholder="请描述其生长环境">
-                        </div>
-                        <div class="col-lg-10">
-                            <label style="margin-top: 10px;margin-bottom: 5px">生长周期</label>
-                            <select class="form-select" id="growthCycle">
-                                <option value="3">2~3周</option>
-                                <option value="4">3~4周</option>
-                                <option value="5">4~5周</option>
-                                <option value="6">5~6周</option>
-                                <option value="7">6~7周</option>
-                                <option value="8">7~8周</option>
-                                <option value="9">8~9周</option>
-                                <option value="10">9~10周</option>
-                                <option value="11">10~11周</option>
-                                <option value="12">11~12周</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-10">
-                            <label style="margin-top: 10px;margin-bottom: 5px">生长管理</label>
-                            <input type="text" id="growthManagement" class="form-control" placeholder="请输入生长管理方式">
-                        </div>
-
-
-
-
-                        <h1>运输</h1>
-                        <div class="col-lg-3" style="display: inline-block">
-                            <label style="margin-top: 10px;margin-bottom: 5px">采摘时间</label>
-                            <input type="text" class="form-control datetimepicker" id="cztime" placeholder="请输入采摘时间">
-                        </div>
-                        <div class="col-lg-3" style="display: inline-block">
-                            <label style="margin-top: 10px;margin-bottom: 5px">采摘</label>
-                            <select class="form-select" id="harvestMethod">
-                                <option selected>勾选采摘方式</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-4" style="display: inline-block">
-                            <label style="margin-top: 10px;margin-bottom: 5px">存储方式</label>
-                            <select class="form-select" id="storageMethod">
-                                <option selected>勾选存储方式</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                        <div class=“col-lg-10”>
-                            <label style="margin-top: 10px;margin-bottom: 5px">起点</label>
-                            <div class="city-picker-selector" id="city-picker-selector-start">
-                                <div class="selector-item storey province">
-                                    <a href="javascript:;" class="selector-name reveal">北京市</a>
-                                    <input type="hidden" name="userProvinceId" class="input-price val-error"
-                                        value="110000" data-required="userProvinceId">
-                                    <div class="selector-list listing hide">
-                                        <ul>
-                                            <li>北京市</li>
-                                            <li>天津市</li>
-                                            <li>河北省</li>
-                                            <li>山西省</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="selector-item storey city">
-                                    <a href="javascript:;" class="selector-name reveal">北京市</a>
-                                    <input type="hidden" name="userCityId" class="input-price val-error" value="110100"
-                                        data-required="userCityId">
-                                    <div class="selector-list listing hide">
-                                        <ul>
-                                            <li>北京市</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="selector-item storey district">
-                                    <a href="javascript:;" class="selector-name reveal">海淀区</a>
-                                    <input type="hidden" name="userDistrictId" class="input-price val-error"
-                                        value="110108" data-required="userDistrictId">
-                                    <div class="selector-list listing hide">
-                                        <ul>
-                                            <li>东城区</li>
-                                            <li>西城区</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=“col-lg-10”>
-                            <label style="margin-top: 10px;margin-bottom: 5px">终点</label>
-                            <div class="city-picker-selector" id="city-picker-selector-end">
-                                <div class="selector-item storey province">
-                                    <a href="javascript:;" class="selector-name reveal">北京市</a>
-                                    <input type="hidden" name="userProvinceId" class="input-price val-error"
-                                        value="110000" data-required="userProvinceId">
-                                    <div class="selector-list listing hide">
-                                        <ul>
-                                            <li>北京市</li>
-                                            <li>天津市</li>
-                                            <li>河北省</li>
-                                            <li>山西省</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="selector-item storey city">
-                                    <a href="javascript:;" class="selector-name reveal">北京市</a>
-                                    <input type="text" name="userCityId" id="hidden" class="input-price val-error"
-                                        value="110100" data-required="userCityId">
-                                    <div class="selector-list listing hide">
-                                        <ul>
-                                            <li>北京市</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="selector-item storey district">
-                                    <a href="javascript:;" class="selector-name reveal">海淀区</a>
-                                    <input type="hidden" name="userDistrictId" class="input-price val-error"
-                                        value="110108" data-required="userDistrictId">
-                                    <div class="selector-list listing hide">
-                                        <ul>
-                                            <li>东城区</li>
-                                            <li>西城区</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5" style="display: inline-block">
-                            <label style="margin-top: 10px;margin-bottom: 5px">运输距离</label>
-                            <input type="text" id="transportDistance" class="form-control" placeholder="请输入运输路程(Km)">
-                        </div>
-                        <div class="col-lg-5" style="display: inline-block">
-                            <label style="margin-top: 10px;margin-bottom: 5px">运输工具</label>
-                            <select class="form-select" id="transportTool">
-                                <option selected>请选择运输工具</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-5" style="display: inline-block">
-                            <label style="margin-top: 10px;margin-bottom: 5px">开始时间</label>
-                            <input type="text" id="kstime" class="form-control" placeholder="请输入运输开始时间">
-                        </div>
-                        <div class="col-lg-5" style="display: inline-block">
-                            <label style="margin-top: 10px;margin-bottom: 5px">结束时间</label>
-                            <input type="text" id="jstime" class="form-control" placeholder="请输入运输结束时间">
-                        </div>
-                        <div class="col-lg-5" style="display: inline-block">
-                            <label style="margin-top: 10px;margin-bottom: 5px">保鲜时间</label>
-                            <input type="text" id="bxtime" class="form-control" placeholder="请输入保鲜时间">
-                        </div>
-                        <div class="col-lg-5" style="display: inline-block">
-                            <label style="margin-top: 10px;margin-bottom: 5px">销售方式</label>
-                            <select class="form-select" id="salesMethod">
-                                <option selected>请选择销售方式</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                        </div>
-                        <h1>加工</h1>
-                        <div class="col-lg-5" style="display: inline-block">
-                            <label style="margin-top: 10px;margin-bottom: 5px">加工方式</label>
-                            <input type="text" class="form-control" id="processingMethod" placeholder="请输入加工方式">
-                        </div>
-                        <div class="col-lg-5" style="display: inline-block">
-                            <label style="margin-top: 10px;margin-bottom: 5px">上架时间</label>
-                            <input type="text" class="form-control" id="sjtime" placeholder="请输入上架时间">
-                        </div>
-                        <div class=“col-lg-10”>
-                            <label style="margin-top: 10px;margin-bottom: 5px">上架区域</label>
-                            <div class="city-picker-selector" id="city-picker-selector-area">
-                                <div class="selector-item storey province">
-                                    <a href="javascript:;" class="selector-name reveal">北京市</a>
-                                    <input type="hidden" name="userProvinceId" class="input-price val-error"
-                                        value="110000" data-required="userProvinceId">
-                                    <div class="selector-list listing hide">
-                                        <ul>
-                                            <li>北京市</li>
-                                            <li>天津市</li>
-                                            <li>河北省</li>
-                                            <li>山西省</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="selector-item storey city">
-                                    <a href="javascript:;" class="selector-name reveal">北京市</a>
-                                    <input type="hidden" name="userCityId" class="input-price val-error" value="110100"
-                                        data-required="userCityId">
-                                    <div class="selector-list listing hide">
-                                        <ul>
-                                            <li>北京市</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="selector-item storey district">
-                                    <a href="javascript:;" class="selector-name reveal">海淀区</a>
-                                    <input type="hidden" name="userDistrictId" class="input-price val-error"
-                                        value="110108" data-required="userDistrictId">
-                                    <div class="selector-list listing hide">
-                                        <ul>
-                                            <li>东城区</li>
-                                            <li>西城区</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-10">
-                            <label style="margin-top: 10px;margin-bottom: 5px">菜品名</label>
-                            <input type="text" class="form-control" id="dishName" placeholder="请输入对应菜品">
-                        </div>
-                    </div>
-                    <input type="button" class="btn" value="提交" onclick="getInfo();">
-                    <!--<input type="button" class="btn" value="提交" onclick="getInfo(); redirectToBlockVisual();">-->
-
-                </form>
-            </div>
-        </section>
         <!--End Contact Page-->
 
 
@@ -470,6 +195,168 @@
         <!--Contact Page Google Map Start-->
 
         <!--Contact Page Google Map End-->
+        <div class="container-fluid">
+            <h1>区块链</h1>
+            <div class="row row-horizon">
+                <div class="col-xl-4">
+                    <div class="well well-success" id="block1chain1well" >
+                        <form class="form-horizontal ">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="block1chain1number">区块:</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">#</span>
+                                        <input class="form-control" id="block1chain1number" type="number" value="1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="block1chain1nonce">随机数:</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="block1chain1nonce" type="text" value="11316">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="block1chain1data">数据:</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" id="block1chain1data" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group" id="state">
+                                <label class="col-sm-2 control-label" for="block1chain1previous">前指针:</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="block1chain1previous" type="text"
+                                        value="0000000000000000000000000000000000000000000000000000000000000000"
+                                        disabled>
+                                </div>
+                            </div>
+                            <div class="form-group" id="state">
+                                <label class="col-sm-2 control-label" for="block1chain1hash">哈希:</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="block1chain1hash" type="text" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2">
+                                    <i class="icon-spinner icon-spin icon-large"></i>
+                                </div>
+                                <div class="col-sm-10">
+                                    <button type="button" class="btn btn-primary ladda-button"
+                                        id="block1chain1mineButton" data-style="expand-right">
+                                        <span class="ladda-label">挖矿</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="well well-success" id="block2chain1well">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="block2chain1number">区块:</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">#</span>
+                                        <input class="form-control" id="block2chain1number" type="number" value="2">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="block2chain1nonce">随机数:</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="block2chain1nonce" type="text" value="35230">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="block2chain1data">数据:</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" id="block2chain1data" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group" id="state">
+                                <label class="col-sm-2 control-label" for="block2chain1previous">前指针:</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="block2chain1previous" type="text"
+                                        value="000015783b764259d382017d91a36d206d0600e2cbb3567748f46a33fe9297cf"
+                                        disabled>
+                                </div>
+                            </div>
+                            <div class="form-group" id="state">
+                                <label class="col-sm-2 control-label" for="block2chain1hash">哈希:</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="block2chain1hash" type="text" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2">
+                                    <i class="icon-spinner icon-spin icon-large"></i>
+                                </div>
+                                <div class="col-sm-10">
+                                    <button type="button" class="btn btn-primary ladda-button"
+                                        id="block2chain1mineButton" data-style="expand-right">
+                                        <span class="ladda-label">挖矿</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="well well-success" id="block3chain1well">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="block3chain1number">区块:</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">#</span>
+                                        <input class="form-control" id="block3chain1number" type="number" value="3">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="block3chain1nonce">随机数:</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="block3chain1nonce" type="text" value="12937">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="block3chain1data">数据:</label>
+                                <div class="col-sm-10">
+                                    <textarea class="form-control" id="block3chain1data" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group" id="state">
+                                <label class="col-sm-2 control-label" for="block3chain1previous">前指针:</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="block3chain1previous" type="text"
+                                        value="000012fa9b916eb9078f8d98a7864e697ae83ed54f5146bd84452cdafd043c19"
+                                        disabled>
+                                </div>
+                            </div>
+                            <div class="form-group" id="state">
+                                <label class="col-sm-2 control-label" for="block3chain1hash">哈希:</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" id="block3chain1hash" type="text" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-2">
+                                    <i class="icon-spinner icon-spin icon-large"></i>
+                                </div>
+                                <div class="col-sm-10">
+                                     <button type="button" class="btn btn-primary ladda-button"
+                                        id="block3chain1mineButton" data-style="expand-right">
+                                        <span class="ladda-label">挖矿</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
 
         <!--Start Footer One-->
@@ -627,7 +514,7 @@
         <!-- /.mobile-nav__content -->
     </div>
     <!-- /.mobile-nav__wrapper -->
-    <div id="nValue">41</div>
+
 
     <div class="search-popup">
         <div class="search-popup__overlay search-toggler"></div>
@@ -645,7 +532,6 @@
     </div>
     <!-- /.search-popup -->
 
-
     <a href="#" data-target="html" class="scroll-to-target scroll-to-top">
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="70" fill="currentColor" class="bi bi-arrow-up-circle"
             viewBox="0 0 16 16">
@@ -657,18 +543,6 @@
     <script src="../static/js/web3.min.js"></script>
     <script src="../static/js/jquery.min.js"></script>
     <script>
-        function redirectToBlockVisual() {
-            window.location.href = '../blockvisual/';
-        }
-
-
-
-
-
-
-
-
-
         const web3 = new Web3(new Web3.providers.HttpProvider("https://sepolia.infura.io/v3/19225cd3ce7a4ad6972475b102adfdb4"));
         const abi = [
             {
@@ -1056,7 +930,7 @@
 
 
 
-        contractInstance.methods.retrieve('111').call().then(function (result) {
+        contractInstance.methods.retrieve('001').call().then(function (result) {
             console.log(result); // Log the result to the console
 
             // Create a mapping from English to Chinese
@@ -1096,7 +970,7 @@
             }
             html += '</ul>';
 
-            $("#demo").html(html); // Display the formatted result
+            $("#block1chain1data").val(html); // Display the formatted result
         });
 
 
@@ -1195,8 +1069,6 @@
 
 
         function getInfo() {
-
-
             // Get the number from the input field
             // Retrieve values from the form
             var commodityCode = $("#commodityCode").val();
@@ -1273,9 +1145,8 @@
                 dishName
             ).encodeABI();
             let account = '0x877D1E76FAD0EA72263583C147CE8f92f4BF27F5';
-            let nonce = web3.eth.getTransactionCount(account);
+            let nonce = web3.eth.getTransactionCount();
             let privateKey = 'c56286692110e5321e4b060d32d55b8516ae21562e222425926b3613f9d242b3'; // Replace with your private key
-
 
             if (!account) {
                 console.error('Account is not defined');
@@ -1289,8 +1160,8 @@
                         to: contractInstance.options.address,
                         data: transaction,
                         gas: 2000000,
-                        gasPrice: web3.utils.toWei('100', 'gwei'), // 20 Gwei
-                        nonce: 52
+                        gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
+                        nonce: 39
                     };
 
                     return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
@@ -1313,8 +1184,8 @@
                 preservationTime,
                 salesMethod
             ).encodeABI();
-    
-    
+
+
             web3.eth.getTransactionCount(account)
                 .then(nonce => {
                     let rawTransaction = {
@@ -1325,21 +1196,21 @@
                         gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
                         nonce: 34
                     };
-    
+
                     return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
                 })
                 .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
                 .then(receipt => console.log('Transaction receipt: ', receipt))
                 .catch(err => console.error('Error sending transaction: ', err));
-    
-    
+
+
         }*/
 
 
 
             /*
             let transaction = contractInstance.methods.store(123).encodeABI();
-    
+
             web3.eth.getTransactionCount(account)
                 .then(nonce => {
                     let rawTransaction = {
@@ -1350,7 +1221,7 @@
                         gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
                         nonce: 21
                     };
-    
+
                     return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
                 })
                 .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
@@ -1366,10 +1237,10 @@
                 data: transaction,
                 gas: 2000000,
                 gasPrice: web3.utils.toWei('20', 'gwei') // 20 Gwei
-    
-    
+
+
             };
-    
+
             web3.eth.accounts.signTransaction(rawTransaction, privateKey)
                 .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
                 .then(receipt => console.log('Transaction receipt: ', receipt))
@@ -1388,6 +1259,45 @@
             })*/
         }
     </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#block1chain1mineButton").click(function () {
+                // Generate a random number for the hash
+                let hash = Math.floor(Math.random() * 1000000);
+
+                // Set the hash value in the input field
+                $("#block1chain1hash").val(hash);
+
+                // Change the color of the well to green
+                //$(this).closest(".well").css("background-color", "#dff0d8");
+            });
+            $("#block2chain1mineButton").click(function () {
+                // Generate a random number for the hash
+                let hash = Math.floor(Math.random() * 1000000);
+
+                // Set the hash value in the input field
+                $("#block2chain1hash").val(hash);
+
+                // Change the color of the well to green
+                $(this).closest(".well").css("background-color", "#dff0d8");
+            });
+            $("#block3chain1mineButton").click(function () {
+                // Generate a random number for the hash
+                let hash = Math.floor(Math.random() * 1000000);
+
+                // Set the hash value in the input field
+                $("#block3chain1hash").val(hash);
+
+                // Change the color of the well to green
+                $(this).closest(".well").css("background-color", "#dff0d8");
+            });
+        });
+
+
+    </script>
+
+
 
 
 
@@ -1414,15 +1324,12 @@
     <script src="../static/plugins/twentytwenty/jquery.event.move.js"></script>
     <script src="../static/plugins/parallax/parallax.min.js"></script>
     <script src="../static/plugins/tilt.js/tilt.jquery.js"></script>
-    <script type="text/javascript" src="../static/picker/citydata.js"></script>
-    <script type="text/javascript" src="../static/picker/cityPicker-1.0.0.js?v=1"></script>
-    <script type="text/javascript" src="../static/picker/bootstrap-datetimepicker.min.js"></script>
-    <script type="text/javascript" src="../static/picker/bootstrap-datetimepicker.zh-CN.js"></script>
-    <script type="text/javascript" src="../static/picker/time-address.js"></script>
+
     <script src="https://ditu.google.cn/maps/api/js?key=AIzaSyATY4Rxc8jNvDpsK8ZetC7JyN4PFVYGCGM"></script>
 
     <!-- template js -->
     <script src="../static/js/agriox.js"></script>
+
 
 
 </body>

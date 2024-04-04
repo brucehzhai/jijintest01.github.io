@@ -9,7 +9,7 @@ body {
   height: 100%;
 }
 
-body > .container {
+body>.container {
   padding: 60px 15px 0;
 }
 
@@ -17,7 +17,7 @@ body > .container {
   margin: 20px 0;
 }
 
-body > .container-fluid {
+body>.container-fluid {
   padding: 60px 15px 0;
 }
 
@@ -28,6 +28,7 @@ body > .container-fluid {
 input {
   font-family: monospace;
 }
+
 
 .well-success {
   background: rgb(238, 238, 238);

@@ -7,7 +7,7 @@ from django.http import HttpResponse, HttpResponseServerError
 from app01 import models
 from django.db.models import Q
 
-from app01.models import userinfo
+from app01.models import userinfo,CommodityCode
 
 # Create your views here.
 def index(request):
@@ -23,14 +23,14 @@ def register(request):
         # 如果是POST请求，则执行以下代码
 
         name = request.POST.get('name')
-        password = request.POST.get('password')
+        pwd = request.POST.get('password')
 
 
         email = request.POST.get('email')
 
         # 在这里进行用户输入的验证逻辑
 
-        userinfo.objects.create(name=name, email=email, password=password)
+        userinfo.objects.create(name=name, email=email, pwd=pwd)
         return redirect('/login/')
 
     else:
@@ -96,6 +96,30 @@ def error(request):
     return render(request,'error.html')
 
 def blockinput(request):
-    return render(request,'blockinput.html')
+    if request.method == 'POST':
+        # 如果是POST请求，则执行以下代码
+        code = request.POST.get('commoditycode')
+        # 在这里进行用户输入的验证逻辑
+        CommodityCode.objects.create(code=code)
+    else:
+        return render(request, 'blockinput.html')
+        # 如果是GET请求，则执行以下代码
+        
+    
+    '''if request.method == 'POST':
+        # 如果是POST请求，则执行以下代码
+        code = request.POST.get('commoditycode')
+        # 在这里进行用户输入的验证逻辑
+        CommodityCode.objects.create(code=code)
+    else:
+        # 如果是GET请求，则执行以下代码
+        pass
+    return render(request, 'blockinput.html')'''
+
+    
+    
+
 def blockvisual(request):
     return render(request,'blockvisual.html')
+def trace_copy(request):
+    return render(request,'trace_copy.html')
