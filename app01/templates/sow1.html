@@ -41,19 +41,19 @@
     <style>
 #absoluteContainer {
   position: relative;
-  width: 500px; /* 根据需要设置容器宽度 */
-  height: 600px; /* 根据需要设置容器高度 */
+  width: 1200px; /* 根据需要设置容器宽度 */
+  height: 800px; /* 根据需要设置容器高度 */
   /* 其他样式... */
 
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
 }
 
   #centerButton {
-    position: absolute;
+    position: relative;
     width: 100px;
     height: 100px;
     background-color: #4CAF50;
@@ -70,8 +70,8 @@
 
   .stage {
     position: absolute;
-    width: 330px; /* 阶段内容的宽度 */
-    height: 280px; /* 阶段内容的高度 */
+    width: 360px; /* 阶段内容的宽度 */
+    height: 350px; /* 阶段内容的高度 */
     justify-content: center;
     align-items: center;
     border: 1px solid #ccc;
@@ -86,27 +86,29 @@
   .stage img {
     max-width: 100%;
     max-height: 100%;
+    display: block;
+    margin: 1em auto;
   }
 
   /* 计算每个阶段的位置，保持与中心按钮50px的距离 */
   #stage1 {
-    top: 100px;
-    left: 400px;
+    top: 30px;
+    left: 70px;
   }
 
   #stage2 {
-    top: 100px;
-    right: 400px;
+    top: 30px;
+    right: 70px;
   }
 
   #stage3 {
-    bottom: -100px;
-    left: 400px;
+    bottom: -30px;
+    left: 70px;
   }
 
   #stage4 {
-    bottom: -100px;
-    right: 400px;
+    bottom: -30px;
+    right: 70px;
   }
 </style>
 
@@ -384,30 +386,31 @@
                 </div>
                 <h2 class="services-details__content-title "><span class="icon-conveyor"
                                                                    style="padding-right: 10px"></span>生长阶段</h2>
-                <div id="absoluteContainer" style="position: relative;">
-                    <button id="centerButton" onclick="showNextStage()">显示下一个阶段</button>
-                    <div id="stage2" class="stage">
-                        <h2>阶段 1</h2>
-                        <img src="stage1.jpg" alt="阶段 1 图片">
-                        <p>这是第一个阶段的描述。</p>
-                    </div>
 
+                <div id="absoluteContainer" style="position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <button id="centerButton" onclick="showNextStage()">生 长</button>
                     <div id="stage1" class="stage">
-                        <h2>阶段 2</h2>
-                        <img src="stage2.jpg" alt="阶段 2 图片">
-                        <p>这是第二个阶段的描述。</p>
+                        <h2 style="text-align: center;">扩展期</h2>
+                        <img src="../static/pics/sow/sr-1-1.png" alt="阶段 1 图片">
+                        <p>菌丝体开始向四周扩展，与松树的根系形成共生关系，形成菌根。</p>
                     </div>
 
-                    <div id="stage3" class="stage">
-                        <h2>阶段 3</h2>
-                        <img src="stage3.jpg" alt="阶段 3 图片">
-                        <p>这是第三个阶段的描述。</p>
+                    <div id="stage2" class="stage">
+                        <h2 style="text-align: center;">原基形成期</h2>
+                        <img src="../static/pics/sow/sr-2-1.png" alt="阶段 2 图片">
+                        <p>在适宜的温度和湿度条件下，菌丝体聚集形成菌伞的原基。</p>
                     </div>
 
                     <div id="stage4" class="stage">
-                        <h2>阶段 4</h2>
-                        <img src="stage4.jpg" alt="阶段 4 图片">
-                        <p>这是第四个阶段的描述。</p>
+                        <h2 style="text-align: center;">生长期</h2>
+                        <img src="../static/pics/sow/sr-3-1.png" alt="阶段 3 图片">
+                        <p>原基逐渐长大，分化出菌盖和菌柄，逐渐发育成完整的松茸。</p>
+                    </div>
+
+                    <div id="stage3" class="stage">
+                        <h2 style="text-align: center;">成熟期</h2>
+                        <img src="../static/pics/sow/sr-4-1.png" alt="阶段 4 图片">
+                        <p>松茸继续生长，菌盖完全张开，达到成熟阶段，这时是采收的最佳时期。</p>
                     </div>
                 </div>
 
@@ -629,7 +632,6 @@
     var numStages = stages.length;
 
     // 隐藏当前阶段
-
 
     // 显示下一个阶段
     currentStage = (currentStage + 1) % numStages;
