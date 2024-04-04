@@ -261,3 +261,108 @@ option = {
 option && myChart.setOption(option);
 
 })();
+(function () {
+  // 引入 ECharts 主模块
+
+// 初始化图表
+var myChart = echarts.init(document.getElementById('cxp&s'));
+
+// 准备数据
+var years = ['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022'];
+var productionData = [9151, 9653, 10182, 12712, 13852, 14809, 16252, 17955, 19228, 19688, 20612, 25081, 29591];
+var growthData = [0.0348, 0.0549, 0.0548, 0.2485, 0.0897, 0.0691, 0.0974, 0.1048, 0.0709, 0.0239, 0.0469, 0.2168, 0.1798];
+
+// 指定图表的配置项和数据
+var option = {
+    title: {
+        text: '楚雄市野生菌产量及增幅'
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross',
+            crossStyle: {
+                color: '#999'
+            }
+        }
+    },
+    legend: {
+        data: ['产量', '增幅']
+    },
+    xAxis: [
+        {
+            type: 'category',
+            data: years,
+            axisPointer: {
+                type: 'shadow'
+            }
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value',
+            name: '产量（吨）',
+            min: 0,
+            max: 30000, // 可以根据实际情况调整最大值
+            interval: 5000, // 可以根据实际情况调整刻度间隔
+            axisLabel: {
+                formatter: '{value} 吨'
+            }
+        },
+        {
+            type: 'value',
+            name: '增幅',
+            min: 0,
+            max: 0.25, // 可以根据实际情况调整最大值
+            axisLabel: {
+                formatter: '{value}' // 增幅不需要额外的单位
+            }
+        }
+    ],
+    series: [
+          {
+            name: '产量',
+            type: 'bar',
+            itemStyle: {
+                normal: {
+                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                        {offset: 0, color: '#4FAB92'},
+                        {offset: 1, color: '#188df0'}
+                    ])
+                }
+            },
+            data: productionData
+        },
+          {
+            name: '增幅',
+            type: 'line',
+            yAxisIndex: 1,
+            itemStyle: {
+                normal: {
+                    color: 'LINGHTGREEN' // 折线颜色
+                }
+            },
+            lineStyle: {
+                width: 2,
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {offset: 0, color: '#50FFCB'},
+                    {offset: 0.5, color: '#50FF96'},
+                    {offset: 1, color: '#50FF5B'}
+                ])
+            },
+            areaStyle: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                    {offset: 0, color: '#50FFCB'},
+                    {offset: 1, color: '#ffa07a55'}
+                ])
+            },
+            data: growthData
+        }
+    ]
+};
+
+// 使用刚指定的配置项和数据显示图表。
+myChart.setOption(option);
+
+
+})();
