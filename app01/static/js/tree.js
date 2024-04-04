@@ -258,6 +258,14 @@ option && myChart.setOption(option);
             json: chuxiongMap,
         },
     ];
+     var cityLinks = {
+        '巴中市': 'http://example.com/bazhong',
+        '达州市': 'http://example.com/dazhou',
+        '广元市': 'http://example.com/guangyuan',
+        '楚雄彝族自治州': '../click_detail/',
+
+        // ... 可以继续添加其他市和对应的链接 ...
+    };
     var provinceData = {
         '台湾省': Math.random() * 100,
         '海南省': Math.random() * 100,
@@ -309,6 +317,9 @@ option && myChart.setOption(option);
         if (clickedMap) {
             mapname = clickedMap.json;
             mapInit();
+        }
+        if (cityLinks[clickedName]) {
+            window.open(cityLinks[clickedName]);
         }
         //添加一个返回按键
         $('<div class="back"><button type="button">返回</button></div>').appendTo($('#maptt'));
@@ -376,20 +387,7 @@ option && myChart.setOption(option);
                             },
                         },
                     }],
-                    tooltip: {
-                        trigger: 'item',
-                        formatter: '{b}<br/>{c} (种菌菇)'
-                    },
-                    visualMap: {
-                        min: 10,
-                        max: 100,
-                        text: ['High', 'Low'],
-                        realtime: false,
-                        calculable: true,
-                        inRange: {
-                            color: ['orange', 'green']
-                        }
-                    },
+
                 };
             }else{
                 option = {
@@ -418,19 +416,10 @@ option && myChart.setOption(option);
                     tooltip: {
                         trigger: 'item',
                         formatter: function (params) {
-                            return params.name + '<br/>' + params.value + ' (种菌菇)' + '<br/>' + params.data.text; // 显示文本内容
+                            return params.name + '<br/>' + params.data.text; // 显示文本内容
                         }
                     },
-                    visualMap: {
-                        min: 10,
-                        max: 100,
-                        text: ['High', 'Low'],
-                        realtime: false,
-                        calculable: true,
-                        inRange: {
-                            color: ['orange', 'purple', 'red']
-                        }
-                    },
+
                 };
 
             };
