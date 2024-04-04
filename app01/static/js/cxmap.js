@@ -5,6 +5,19 @@
 var myChart = echarts.init(chartDom);
 var option;
 
+var cxdata= {
+    "南华县": "全国最大的野生食用菌交易集散地",
+    "武定县": "产量8501吨、产值46947万元",
+    "楚雄市": "年产量超4千吨，年产值超6亿元",
+    "禄丰市": "产量逐年增长，保育促繁示范基地创建进入收尾阶段",
+    "双柏县": "年产量达2511吨，年产值约9524万元",
+    "姚安县": "以野生食用菌为主的林下产业基地建设稳步拓展",
+    "牟定县": "年产量约570吨，年交易量在1200吨左右",
+    "永仁县": "年产松露50多吨，占全国的25%、世界的13%",
+    "大姚县": "多措并举助力野生食用菌产业发展",
+    "元谋县": "野生食用菌的品种和数量逐年增多"
+};
+
 myChart.showLoading();
 $.get('../static/json/楚雄彝族自治州.json', function (geoJson) {
   myChart.hideLoading();
@@ -19,7 +32,9 @@ $.get('../static/json/楚雄彝族自治州.json', function (geoJson) {
       },
       tooltip: {
         trigger: 'item',
-        formatter: '{b}<br/>{c} '
+        formatter: function (params) {
+                            return params.name + '<br/>' + params.data.text; // 显示文本内容
+                        }
       },
       toolbox: {
         show: true,
@@ -32,42 +47,20 @@ $.get('../static/json/楚雄彝族自治州.json', function (geoJson) {
           saveAsImage: {}
         }
       },
-      visualMap: {
-        min: 800,
-        max: 50000,
-        text: ['High', 'Low'],
-        realtime: false,
-        calculable: true,
-        inRange: {
-          color: ['lightskyblue', 'yellow', 'orangered']
-        }
-      },
       series: [
         {
-          name: '香港18区人口密度',
+          name: '楚雄市菌菇介绍',
           type: 'map',
           map: 'HK',
           label: {
             show: true
           },
-          data: [
-            { name: '南华县', value: 20057.34 },
-            { name: '元谋县', value: 22611.34 },
-            { name: '牟定县', value: 25105.34 },
-            { name: '武定县', value: 25891.34 },
-            { name: '大姚县', value: 23171.34 },
-            { name: '双柏县', value: 22013.34 },
-            { name: '禄丰县', value: 22242.34 },
-            { name: '楚雄市', value: 22180.34 },
-            { name: '永仁县', value: 31822.34 },
-            { name: '姚安县', value: 13123.34 }
-
-
-
-
-
-
-          ],
+          data: Object.keys(cxdata).map(function (key) {
+                            return {
+                                name: key,
+                                text: cxdata[key],
+                            };
+                        }),
           // 自定义名称映射
           nameMap: {
             'Central and Western': '中西区',
