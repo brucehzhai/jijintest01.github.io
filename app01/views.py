@@ -95,8 +95,7 @@ def about(request):
 def error(request):
     return render(request,'error.html')
 
-def testtt(request):
-    return render(request,'testtt.html')
-
-def testtt_copy(request):
-    return render(request,'testtt_copy.html')
+def blockinput(request):
+    return render(request,'blockinput.html')
+def blockvisual(request):
+    return render(request,'blockvisual.html')

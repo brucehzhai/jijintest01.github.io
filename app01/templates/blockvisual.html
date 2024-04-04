@@ -1,69 +1,206 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="A live blockchain demo in a browser.">
-        <meta name="author" content="Anders Brownworth">
-        <link rel="icon" href="/favicon.ico">
-        <title>Blockchain Demo</title>
-        <link rel="stylesheet" href="../static/stylesheets/lib/bootstrap.min.css">
-        <link rel="stylesheet" href="../static/stylesheets/lib/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="../static/stylesheets/lib/bootstrap-horizon.css">
-        <link rel="stylesheet" href="../static/stylesheets/lib/ladda-themeless.min.css">
-        <link rel="stylesheet" href="../static/stylesheets/lib/ie10-viewport-bug-workaround.css">
-        <link rel="stylesheet" href="../static/stylesheets/blockchain.css">
-        <script src="../static/javascripts/lib/jquery.min.js"></script>
-        <script src="../static/javascripts/lib/bootstrap.min.js"></script>
-        <script src="../static/javascripts/lib/spin.min.js"></script>
-        <script src="../static/javascripts/lib/ladda.min.js"></script>
-        <script src="../static/javascripts/lib/ie10-viewport-bug-workaround.js"></script>
-        <script src="../static/javascripts/lib/sha256.js"></script>
-        <script src="../static/javascripts/blockchain.js"></script>
-    </head>
-    <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/">区块链示例</a>
-                </div>
-                <div class="collapse navbar-collapse" id="navbar">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="/hash">哈希</a>
-                        </li>
-                        <li>
-                            <a href="/block">区块</a>
-                        </li>
-                        <li class="active">
-                            <a href="/blockchain">区块链</a>
-                        </li>
-                        <li>
-                            <a href="/distributed">分布式</a>
-                        </li>
-                        <li>
-                            <a href="/tokens">代币</a>
-                        </li>
-                        <li>
-                            <a href="/coinbase">币基</a>
-                        </li>
-                    </ul>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <!-- favicons Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/images/favicons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicons/favicon-16x16.png" />
+    <link rel="manifest" href="../static/images/favicons/site.webmanifest" />
+    <meta name="description" content="Crsine HTML Template For Car Services" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Shadows+Into+Light&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/plugins/fontawesome-free-6.5.1-web/css/fontawesome.min.css" />
+
+    <link rel="stylesheet" href="../static/plugins/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../static/plugins/animate/animate.min.css" />
+    <link rel="stylesheet" href="../static/plugins/animate/custom-animate.css" />
+    <link rel="stylesheet" href="../static/plugins/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="../static/plugins/jarallax/jarallax.css" />
+    <link rel="stylesheet" href="../static/plugins/jquery-magnific-popup/jquery.magnific-popup.css" />
+    <link rel="stylesheet" href="../static/plugins/nouislider/nouislider.min.css" />
+    <link rel="stylesheet" href="../static/plugins/nouislider/nouislider.pips.css" />
+    <link rel="stylesheet" href="../static/plugins/odometer/odometer.min.css" />
+    <link rel="stylesheet" href="../static/plugins/swiper/swiper.min.css" />
+    <link rel="stylesheet" href="../static/plugins/icomoon-icons/style.css">
+    <link rel="stylesheet" href="../static/plugins/tiny-slider/tiny-slider.min.css" />
+    <link rel="stylesheet" href="../static/plugins/reey-font/stylesheet.css" />
+    <link rel="stylesheet" href="../static/plugins/owl-carousel/owl.carousel.min.css" />
+    <link rel="stylesheet" href="../static/plugins/owl-carousel/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="../static/plugins/twentytwenty/twentytwenty.css" />
+
+    <!-- template styles -->
+    <link rel="stylesheet" href="../static/css/agriox.css" />
+    <link rel="stylesheet" href="../static/css/agriox-responsive.css" />
+    <link rel="stylesheet" href="../static/css/city-picker.css" />
+    <link rel="stylesheet" href="../static/css/bootstrap-datetimepicker.min.css">
+
+
+
+
+    <link rel="stylesheet" href="../static/stylesheets/lib/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/stylesheets/lib/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../static/stylesheets/lib/bootstrap-horizon.css">
+    <link rel="stylesheet" href="../static/stylesheets/lib/ladda-themeless.min.css">
+    <link rel="stylesheet" href="../static/stylesheets/lib/ie10-viewport-bug-workaround.css">
+    <link rel="stylesheet" href="../static/stylesheets/blockchain.css">
+
+
+
+
+
+</head>
+
+<body>
+
+    <div class="preloader">
+        <img class="preloader__image" width="60" src="../static/images/loader.png" alt="" />
+    </div>
+
+    <!-- /.preloader -->
+    <div class="page-wrapper">
+
+        <header class="main-header main-header--one  clearfix">
+            <div class="main-header--one__wrapper">
+                <div class="main-header--one__bottom clearfix">
+                    <div class="auto-container">
+                        <div class="main-header--one__bottom-inner">
+                            <nav class="main-menu main-menu--1">
+                                <div class="main-menu__inner">
+                                    <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
+
+                                    <div class="stricky-one-logo">
+                                        <div class="logo">
+                                            <a href="../index"><img src="../static/images/logo/Logo-us-small.png"
+                                                    alt="" /></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="main-header--one__bottom-left">
+                                        <ul class="main-menu__list">
+                                            <li class="dropdown">
+                                                <a href="../index">首页</a>
+
+                                            </li>
+                                            <li><a href="../trace">溯源</a></li>
+                                            <li class="dropdown">
+                                                <a href="../services">耕养运烹</a>
+                                                <ul>
+
+                                                    <li>
+                                                    <li><a href="../sow">丰衣足食</a>
+                                                    </li>
+                                                    <li><a href="../transport">物流精密</a></li>
+                                                    <li><a href="../cook">烹调艺术</a></li>
+                                                    <li><a href="../effect">美味功效</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="#">发现</a>
+                                                <ul>
+                                                    <li><a href="../travel">旅游指南</a></li>
+                                                    <li><a href="../kepu">作物科普</a></li>
+                                                    <li><a href="../safety">食物安全查询</a></li>
+                                                    <li><a href="../question">问题查询</a></li>
+                                                    <li><a href="../Pet_shop">植宠商店</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="../policy">政策咨询</a>
+                                                <ul>
+                                                    <li><a href="../news">News</a></li>
+                                                    <li><a href="../information">News Two</a></li>
+                                                    <li><a href="../news-details">News Details</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="../contact">联系我们</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+
+                            <div class="main-header--one__bottom-middel">
+                                <div class="logo">
+                                    <a href="../index"><img src="../static/images/logo/Logo-us-small.png" alt="" /></a>
+                                </div>
+                            </div>
+
+                            <div class="main-header--one__bottom-right clearfix">
+                                <div class="search-cart">
+                                    <a href="#" class="search search-toggler"><span
+                                            class="icon-magnifying-glass"></span></a>
+                                    <a href="../Pet_shop" class="cart"><span class="icon-shopping-cart"></span></a>
+                                </div>
+                                <div class="contact-box">
+                                    <div class="">
+                                        <a href="#"><i class="fa fa-user"
+                                                style="font-size: 35px;margin-top: 8px;margin-right:30px"></i></a>
+                                    </div>
+                                    <div>
+                                        <div class="dropdown">
+                                            <button class="btn btn-body dropdown-toggle" type="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
+                                                {{ request.session.info.name }}
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li style="margin-bottom: 10px"><a class="dropdown-item" href="#">注销</a>
+                                                </li>
+                                                <li style="margin-bottom: 10px"><a class="dropdown-item"
+                                                        href="#">个人中心</a></li>
+
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </nav>
+        </header>
+
+
+        <div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content">
+
+            </div><!-- /.sticky-header__content -->
+        </div><!-- /.stricky-header -->
+
+        <!--Page Header Start-->
+
+        <!--Page Header End-->
+
+
+        <!--Start Contact Page-->
+        <!--End Contact Page-->
+
+
+        <!--Start Contact Page Contact Info-->
+
+        <!--End Contact Page Contact Info-->
+
+
+        <!--Contact Page Google Map Start-->
+
+        <!--Contact Page Google Map End-->
         <div class="container-fluid">
             <h1>区块链</h1>
             <div class="row row-horizon">
-                <div class="col-xs-7">
-                    <div class="well" id="block1chain1well">
-                        <form class="form-horizontal">
+                <div class="col-xl-4">
+                    <div class="well well-success" id="block1chain1well" >
+                        <form class="form-horizontal ">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="block1chain1number">区块:</label>
                                 <div class="col-sm-10">
@@ -88,7 +225,9 @@
                             <div class="form-group" id="state">
                                 <label class="col-sm-2 control-label" for="block1chain1previous">前指针:</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" id="block1chain1previous" type="text" value="0000000000000000000000000000000000000000000000000000000000000000" disabled>
+                                    <input class="form-control" id="block1chain1previous" type="text"
+                                        value="0000000000000000000000000000000000000000000000000000000000000000"
+                                        disabled>
                                 </div>
                             </div>
                             <div class="form-group" id="state">
@@ -102,7 +241,8 @@
                                     <i class="icon-spinner icon-spin icon-large"></i>
                                 </div>
                                 <div class="col-sm-10">
-                                    <button class="btn btn-primary ladda-button" id="block1chain1mineButton" data-style="expand-right">
+                                    <button type="button" class="btn btn-primary ladda-button"
+                                        id="block1chain1mineButton" data-style="expand-right">
                                         <span class="ladda-label">挖矿</span>
                                     </button>
                                 </div>
@@ -110,8 +250,8 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-xs-7">
-                    <div class="well" id="block2chain1well">
+                <div class="col-xl-4">
+                    <div class="well well-success" id="block2chain1well">
                         <form class="form-horizontal">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="block2chain1number">区块:</label>
@@ -137,7 +277,9 @@
                             <div class="form-group" id="state">
                                 <label class="col-sm-2 control-label" for="block2chain1previous">前指针:</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" id="block2chain1previous" type="text" value="000015783b764259d382017d91a36d206d0600e2cbb3567748f46a33fe9297cf" disabled>
+                                    <input class="form-control" id="block2chain1previous" type="text"
+                                        value="000015783b764259d382017d91a36d206d0600e2cbb3567748f46a33fe9297cf"
+                                        disabled>
                                 </div>
                             </div>
                             <div class="form-group" id="state">
@@ -151,7 +293,8 @@
                                     <i class="icon-spinner icon-spin icon-large"></i>
                                 </div>
                                 <div class="col-sm-10">
-                                    <button class="btn btn-primary ladda-button" id="block2chain1mineButton" data-style="expand-right">
+                                    <button type="button" class="btn btn-primary ladda-button"
+                                        id="block2chain1mineButton" data-style="expand-right">
                                         <span class="ladda-label">挖矿</span>
                                     </button>
                                 </div>
@@ -159,8 +302,8 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-xs-7">
-                    <div class="well" id="block3chain1well">
+                <div class="col-xl-4">
+                    <div class="well well-success" id="block3chain1well">
                         <form class="form-horizontal">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="block3chain1number">区块:</label>
@@ -186,7 +329,9 @@
                             <div class="form-group" id="state">
                                 <label class="col-sm-2 control-label" for="block3chain1previous">前指针:</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" id="block3chain1previous" type="text" value="000012fa9b916eb9078f8d98a7864e697ae83ed54f5146bd84452cdafd043c19" disabled>
+                                    <input class="form-control" id="block3chain1previous" type="text"
+                                        value="000012fa9b916eb9078f8d98a7864e697ae83ed54f5146bd84452cdafd043c19"
+                                        disabled>
                                 </div>
                             </div>
                             <div class="form-group" id="state">
@@ -200,7 +345,8 @@
                                     <i class="icon-spinner icon-spin icon-large"></i>
                                 </div>
                                 <div class="col-sm-10">
-                                    <button class="btn btn-primary ladda-button" id="block3chain1mineButton" data-style="expand-right">
+                                     <button type="button" class="btn btn-primary ladda-button"
+                                        id="block3chain1mineButton" data-style="expand-right">
                                         <span class="ladda-label">挖矿</span>
                                     </button>
                                 </div>
@@ -208,141 +354,984 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-xs-7">
-                    <div class="well" id="block4chain1well">
-                        <form class="form-horizontal">
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="block4chain1number">区块:</label>
-                                <div class="col-sm-10">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">#</span>
-                                        <input class="form-control" id="block4chain1number" type="number" value="4">
+
+            </div>
+        </div>
+
+
+        <!--Start Footer One-->
+        <footer class="footer-one">
+            <div class="footer-one__top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="footer-one__top-wrapper">
+                                <div class="footer-one__bg"><img src="../static/images/backgrounds/footer-one-bg.png"
+                                        alt="" /></div>
+                                <div class="row">
+                                    <!--Start Footer Widget Column-->
+                                    <div class="col-xl-3 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.1s">
+                                        <div class="footer-widget__column footer-widget__about">
+                                            <div class="footer-widget__about-logo">
+                                                <a href="../index"><img src="../static/images/logo/logo-us-medium.png"
+                                                        alt=""></a>
+                                            </div>
+                                            <p class="footer-widget__about-text">食为人天，农为正本。</p>
+                                            <div class="footer-widget__about-contact-box">
+                                                <p class="phone"><a href="tel:123456789"><i
+                                                            class="fas fa-phone-square-alt"></i>+86 XXX-XXXX-XXXX</a>
+                                                </p>
+                                                <p><a href="mailto:needhelp@company.com"><i
+                                                            class="fa fa-envelope"></i>Shiyuanzhilv@SYZL.com</a></p>
+                                                <p class="text"><i class="fas fa-map-marker-alt"></i>中国-上海</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="block4chain1nonce">随机数:</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" id="block4chain1nonce" type="text" value="35990">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="block4chain1data">数据:</label>
-                                <div class="col-sm-10">
-                                    <textarea class="form-control" id="block4chain1data" rows="10"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group" id="state">
-                                <label class="col-sm-2 control-label" for="block4chain1previous">前指针:</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" id="block4chain1previous" type="text" value="0000b9015ce2a08b61216ba5a0778545bf4ddd7ceb7bbd85dd8062b29a9140bf" disabled>
-                                </div>
-                            </div>
-                            <div class="form-group" id="state">
-                                <label class="col-sm-2 control-label" for="block4chain1hash">哈希:</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" id="block4chain1hash" type="text" disabled>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-2">
-                                    <i class="icon-spinner icon-spin icon-large"></i>
-                                </div>
-                                <div class="col-sm-10">
-                                    <button class="btn btn-primary ladda-button" id="block4chain1mineButton" data-style="expand-right">
-                                        <span class="ladda-label">挖矿</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-xs-7">
-                    <div class="well" id="block5chain1well">
-                        <form class="form-horizontal">
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="block5chain1number">区块:</label>
-                                <div class="col-sm-10">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">#</span>
-                                        <input class="form-control" id="block5chain1number" type="number" value="5">
+                                    <!--End Footer Widget Column-->
+
+                                    <!--Start Footer Widget Column-->
+                                    <div class="col-xl-3 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.3s">
+                                        <div class="footer-widget__column footer-widget__news">
+                                            <h2 class="footer-widget__title">最新资讯</h2>
+                                            <ul class="footer-widget__news-list">
+                                                <li class="footer-widget__news-list-item">
+                                                    <div class="footer-widget__news-list-item-img">
+                                                        <img src="../static/images/resources/trace_bottom_1.png"
+                                                            alt="" />
+                                                    </div>
+                                                    <div class="footer-widget__news-list-item-title">
+                                                        <p>4 March, 2024</p>
+                                                        <h5>
+                                                            <a href="https://www.moa.gov.cn/xw/qg/202403/t20240304_6450629.htm"
+                                                                target="_blank">“国字号”现代农业产业园带<br> 动作用有多强</a>
+                                                        </h5>
+                                                    </div>
+                                                </li>
+
+                                                <li class="footer-widget__news-list-item">
+                                                    <div class="footer-widget__news-list-item-img">
+                                                        <img src="../static/images/resources/trace_bottom_2.png"
+                                                            alt="" />
+                                                    </div>
+                                                    <div class="footer-widget__news-list-item-title">
+                                                        <p>4 March, 2024</p>
+                                                        <h5>
+                                                            <a href="https://www.moa.gov.cn/xw/qg/202403/t20240304_6450592.htm"
+                                                                target="_blank">春种一粒粟 秋收万颗子——<br>
+                                                                北京海淀区植物组织培养技<br>术实验室育种核心技术助力<br>春播备耕</a>
+                                                        </h5>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
+
+                                    <!--End Footer Widget Column-->
+
+                                    <!--Start Footer Widget Column-->
+                                    <div class="col-xl-2 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.5s">
+                                        <div class="footer-widget__column footer-widget__explore">
+                                            <h2 class="footer-widget__title">探索更多</h2>
+                                            <ul class="footer-widget__explore-list">
+                                                <li class="footer-widget__explore-list-item"><a href="../kepu">菜 品 溯
+                                                        源</a></li>
+                                                <li class="footer-widget__explore-list-item"><a href="../services">食 品 安
+                                                        全</a></li>
+                                                <li class="footer-widget__explore-list-item"><a
+                                                        href="../templates/about.html">特 色 种 植</a></li>
+                                                <li class="footer-widget__explore-list-item"><a href="#">高 新 作 物</a>
+                                                </li>
+                                                <li class="footer-widget__explore-list-item"><a href="#">科 技 前 沿</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--End Footer Widget Column-->
+
+                                    <!--Start Footer Widget Column-->
+                                    <div class="col-xl-4 col-lg-6 col-md-6 wow animated fadeInUp" data-wow-delay="0.7s">
+                                        <div class="footer-widget__column footer-widget__newletter">
+                                            <h2 class="footer-widget__title">站点帮助</h2>
+                                            <p class="footer-widget__newletter-text">
+                                                在下方输入站点名称或相关信息，即可帮助您快速到达本网站各处！</p>
+                                            <form class="subscribe-form" action="#">
+                                                <input type="text" name="text" placeholder="输入站点">
+                                                <button type="submit">Go</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!--End Footer Widget Column-->
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="block5chain1nonce">随机数:</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" id="block5chain1nonce" type="text" value="56265">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label" for="block5chain1data">数据:</label>
-                                <div class="col-sm-10">
-                                    <textarea class="form-control" id="block5chain1data" rows="10"></textarea>
-                                </div>
-                            </div>
-                            <div class="form-group" id="state">
-                                <label class="col-sm-2 control-label" for="block5chain1previous">前指针:</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" id="block5chain1previous" type="text" value="0000ae8bbc96cf89c68be6e10a865cc47c6c48a9ebec3c6cad729646cefaef83" disabled>
-                                </div>
-                            </div>
-                            <div class="form-group" id="state">
-                                <label class="col-sm-2 control-label" for="block5chain1hash">哈希:</label>
-                                <div class="col-sm-10">
-                                    <input class="form-control" id="block5chain1hash" type="text" disabled>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-2">
-                                    <i class="icon-spinner icon-spin icon-large"></i>
-                                </div>
-                                <div class="col-sm-10">
-                                    <button class="btn btn-primary ladda-button" id="block5chain1mineButton" data-style="expand-right">
-                                        <span class="ladda-label">挖矿</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
+
+
+            <!--Start Footer One Bottom-->
+
+            <!--End Footer One Bottom-->
+        </footer>
+        <!--End Footer One-->
+
+    </div><!-- /.page-wrapper -->
+
+
+    <div class="mobile-nav__wrapper">
+        <div class="mobile-nav__overlay mobile-nav__toggler"></div>
+        <!-- /.mobile-nav__overlay -->
+        <div class="mobile-nav__content">
+            <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
+
+            <div class="logo-box">
+                <a href="../index" aria-label="logo image"><img src="../static/images/resources/mobilemenu_logo.png"
+                        width="155" alt="" /></a>
+            </div>
+            <!-- /.logo-box -->
+            <div class="mobile-nav__container"></div>
+            <!-- /.mobile-nav__container -->
+
+            <ul class="mobile-nav__contact list-unstyled">
+                <li>
+                    <i class="icon-phone-call"></i>
+                    <a href="mailto:needhelp@packageName__.com">needhelp@agriox.com</a>
+                </li>
+                <li>
+                    <i class="icon-letter"></i>
+                    <a href="tel:666-888-0000">666 888 0000</a>
+                </li>
+            </ul><!-- /.mobile-nav__contact -->
+            <div class="mobile-nav__top">
+                <div class="mobile-nav__social">
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-facebook-square"></a>
+                    <a href="#" class="fab fa-pinterest-p"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                </div><!-- /.mobile-nav__social -->
+            </div><!-- /.mobile-nav__top -->
         </div>
-        <script>
-            $(function() {
-                setup(1, 1);
-                setup(2, 1);
-                setup(3, 1);
-                setup(4, 1);
-                setup(5, 1);
+        <!-- /.mobile-nav__content -->
+    </div>
+    <!-- /.mobile-nav__wrapper -->
+
+
+    <div class="search-popup">
+        <div class="search-popup__overlay search-toggler"></div>
+        <!-- /.search-popup__overlay -->
+        <div class="search-popup__content">
+            <form action="#">
+                <label for="search" class="sr-only">search here</label><!-- /.sr-only -->
+                <input type="text" id="search" placeholder="Search Here..." />
+                <button type="submit" aria-label="search submit" class="thm-btn2">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </form>
+        </div>
+        <!-- /.search-popup__content -->
+    </div>
+    <!-- /.search-popup -->
+
+    <a href="#" data-target="html" class="scroll-to-target scroll-to-top">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="70" fill="currentColor" class="bi bi-arrow-up-circle"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z" />
+        </svg>
+    </a>
+
+    <script src="../static/js/web3.min.js"></script>
+    <script src="../static/js/jquery.min.js"></script>
+    <script>
+        const web3 = new Web3(new Web3.providers.HttpProvider("https://sepolia.infura.io/v3/19225cd3ce7a4ad6972475b102adfdb4"));
+        const abi = [
+            {
+                "inputs": [
+                    {
+                        "internalType": "string",
+                        "name": "commodityCode",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "category",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "subject",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "class",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "growthEnvironment",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "growthCycle",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "growthManagement",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "harvestTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "harvestMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "storageMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportDistance",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportTool",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportStartTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportEndTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "preservationTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "salesMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "processingMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "shelfTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "dishName",
+                        "type": "string"
+                    }
+                ],
+                "name": "addPlanting",
+                "outputs": [],
+                "stateMutability": "nonpayable",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "string",
+                        "name": "",
+                        "type": "string"
+                    }
+                ],
+                "name": "foodInfos",
+                "outputs": [
+                    {
+                        "internalType": "string",
+                        "name": "commodityCode",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "category",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "subject",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "class",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "region",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "growthEnvironment",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "growthCycle",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "growthManagement",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "harvestTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "harvestMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "storageMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "startPoint",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "endPoint",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportDistance",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportTool",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportStartTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "transportEndTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "preservationTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "salesMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "processingMethod",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "shelfTime",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "shelfArea",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "dishName",
+                        "type": "string"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "string",
+                        "name": "commodityCode",
+                        "type": "string"
+                    }
+                ],
+                "name": "retrieve",
+                "outputs": [
+                    {
+                        "components": [
+                            {
+                                "internalType": "string",
+                                "name": "commodityCode",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "category",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "subject",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "class",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "region",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "growthEnvironment",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "growthCycle",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "growthManagement",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "harvestTime",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "harvestMethod",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "storageMethod",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "startPoint",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "endPoint",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "transportDistance",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "transportTool",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "transportStartTime",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "transportEndTime",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "preservationTime",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "salesMethod",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "processingMethod",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "shelfTime",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "shelfArea",
+                                "type": "string"
+                            },
+                            {
+                                "internalType": "string",
+                                "name": "dishName",
+                                "type": "string"
+                            }
+                        ],
+                        "internalType": "struct FoodTraceability.FoodInfo",
+                        "name": "",
+                        "type": "tuple"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            }
+        ];
+
+        const address = '0x877D1E76FAD0EA72263583C147CE8f92f4BF27F5';
+        const contractInstance = new web3.eth.Contract(abi, address);
+
+        // to test if initialized web3 works fine
+        web3.eth.getBlockNumber().then((results) => {
+            console.log("***Current Block Number***:")
+            console.log(results)
+        });
+
+        // to test if web3.eth.Contract works
+        console.log("***contractInstance.abi***:");
+        console.log(contractInstance.options.jsonInterface);
+
+
+
+        contractInstance.methods.retrieve('111').call().then(function (result) {
+            console.log(result); // Log the result to the console
+
+            // Create a mapping from English to Chinese
+            let mapping = {
+                'commodityCode': '商品代码',
+                'category': '类别',
+                'subject': '主题',
+                'classmen': '班级',
+                'region': '区域',
+                'growthEnvironment': '生长环境',
+                'growthCycle': '生长周期',
+                'growthManagement': '生长管理',
+                'harvestTime': '收获时间',
+                'harvestMethod': '收获方法',
+                'storageMethod': '存储方法',
+                'startPoint': '起点',
+                'endPoint': '终点',
+                'transportDistance': '运输距离',
+                'transportTool': '运输工具',
+                'transportStartTime': '运输开始时间',
+                'transportEndTime': '运输结束时间',
+                'preservationTime': '保鲜时间',
+                'salesMethod': '销售方式',
+                'processingMethod': '加工方式',
+                'shelfTime': '上架时间',
+                'shelfArea': '上架区域',
+                'dishName': '菜品名称'
+            };
+
+            // Create an HTML string
+            let html = '<ul>';
+            for (let key in result) {
+                if (result.hasOwnProperty(key) && isNaN(key)) { // Ignore numeric keys and __length__
+                    let chineseKey = mapping[key] || key; // Use the Chinese key if it exists, otherwise use the English key
+                    html += `<li>${chineseKey}: ${result[key]}</li>`;
+                }
+            }
+            html += '</ul>';
+
+            $("#block1chain1data").val(html); // Display the formatted result
+        });
+
+
+        /*contractInstance.methods.retrieve('111').call().then(function (result) {
+            console.log(result); // Log the result to the console
+            $("#demo").html(JSON.stringify(result)); // Convert the result to a string before displaying it*/
+
+        // Create a mapping from English to Chinese
+        /*let mapping = {
+            'commodityCode': '商品码',
+            'category': '品类'
+        };
+
+        // Create an HTML string
+        let html = '<ul>';
+        for (let key in mapping) { // Only loop over the keys in the mapping
+            if (result.hasOwnProperty(key)) {
+                let chineseKey = mapping[key];
+                html += `<li>${chineseKey}: ${result[key]}</li>`;
+            }
+        }
+        html += '</ul>';
+
+        $("#demo").html(html); // Display the formatted result*/
+
+
+
+
+
+
+
+
+
+        // Create a mapping from English to Chinese
+        /*let mapping = {
+            'commodityCode': '商品码',
+            'category': '品类',
+            'subject': '所属科目',
+            'class': '所属门类',
+            'growthEnvironment': '培育环境',
+            'growthCycle': '生长周期',
+            'growthManagement': '生长管理',
+            'region': '地区'
+        };
+
+        // Create an HTML string
+        let html = '<ul>';
+        for (let key in result) {
+            if (result.hasOwnProperty(key) && isNaN(key)) { // Ignore numeric keys and __length__
+                let chineseKey = mapping[key] || key; // Use the Chinese key if it exists, otherwise use the English key
+                html += `<li>${chineseKey}: ${result[key]}</li>`;
+            }
+        }
+        html += '</ul>';
+
+        $("#demo").html(html); // Display the formatted result
+    })*/
+
+
+
+
+
+        /*contractInstance.methods.retrieve('111').call().then((result) => {
+            console.log("***retrievetext()***:");
+            console.log(result);
+        });
+        contractInstance.methods.retrieve('111').call().then(function (result) {
+            console.log(result); // Log the result to the console
+
+            // Create an HTML string
+            let html = '<ul>';
+            for (let key in result) {
+                if (result.hasOwnProperty(key) && isNaN(key)) { // Ignore numeric keys and __length__
+                    html += `<li>${key}: ${result[key]}</li>`;
+                }
+            }
+            html += '</ul>';
+
+            $("#demo").html(html); // Display the formatted result
+        })*/
+
+
+
+
+        /*contractInstance.methods.retrieve('111').call().then(function (result) {
+            console.log(result); // Log the result to the console
+            $("#demo").html(JSON.stringify(result)); // Convert the result to a string before displaying it
+        })*/
+        /*contractInstance.methods.retrieve('111').call().then(function (result) {
+            $("#demo").html(result);
+        })*/
+
+
+
+
+
+
+        function getInfo() {
+            // Get the number from the input field
+            // Retrieve values from the form
+            var commodityCode = $("#commodityCode").val();
+            var category = $("#category").val();
+            var subject = $("#subject").val();
+            var classmen = $("#classmen").val();
+            var growthEnvironment = $("#growthEnvironment").val();
+            var growthCycle = $("#growthCycle").val();
+            var growthManagement = $("#growthManagement").val();
+            var harvestTime = $("#cztime").val();
+            var harvestMethod = $("#harvestMethod").val();
+            var storageMethod = $("#storageMethod").val();
+            var transportDistance = $("#transportDistance").val();
+            var transportTool = $("#transportTool").val();
+            var transportStartTime = $("#kstime").val();
+            var transportEndTime = $("#jstime").val();
+            var preservationTime = $("#bxtime").val();
+            var salesMethod = $("#salesMethod").val();
+            var processingMethod = $("#processingMethod").val();
+            var shelfTime = $("#sjtime").val();
+            var dishName = $("#dishName").val();
+            console.log('commodityCode:', commodityCode);
+            console.log('category:', category);
+            console.log('subject:', subject);
+            console.log('classmen:', classmen);
+            console.log('growthEnvironment:', growthEnvironment);
+            console.log('growthCycle:', growthCycle);
+            console.log('growthManagement:', growthManagement);
+            console.log('harvestTime:', harvestTime);
+            console.log('harvestMethod:', harvestMethod);
+            console.log('storageMethod:', storageMethod);
+            console.log('transportDistance:', transportDistance);
+            console.log('transportTool:', transportTool);
+            console.log('transportStartTime:', transportStartTime);
+            console.log('transportEndTime:', transportEndTime);
+            console.log('preservationTime:', preservationTime);
+            console.log('salesMethod:', salesMethod);
+            console.log('processingMethod:', processingMethod);
+            console.log('shelfTime:', shelfTime);
+            console.log('dishName:', dishName);
+
+            //2
+            /*var harvestTime = $("#harvestTime2").val();
+            var harvestMethod = $("#harvestMethod2").val();
+            var storageMethod = $("#storageMethod2").val();
+            var transportDistance = $("#transportDistance2").val();
+            var transportTool = $("#transportTool2").val();
+            var transportStartTime = $("#transportStartTime2").val();
+            var transportEndTime = $("#transportEndTime2").val();
+            var preservationTime = $("#preservationTime2").val();
+            var salesMethod = $("#salesMethod2").val();*/
+
+
+            // Use the number as the argument for the store function
+            let transaction = contractInstance.methods.addPlanting(
+                commodityCode,
+                category,
+                subject,
+                classmen,
+                growthEnvironment,
+                growthCycle,
+                growthManagement,
+                harvestTime,
+                harvestMethod,
+                storageMethod,
+                transportDistance,
+                transportTool,
+                transportStartTime,
+                transportEndTime,
+                preservationTime,
+                salesMethod,
+                processingMethod,
+                shelfTime,
+                dishName
+            ).encodeABI();
+            let account = '0x877D1E76FAD0EA72263583C147CE8f92f4BF27F5';
+            let nonce = web3.eth.getTransactionCount();
+            let privateKey = 'c56286692110e5321e4b060d32d55b8516ae21562e222425926b3613f9d242b3'; // Replace with your private key
+
+            if (!account) {
+                console.error('Account is not defined');
+                return;
+            }
+
+            web3.eth.getTransactionCount(account)
+                .then(nonce => {
+                    let rawTransaction = {
+                        from: account,
+                        to: contractInstance.options.address,
+                        data: transaction,
+                        gas: 2000000,
+                        gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
+                        nonce: 39
+                    };
+
+                    return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
+                })
+                .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
+                .then(receipt => console.log('Transaction receipt: ', receipt))
+                .catch(err => console.error('Error sending transaction: ', err));
+
+
+
+            /*let transaction2 = contractInstance.methods.addPlanting2(
+                commodityCode,
+                harvestTime,
+                harvestMethod,
+                storageMethod,
+                transportDistance,
+                transportTool,
+                transportStartTime,
+                transportEndTime,
+                preservationTime,
+                salesMethod
+            ).encodeABI();
+
+
+            web3.eth.getTransactionCount(account)
+                .then(nonce => {
+                    let rawTransaction = {
+                        from: account,
+                        to: contractInstance.options.address,
+                        data: transaction2,
+                        gas: 2000000,
+                        gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
+                        nonce: 34
+                    };
+
+                    return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
+                })
+                .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
+                .then(receipt => console.log('Transaction receipt: ', receipt))
+                .catch(err => console.error('Error sending transaction: ', err));
+
+
+        }*/
+
+
+
+            /*
+            let transaction = contractInstance.methods.store(123).encodeABI();
+
+            web3.eth.getTransactionCount(account)
+                .then(nonce => {
+                    let rawTransaction = {
+                        from: account,
+                        to: contractInstance.options.address,
+                        data: transaction,
+                        gas: 2000000,
+                        gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
+                        nonce: 21
+                    };
+
+                    return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
+                })
+                .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
+                .then(receipt => console.log('Transaction receipt: ', receipt))
+                .catch(err => console.error('Error sending transaction: ', err));*/
+
+
+
+
+            /*let rawTransaction = {
+                from: account,
+                to: contractInstance.options.address,
+                data: transaction,
+                gas: 2000000,
+                gasPrice: web3.utils.toWei('20', 'gwei') // 20 Gwei
+
+
+            };
+
+            web3.eth.accounts.signTransaction(rawTransaction, privateKey)
+                .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
+                .then(receipt => console.log('Transaction receipt: ', receipt))
+                .catch(err => console.error('Error sending transaction: ', err));*/
+
+
+
+
+            /*contractInstance.methods.store(123).send({ from: '0x82C07955eD5f47F31B946DC506EF5885a17dD3Cc' }).then(function (result) {
+                console.log("***store(123)***:");
+                console.log(result);
+            });*/
+
+            /*contractInstance.methods.retrievetext().call().then(function (result) {
+                document.getElementById("demo").innerHTML = result;
+            })*/
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $("#block1chain1mineButton").click(function () {
+                // Generate a random number for the hash
+                let hash = Math.floor(Math.random() * 1000000);
+
+                // Set the hash value in the input field
+                $("#block1chain1hash").val(hash);
+
+                // Change the color of the well to green
+                $(this).closest(".well").css("background-color", "#dff0d8");
             });
+            $("#block2chain1mineButton").click(function () {
+                // Generate a random number for the hash
+                let hash = Math.floor(Math.random() * 1000000);
 
-            function getText(block, chain) {
-                return $('#block' + block + 'chain' + chain + 'number').val() + $('#block' + block + 'chain' + chain + 'nonce').val() + $('#block' + block + 'chain' + chain + 'data').val() + $('#block' + block + 'chain' + chain + 'previous').val();
-            }
+                // Set the hash value in the input field
+                $("#block2chain1hash").val(hash);
 
-            function setup(block, chain) {
-                updateHash(block, chain);
-                $('#block' + block + 'chain' + chain + 'number').bind('input propertychange', function() {
-                    updateChain(block, chain);
-                });
-                $('#block' + block + 'chain' + chain + 'nonce').bind('input propertychange', function() {
-                    updateChain(block, chain);
-                });
-                $('#block' + block + 'chain' + chain + 'data').bind('input propertychange', function() {
-                    updateChain(block, chain);
-                });
-                $('#block' + block + 'chain' + chain + 'mineButton').click(function(e) {
-                    e.preventDefault();
-                    var l = Ladda.create(this);
-                    l.start();
-                    setTimeout(function() {
-                        mine(block, chain, true);
-                        l.stop();
-                    }, 250);
-                    // give UI time to update
-                });
-            }
-        </script>
-    </body>
+                // Change the color of the well to green
+                $(this).closest(".well").css("background-color", "#dff0d8");
+            });
+            $("#block3chain1mineButton").click(function () {
+                // Generate a random number for the hash
+                let hash = Math.floor(Math.random() * 1000000);
+
+                // Set the hash value in the input field
+                $("#block3chain1hash").val(hash);
+
+                // Change the color of the well to green
+                $(this).closest(".well").css("background-color", "#dff0d8");
+            });
+        });
+
+
+    </script>
+
+
+
+
+
+
+
+    <script src="../static/plugins/jquery/jquery-3.5.1.min.js"></script>
+    <script src="../static/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/plugins/jarallax/jarallax.min.js"></script>
+    <script src="../static/plugins/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+    <script src="../static/plugins/jquery-appear/jquery.appear.min.js"></script>
+    <script src="../static/plugins/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+    <script src="../static/plugins/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="../static/plugins/jquery-validate/jquery.validate.min.js"></script>
+    <script src="../static/plugins/nouislider/nouislider.min.js"></script>
+    <script src="../static/plugins/odometer/odometer.min.js"></script>
+    <script src="../static/plugins/swiper/swiper.min.js"></script>
+    <script src="../static/plugins/tiny-slider/tiny-slider.min.js"></script>
+    <script src="../static/plugins/wnumb/wNumb.min.js"></script>
+    <script src="../static/plugins/wow/wow.js"></script>
+    <script src="../static/plugins/isotope/isotope.js"></script>
+    <script src="../static/plugins/countdown/countdown.min.js"></script>
+    <script src="../static/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script src="../static/plugins/twentytwenty/twentytwenty.js"></script>
+    <script src="../static/plugins/twentytwenty/jquery.event.move.js"></script>
+    <script src="../static/plugins/parallax/parallax.min.js"></script>
+    <script src="../static/plugins/tilt.js/tilt.jquery.js"></script>
+
+    <script src="https://ditu.google.cn/maps/api/js?key=AIzaSyATY4Rxc8jNvDpsK8ZetC7JyN4PFVYGCGM"></script>
+
+    <!-- template js -->
+    <script src="../static/js/agriox.js"></script>
+
+
+
+</body>
+
 </html>
