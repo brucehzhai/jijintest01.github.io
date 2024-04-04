@@ -105,7 +105,7 @@ var option;
 
 option = {
   legend: {
-    top: 'bottom'
+    top: 'right'
   },
   toolbox: {
     show: true,
@@ -127,14 +127,16 @@ option = {
         borderRadius: 8
       },
       data: [
-        { value: 40, name: 'rose 1' },
-        { value: 38, name: 'rose 2' },
-        { value: 32, name: 'rose 3' },
-        { value: 30, name: 'rose 4' },
-        { value: 28, name: 'rose 5' },
-        { value: 26, name: 'rose 6' },
-        { value: 22, name: 'rose 7' },
-        { value: 18, name: 'rose 8' }
+        { value: 60, name: '楚雄市：610.11 亿元' },
+        { value: 55, name: '禄丰县：268.23 亿元' },
+        { value: 52, name: '大姚县：143.59 亿元' },
+        { value: 50, name: '武定县：136.37 亿元' },
+        { value: 47, name: '元谋县：126.68 亿元' },
+        { value: 45, name: '南华县：124.61 亿元' },
+        { value: 42, name: '牟定县：102.60 亿元' },
+        { value: 40, name: '姚安县：100.67 亿元' },
+        { value: 36, name: '双柏县：80.76 亿元' },
+        { value: 32, name: '永仁县：69.81 亿元' },
       ]
     }
   ]
