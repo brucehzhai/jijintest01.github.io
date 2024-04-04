@@ -455,8 +455,8 @@
                             <input type="text" class="form-control" id="dishName" placeholder="请输入对应菜品">
                         </div>
                     </div>
-                    <input type="button" class="btn" value="提交" onclick="getInfo();">
-                    <!--<input type="button" class="btn" value="提交" onclick="getInfo(); redirectToBlockVisual();">-->
+                    <!--<input type="button" class="btn" value="提交" onclick="getInfo();">-->
+                    <input type="button" class="btn" value="提交" onclick="getInfo(); redirectToBlockVisual();">
 
                 </form>
             </div>
@@ -1198,7 +1198,7 @@
 
         function getInfo() {
           
-            console.log(nonceValue);
+  
             // Get the number from the input field
             // Retrieve values from the form
             var commodityCode = $("#commodityCode").val();
@@ -1275,8 +1275,7 @@
                 dishName
             ).encodeABI();
             let account = '0x877D1E76FAD0EA72263583C147CE8f92f4BF27F5';
-            var nonce1 = nonceValue;
-            console.log(nonce1);
+            let nonce = web3.eth.getTransactionCount(account);
             let privateKey = 'c56286692110e5321e4b060d32d55b8516ae21562e222425926b3613f9d242b3'; // Replace with your private key
 
             if (!account) {
@@ -1292,7 +1291,7 @@
                         data: transaction,
                         gas: 2000000,
                         gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
-                        nonce: nonce1
+                        nonce: 44
                     };
 
                     return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
