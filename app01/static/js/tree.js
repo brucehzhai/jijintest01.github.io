@@ -128,6 +128,12 @@ option && myChart.setOption(option);
     //设置初始地图
     var mapname = chinaMap;
     //设置省份的json 这里注意名字要和中国地图上的名字一致
+    var mapdata={
+
+        '楚雄彝族自治州': '../click_detail',
+        '南华县': '../click_detail'
+        // ... 可以继续添加其他市和对应的链接 ...
+    };
     var mapJson = [
         {
             name: "台湾省",
@@ -310,6 +316,9 @@ option && myChart.setOption(option);
             mapname = clickedMap.json;
             mapInit();
         }
+        if (mapdata[clickedName]) {
+            window.open(mapdata[clickedName]);
+        }
         //添加一个返回按键
         $('<div class="back"><button type="button">返回</button></div>').appendTo($('#maptt'));
         //给返回按键设置样式
@@ -379,17 +388,7 @@ option && myChart.setOption(option);
                     tooltip: {
                         trigger: 'item',
                         formatter: '{b}<br/>{c} (种菌菇)'
-                    },
-                    visualMap: {
-                        min: 10,
-                        max: 100,
-                        text: ['High', 'Low'],
-                        realtime: false,
-                        calculable: true,
-                        inRange: {
-                            color: ['orange', 'green']
-                        }
-                    },
+                    }
                 };
             }else{
                 option = {
@@ -421,16 +420,7 @@ option && myChart.setOption(option);
                             return params.name + '<br/>' + params.value + ' (种菌菇)' + '<br/>' + params.data.text; // 显示文本内容
                         }
                     },
-                    visualMap: {
-                        min: 10,
-                        max: 100,
-                        text: ['High', 'Low'],
-                        realtime: false,
-                        calculable: true,
-                        inRange: {
-                            color: ['orange', 'purple', 'red']
-                        }
-                    },
+
                 };
 
             };

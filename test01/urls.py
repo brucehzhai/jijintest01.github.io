@@ -40,6 +40,6 @@ urlpatterns = [
     path('error/', views.error),
     path('blockinput/', views.blockinput),
     path('blockvisual/', views.blockvisual),
-
+   path('click_detail/', views.click_detail),
 
 ]
