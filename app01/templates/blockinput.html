@@ -668,11 +668,6 @@
 
 
 
-
-
-
-
-
         const web3 = new Web3(new Web3.providers.HttpProvider("https://sepolia.infura.io/v3/19225cd3ce7a4ad6972475b102adfdb4"));
         const abi = [
             {
@@ -1048,19 +1043,19 @@
         const address = '0x877D1E76FAD0EA72263583C147CE8f92f4BF27F5';
         const contractInstance = new web3.eth.Contract(abi, address);
 
-        // to test if initialized web3 works fine
-        web3.eth.getBlockNumber().then((results) => {
-            console.log("***Current Block Number***:")
-            console.log(results)
-        });
+        /* // to test if initialized web3 works fine
+         web3.eth.getBlockNumber().then((results) => {
+             console.log("***Current Block Number***:")
+             console.log(results)
+         });
+ 
+         // to test if web3.eth.Contract works
+         console.log("***contractInstance.abi***:");
+         console.log(contractInstance.options.jsonInterface);*/
 
-        // to test if web3.eth.Contract works
-        console.log("***contractInstance.abi***:");
-        console.log(contractInstance.options.jsonInterface);
 
 
-
-        contractInstance.methods.retrieve('111').call().then(function (result) {
+        contractInstance.methods.retrieve('222').call().then(function (result) {
             console.log(result); // Log the result to the console
 
             // Create a mapping from English to Chinese
@@ -1218,10 +1213,6 @@
             });
 
 
-
-
-
-
             $.ajax({
                 url: '{% url "get_codes" %}',
                 method: 'GET',
@@ -1300,9 +1291,10 @@
                         console.error('Account is not defined');
                         return;
                     }
-
                     web3.eth.getTransactionCount(account)
                         .then(nonce => {
+                            console.log('Nonce: ', nonce1);  // Log the nonce
+
                             let rawTransaction = {
                                 from: account,
                                 to: contractInstance.options.address,
@@ -1312,16 +1304,25 @@
                                 nonce: nonce1  // Use nonce1 here
                             };
 
+                            console.log('Raw transaction: ', rawTransaction);  // Log the raw transaction
+
                             return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
                         })
-                        .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
-                        .then(receipt => console.log('Transaction receipt: ', receipt))
-                        .catch(err => console.error('Error sending transaction: ', err));
-                },
-                error: function (error) {
-                    console.log(error);
-                }
-            });
+                        .then(signedTx => {
+                            console.log('Signed transaction: ', signedTx);  // Log the signed transaction
+
+                            return web3.eth.sendSignedTransaction(signedTx.rawTransaction);
+                        })
+                        .then(receipt => {
+                            console.log('Transaction receipt: ', receipt);  // Log the transaction receipt
+                        })
+                        .catch(err => {
+                            console.error('Error sending transaction: ', err);  // Log the error
+                        });
+                  
+                        console.log(error);
+                    }
+                });
         };
 
 

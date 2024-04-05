@@ -199,7 +199,7 @@
             <h1>区块链</h1>
             <div class="row row-horizon">
                 <div class="col-xl-4">
-                    <div class="well well-success" id="block1chain1well" >
+                    <div class="well well-success" id="block1chain1well">
                         <form class="form-horizontal ">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="block1chain1number">区块:</label>
@@ -345,7 +345,7 @@
                                     <i class="icon-spinner icon-spin icon-large"></i>
                                 </div>
                                 <div class="col-sm-10">
-                                     <button type="button" class="btn btn-primary ladda-button"
+                                    <button type="button" class="btn btn-primary ladda-button"
                                         id="block3chain1mineButton" data-style="expand-right">
                                         <span class="ladda-label">挖矿</span>
                                     </button>
@@ -542,6 +542,10 @@
 
     <script src="../static/js/web3.min.js"></script>
     <script src="../static/js/jquery.min.js"></script>
+
+
+
+
     <script>
         const web3 = new Web3(new Web3.providers.HttpProvider("https://sepolia.infura.io/v3/19225cd3ce7a4ad6972475b102adfdb4"));
         const abi = [
@@ -918,59 +922,65 @@
         const address = '0x877D1E76FAD0EA72263583C147CE8f92f4BF27F5';
         const contractInstance = new web3.eth.Contract(abi, address);
 
-        // to test if initialized web3 works fine
-        web3.eth.getBlockNumber().then((results) => {
-            console.log("***Current Block Number***:")
-            console.log(results)
-        });
-
-        // to test if web3.eth.Contract works
-        console.log("***contractInstance.abi***:");
-        console.log(contractInstance.options.jsonInterface);
 
 
+        $(document).ready(function () {
+            $.get('/get_plantcodes/', function (data) {
+                console.log(data.plantcodes);
 
-        contractInstance.methods.retrieve('111').call().then(function (result) {
-            console.log(result); // Log the result to the console
+                // to test if initialized web3 works fine
+                web3.eth.getBlockNumber().then((results) => {
+                    console.log("***Current Block Number***:");
+                    console.log(results);
+                });
 
-            // Create a mapping from English to Chinese
-            let mapping = {
-                'commodityCode': '商品代码',
-                'category': '类别',
-                'subject': '主题',
-                'classmen': '班级',
-                'region': '区域',
-                'growthEnvironment': '生长环境',
-                'growthCycle': '生长周期',
-                'growthManagement': '生长管理',
-                'harvestTime': '收获时间',
-                'harvestMethod': '收获方法',
-                'storageMethod': '存储方法',
-                'startPoint': '起点',
-                'endPoint': '终点',
-                'transportDistance': '运输距离',
-                'transportTool': '运输工具',
-                'transportStartTime': '运输开始时间',
-                'transportEndTime': '运输结束时间',
-                'preservationTime': '保鲜时间',
-                'salesMethod': '销售方式',
-                'processingMethod': '加工方式',
-                'shelfTime': '上架时间',
-                'shelfArea': '上架区域',
-                'dishName': '菜品名称'
-            };
+                // to test if web3.eth.Contract works
+                console.log("***contractInstance.abi***:");
+                console.log(contractInstance.options.jsonInterface);
 
-            // Create an HTML string
-            let html = '<ul>';
-            for (let key in result) {
-                if (result.hasOwnProperty(key) && isNaN(key)) { // Ignore numeric keys and __length__
-                    let chineseKey = mapping[key] || key; // Use the Chinese key if it exists, otherwise use the English key
-                    html += `<li>${chineseKey}: ${result[key]}</li>`;
-                }
-            }
-            html += '</ul>';
+                contractInstance.methods.retrieve(data.plantcodes[1]).call().then(function (result) {
+                    console.log(result); // Log the result to the console
 
-            $("#block1chain1data").val(html); // Display the formatted result
+                    // Create a mapping from English to Chinese
+                    let mapping = {
+                        'commodityCode': '商品代码',
+                        'category': '类别',
+                        'subject': '主题',
+                        'classmen': '班级',
+                        'region': '区域',
+                        'growthEnvironment': '生长环境',
+                        'growthCycle': '生长周期',
+                        'growthManagement': '生长管理',
+                        'harvestTime': '收获时间',
+                        'harvestMethod': '收获方法',
+                        'storageMethod': '存储方法',
+                        'startPoint': '起点',
+                        'endPoint': '终点',
+                        'transportDistance': '运输距离',
+                        'transportTool': '运输工具',
+                        'transportStartTime': '运输开始时间',
+                        'transportEndTime': '运输结束时间',
+                        'preservationTime': '保鲜时间',
+                        'salesMethod': '销售方式',
+                        'processingMethod': '加工方式',
+                        'shelfTime': '上架时间',
+                        'shelfArea': '上架区域',
+                        'dishName': '菜品名称'
+                    };
+
+                    // Create an HTML string
+                    let html = '<ul>';
+                    for (let key in result) {
+                        if (result.hasOwnProperty(key) && isNaN(key)) { // Ignore numeric keys and __length__
+                            let chineseKey = mapping[key] || key; // Use the Chinese key if it exists, otherwise use the English key
+                            html += `<li>${chineseKey}: ${result[key]}</li>`;
+                        }
+                    }
+                    html += '</ul>';
+
+                    $("#block1chain1data").val(html); // Display the formatted result
+                });
+            });
         });
 
 
@@ -1068,197 +1078,20 @@
 
 
 
-        function getInfo() {
-            // Get the number from the input field
-            // Retrieve values from the form
-            var commodityCode = $("#commodityCode").val();
-            var category = $("#category").val();
-            var subject = $("#subject").val();
-            var classmen = $("#classmen").val();
-            var growthEnvironment = $("#growthEnvironment").val();
-            var growthCycle = $("#growthCycle").val();
-            var growthManagement = $("#growthManagement").val();
-            var harvestTime = $("#cztime").val();
-            var harvestMethod = $("#harvestMethod").val();
-            var storageMethod = $("#storageMethod").val();
-            var transportDistance = $("#transportDistance").val();
-            var transportTool = $("#transportTool").val();
-            var transportStartTime = $("#kstime").val();
-            var transportEndTime = $("#jstime").val();
-            var preservationTime = $("#bxtime").val();
-            var salesMethod = $("#salesMethod").val();
-            var processingMethod = $("#processingMethod").val();
-            var shelfTime = $("#sjtime").val();
-            var dishName = $("#dishName").val();
-            console.log('commodityCode:', commodityCode);
-            console.log('category:', category);
-            console.log('subject:', subject);
-            console.log('classmen:', classmen);
-            console.log('growthEnvironment:', growthEnvironment);
-            console.log('growthCycle:', growthCycle);
-            console.log('growthManagement:', growthManagement);
-            console.log('harvestTime:', harvestTime);
-            console.log('harvestMethod:', harvestMethod);
-            console.log('storageMethod:', storageMethod);
-            console.log('transportDistance:', transportDistance);
-            console.log('transportTool:', transportTool);
-            console.log('transportStartTime:', transportStartTime);
-            console.log('transportEndTime:', transportEndTime);
-            console.log('preservationTime:', preservationTime);
-            console.log('salesMethod:', salesMethod);
-            console.log('processingMethod:', processingMethod);
-            console.log('shelfTime:', shelfTime);
-            console.log('dishName:', dishName);
-
-            //2
-            /*var harvestTime = $("#harvestTime2").val();
-            var harvestMethod = $("#harvestMethod2").val();
-            var storageMethod = $("#storageMethod2").val();
-            var transportDistance = $("#transportDistance2").val();
-            var transportTool = $("#transportTool2").val();
-            var transportStartTime = $("#transportStartTime2").val();
-            var transportEndTime = $("#transportEndTime2").val();
-            var preservationTime = $("#preservationTime2").val();
-            var salesMethod = $("#salesMethod2").val();*/
 
 
-            // Use the number as the argument for the store function
-            let transaction = contractInstance.methods.addPlanting(
-                commodityCode,
-                category,
-                subject,
-                classmen,
-                growthEnvironment,
-                growthCycle,
-                growthManagement,
-                harvestTime,
-                harvestMethod,
-                storageMethod,
-                transportDistance,
-                transportTool,
-                transportStartTime,
-                transportEndTime,
-                preservationTime,
-                salesMethod,
-                processingMethod,
-                shelfTime,
-                dishName
-            ).encodeABI();
-            let account = '0x877D1E76FAD0EA72263583C147CE8f92f4BF27F5';
-            let nonce = web3.eth.getTransactionCount();
-            let privateKey = 'c56286692110e5321e4b060d32d55b8516ae21562e222425926b3613f9d242b3'; // Replace with your private key
-
-            if (!account) {
-                console.error('Account is not defined');
-                return;
-            }
-
-            web3.eth.getTransactionCount(account)
-                .then(nonce => {
-                    let rawTransaction = {
-                        from: account,
-                        to: contractInstance.options.address,
-                        data: transaction,
-                        gas: 2000000,
-                        gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
-                        nonce: 39
-                    };
-
-                    return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
-                })
-                .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
-                .then(receipt => console.log('Transaction receipt: ', receipt))
-                .catch(err => console.error('Error sending transaction: ', err));
-
-
-
-            /*let transaction2 = contractInstance.methods.addPlanting2(
-                commodityCode,
-                harvestTime,
-                harvestMethod,
-                storageMethod,
-                transportDistance,
-                transportTool,
-                transportStartTime,
-                transportEndTime,
-                preservationTime,
-                salesMethod
-            ).encodeABI();
-
-
-            web3.eth.getTransactionCount(account)
-                .then(nonce => {
-                    let rawTransaction = {
-                        from: account,
-                        to: contractInstance.options.address,
-                        data: transaction2,
-                        gas: 2000000,
-                        gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
-                        nonce: 34
-                    };
-
-                    return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
-                })
-                .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
-                .then(receipt => console.log('Transaction receipt: ', receipt))
-                .catch(err => console.error('Error sending transaction: ', err));
-
-
-        }*/
-
-
-
-            /*
-            let transaction = contractInstance.methods.store(123).encodeABI();
-
-            web3.eth.getTransactionCount(account)
-                .then(nonce => {
-                    let rawTransaction = {
-                        from: account,
-                        to: contractInstance.options.address,
-                        data: transaction,
-                        gas: 2000000,
-                        gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
-                        nonce: 21
-                    };
-
-                    return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
-                })
-                .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
-                .then(receipt => console.log('Transaction receipt: ', receipt))
-                .catch(err => console.error('Error sending transaction: ', err));*/
-
-
-
-
-            /*let rawTransaction = {
-                from: account,
-                to: contractInstance.options.address,
-                data: transaction,
-                gas: 2000000,
-                gasPrice: web3.utils.toWei('20', 'gwei') // 20 Gwei
-
-
-            };
-
-            web3.eth.accounts.signTransaction(rawTransaction, privateKey)
-                .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
-                .then(receipt => console.log('Transaction receipt: ', receipt))
-                .catch(err => console.error('Error sending transaction: ', err));*/
-
-
-
-
-            /*contractInstance.methods.store(123).send({ from: '0x82C07955eD5f47F31B946DC506EF5885a17dD3Cc' }).then(function (result) {
-                console.log("***store(123)***:");
-                console.log(result);
-            });*/
-
-            /*contractInstance.methods.retrievetext().call().then(function (result) {
-                document.getElementById("demo").innerHTML = result;
-            })*/
-        }
     </script>
+
+
+    <script>
+        $(document).ready(function () {
+            $.get('/get_plantcodes/', function (data) {
+                console.log('ts',data.plantcodes[1]);  // This will log the plantcodes to the console
+            });
+        });
+    </script>
+
+
 
     <script>
         $(document).ready(function () {

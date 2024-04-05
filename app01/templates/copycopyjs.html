@@ -1,0 +1,190 @@
+function getInfo() {
+// Get the number from the input field
+// Retrieve values from the form
+var commodityCode = $("#commodityCode").val();
+var category = $("#category").val();
+var subject = $("#subject").val();
+var classmen = $("#classmen").val();
+var growthEnvironment = $("#growthEnvironment").val();
+var growthCycle = $("#growthCycle").val();
+var growthManagement = $("#growthManagement").val();
+var harvestTime = $("#cztime").val();
+var harvestMethod = $("#harvestMethod").val();
+var storageMethod = $("#storageMethod").val();
+var transportDistance = $("#transportDistance").val();
+var transportTool = $("#transportTool").val();
+var transportStartTime = $("#kstime").val();
+var transportEndTime = $("#jstime").val();
+var preservationTime = $("#bxtime").val();
+var salesMethod = $("#salesMethod").val();
+var processingMethod = $("#processingMethod").val();
+var shelfTime = $("#sjtime").val();
+var dishName = $("#dishName").val();
+console.log('commodityCode:', commodityCode);
+console.log('category:', category);
+console.log('subject:', subject);
+console.log('classmen:', classmen);
+console.log('growthEnvironment:', growthEnvironment);
+console.log('growthCycle:', growthCycle);
+console.log('growthManagement:', growthManagement);
+console.log('harvestTime:', harvestTime);
+console.log('harvestMethod:', harvestMethod);
+console.log('storageMethod:', storageMethod);
+console.log('transportDistance:', transportDistance);
+console.log('transportTool:', transportTool);
+console.log('transportStartTime:', transportStartTime);
+console.log('transportEndTime:', transportEndTime);
+console.log('preservationTime:', preservationTime);
+console.log('salesMethod:', salesMethod);
+console.log('processingMethod:', processingMethod);
+console.log('shelfTime:', shelfTime);
+console.log('dishName:', dishName);
+
+//2
+/*var harvestTime = $("#harvestTime2").val();
+var harvestMethod = $("#harvestMethod2").val();
+var storageMethod = $("#storageMethod2").val();
+var transportDistance = $("#transportDistance2").val();
+var transportTool = $("#transportTool2").val();
+var transportStartTime = $("#transportStartTime2").val();
+var transportEndTime = $("#transportEndTime2").val();
+var preservationTime = $("#preservationTime2").val();
+var salesMethod = $("#salesMethod2").val();*/
+
+
+// Use the number as the argument for the store function
+let transaction = contractInstance.methods.addPlanting(
+commodityCode,
+category,
+subject,
+classmen,
+growthEnvironment,
+growthCycle,
+growthManagement,
+harvestTime,
+harvestMethod,
+storageMethod,
+transportDistance,
+transportTool,
+transportStartTime,
+transportEndTime,
+preservationTime,
+salesMethod,
+processingMethod,
+shelfTime,
+dishName
+).encodeABI();
+let account = '0x877D1E76FAD0EA72263583C147CE8f92f4BF27F5';
+let nonce = web3.eth.getTransactionCount();
+let privateKey = 'c56286692110e5321e4b060d32d55b8516ae21562e222425926b3613f9d242b3'; // Replace with your private key
+
+if (!account) {
+console.error('Account is not defined');
+return;
+}
+
+web3.eth.getTransactionCount(account)
+.then(nonce => {
+let rawTransaction = {
+from: account,
+to: contractInstance.options.address,
+data: transaction,
+gas: 2000000,
+gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
+nonce: 39
+};
+
+return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
+})
+.then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
+.then(receipt => console.log('Transaction receipt: ', receipt))
+.catch(err => console.error('Error sending transaction: ', err));
+
+
+
+/*let transaction2 = contractInstance.methods.addPlanting2(
+commodityCode,
+harvestTime,
+harvestMethod,
+storageMethod,
+transportDistance,
+transportTool,
+transportStartTime,
+transportEndTime,
+preservationTime,
+salesMethod
+).encodeABI();
+
+
+web3.eth.getTransactionCount(account)
+.then(nonce => {
+let rawTransaction = {
+from: account,
+to: contractInstance.options.address,
+data: transaction2,
+gas: 2000000,
+gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
+nonce: 34
+};
+
+return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
+})
+.then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
+.then(receipt => console.log('Transaction receipt: ', receipt))
+.catch(err => console.error('Error sending transaction: ', err));
+
+
+}*/
+
+
+
+/*
+let transaction = contractInstance.methods.store(123).encodeABI();
+
+web3.eth.getTransactionCount(account)
+.then(nonce => {
+let rawTransaction = {
+from: account,
+to: contractInstance.options.address,
+data: transaction,
+gas: 2000000,
+gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
+nonce: 21
+};
+
+return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
+})
+.then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
+.then(receipt => console.log('Transaction receipt: ', receipt))
+.catch(err => console.error('Error sending transaction: ', err));*/
+
+
+
+
+/*let rawTransaction = {
+from: account,
+to: contractInstance.options.address,
+data: transaction,
+gas: 2000000,
+gasPrice: web3.utils.toWei('20', 'gwei') // 20 Gwei
+
+
+};
+
+web3.eth.accounts.signTransaction(rawTransaction, privateKey)
+.then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
+.then(receipt => console.log('Transaction receipt: ', receipt))
+.catch(err => console.error('Error sending transaction: ', err));*/
+
+
+
+
+/*contractInstance.methods.store(123).send({ from: '0x82C07955eD5f47F31B946DC506EF5885a17dD3Cc' }).then(function
+(result) {
+console.log("***store(123)***:");
+console.log(result);
+});*/
+
+/*contractInstance.methods.retrievetext().call().then(function (result) {
+document.getElementById("demo").innerHTML = result;
+})*/

@@ -144,6 +144,12 @@ def trace_copy(request):
     return render(request,'trace_copy.html')
 
 
+@csrf_exempt
+def get_plantcodes(request):
+    plantcodes = realCommodityCode.objects.order_by('-id').values_list('plantcode', flat=True)[:3]
+    return JsonResponse({'plantcodes': list(plantcodes)})
+
+
 
 
 
