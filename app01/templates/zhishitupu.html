@@ -32,7 +32,7 @@
     igraph.i18n.setLanguage("chs");
     var app = new igraph.GraphNavigator(document.getElementById('graphArea'));
     console.log(app);
-    app.loadGson("../static_zstp/js/records5.json");
+    app.loadGson("../static_zstp/js/records_2.json");
     //app.connect("http://localhost:9999/graphserver/connector-bolt");
 </script>
 <div style="height:100%">
@@ -41,7 +41,7 @@
 <script type="text/javascript">
     igraph.i18n.setLanguage("chs");
     var apps = new igraph.GraphExplorer(document.getElementById('graphArea1'),'LIGHT');
-    apps.loadGson("../static_zstp/js/records5.json", {}, function () {
+    apps.loadGson("../static_zstp/js/records_2.json", {}, function () {
         apps.pickup([{
             label: ""
         }]);
