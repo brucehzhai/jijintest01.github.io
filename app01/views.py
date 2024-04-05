@@ -6,38 +6,10 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponse, HttpResponseServerError,JsonResponse
 from app01 import models
 from django.db.models import Q
-from django.views.decorators.csrf import csrf_exempt
 
 from app01.models import userinfo,CommodityCode
 
-
-
-
-
-@csrf_exempt
-def increment_code(request):
-    if request.method == 'POST':
-        # Get the last code
-        last_code_obj = CommodityCode.objects.order_by('-id').first()
-        if last_code_obj:
-            # Increment the last code by 1
-            new_code = int(last_code_obj.code) + 1
-            # Create a new CommodityCode object with the new code
-            new_code_obj = CommodityCode(code=str(new_code))
-            new_code_obj.save()
-            return JsonResponse({'status': 'success', 'code': new_code})
-        else:
-            return JsonResponse({'status': 'error', 'error': 'No last CommodityCode object found'})
-
-
-
-
-
-
-
-
-
-
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def index(request):
@@ -53,14 +25,14 @@ def register(request):
         # 如果是POST请求，则执行以下代码
 
         name = request.POST.get('name')
-        pwd = request.POST.get('password')
+        password = request.POST.get('password')
 
 
         email = request.POST.get('email')
 
         # 在这里进行用户输入的验证逻辑
 
-        userinfo.objects.create(name=name, email=email, pwd=pwd)
+        userinfo.objects.create(name=name, email=email, password=password)
         return redirect('/login/')
 
     else:
@@ -126,47 +98,47 @@ def error(request):
     return render(request,'error.html')
 
 def blockinput(request):
-    last_code = CommodityCode.objects.order_by('-id').first()
-    second_last_code_obj = CommodityCode.objects.order_by('-id')[1:2].first()
-    return render(request, 'blockinput.html', {'last_code': last_code, 'second_last_code_obj': second_last_code_obj})
+    
+        return render(request,'blockinput.html')
+def blockvisual(request):
+
+    return render(request,'blockvisual.html')
+def click_detail(request):
+    return render(request,'click_detail.html')
+
 
 
 def get_codes(request):
-    last_code = CommodityCode.objects.order_by('-id').first()
+    noncecode = CommodityCode.objects.order_by('-id').first()
     second_last_code_obj = CommodityCode.objects.order_by('-id')[1:2].first()
-    return JsonResponse({'last_code': last_code.code, 'second_last_code_obj': second_last_code_obj.code})
+    return JsonResponse({'last_code': noncecode.code, 'second_last_code_obj': second_last_code_obj.code})
 
 
-
-
-
-
-    '''if request.method == 'POST':
-        # 如果是POST请求，则执行以下代码
-        code = request.POST.get('commoditycode')
-        # 在这里进行用户输入的验证逻辑
-        CommodityCode.objects.create(code=code)
-        return render(request, 'blockinput.html')
+@csrf_exempt
+def increment_code(request):
+    if request.method == 'POST':
+        # Get the last code
+        last_code_obj = CommodityCode.objects.order_by('-id').first()
+        if last_code_obj:
+            # Increment the last code by 1
+            new_code = int(last_code_obj.code) + 1
+            # Create a new CommodityCode object with the new code
+            new_code_obj = CommodityCode(code=str(new_code))
+            new_code_obj.save()
+            return JsonResponse({'status': 'success', 'code': new_code})
+        else:
+            return JsonResponse({'status': 'error', 'error': 'No last CommodityCode object found'})
         
-    else:
-        return render(request, 'blockinput.html')
-        # 如果是GET请求，则执行以下代码'''
-        
-    
-    '''if request.method == 'POST':
-        # 如果是POST请求，则执行以下代码
-        code = request.POST.get('commoditycode')
-        # 在这里进行用户输入的验证逻辑
-        CommodityCode.objects.create(code=code)
-    else:
-        # 如果是GET请求，则执行以下代码
-        pass
-    return render(request, 'blockinput.html')'''
-
-    
-    
-
 def blockvisual(request):
     return render(request,'blockvisual.html')
 def trace_copy(request):
     return render(request,'trace_copy.html')
+
+
+
+
+
+
+
+
+

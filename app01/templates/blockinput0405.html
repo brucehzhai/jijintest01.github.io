@@ -1,5 +1,3 @@
-<html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -176,12 +174,14 @@
 
 
             <div class="container">
-                <form method="post" action="">
+                <form method="post" action="/blockinput/">
+                    {% csrf_token %}
                     <div class="form-control">
                         <h1>种植</h1>
                         <div class="col-lg-5" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">商品码</label>
-                            <input type="text" id="commodityCode" class="form-control" placeholder="请输入商品码">
+                            <input type="text" id="commodityCode" class="form-control" placeholder="请输入商品码"
+                                name="commoditycode">
                         </div>
                         <div class="col-lg-5" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">品类</label>
@@ -455,7 +455,11 @@
                             <input type="text" class="form-control" id="dishName" placeholder="请输入对应菜品">
                         </div>
                     </div>
-                    <input type="button" class="btn" value="提交" onclick="getInfo();">
+                    <p>Last code: {{ last_code.code }}</p>
+                    <p>Second last code: {{ second_last_code_obj.code }}</p>
+                    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="getInfo()">提交</button>
+                    <button type="button" class="btn btn-secondary btn-lg btn-block"
+                        onclick="redirectToBlockVisual();">跳转</button>
                     <!--<input type="button" class="btn" value="提交" onclick="getInfo(); redirectToBlockVisual();">-->
 
                 </form>
@@ -658,6 +662,8 @@
 
     <script src="../static/js/web3.min.js"></script>
     <script src="../static/js/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script>
         function redirectToBlockVisual() {
             window.location.href = '../blockvisual/';
@@ -1064,15 +1070,15 @@
             // Create a mapping from English to Chinese
             let mapping = {
                 'commodityCode': '商品代码',
-                'category': '类别',
-                'subject': '主题',
-                'classmen': '班级',
-                'region': '区域',
-                'growthEnvironment': '生长环境',
+                'category': '品类',
+                'subject': '所属科目',
+                'classmen': '所属门类',
+                'region': '所属地区',
+                'growthEnvironment': '培育环境',
                 'growthCycle': '生长周期',
                 'growthManagement': '生长管理',
-                'harvestTime': '收获时间',
-                'harvestMethod': '收获方法',
+                'harvestTime': '采摘时间',
+                'harvestMethod': '采摘方法',
                 'storageMethod': '存储方法',
                 'startPoint': '起点',
                 'endPoint': '终点',
@@ -1195,16 +1201,15 @@
 
 
 
+
         function getInfo() {
-
-
+            /*
             $.ajax({
                 url: '/increment_code/',
                 method: 'POST',
                 success: function (data) {
                     if (data.status === 'success') {
                         alert('Code incremented to ' + data.code);
-                        console.log('Data code:', data.code); 
                     } else {
                         alert('Error: ' + data.error);
                     }
@@ -1212,304 +1217,212 @@
             });
 
 
-
-
-
-
             $.ajax({
                 url: '{% url "get_codes" %}',
                 method: 'GET',
                 success: function (data) {
-                    let nonce1 = data.last_code;
-                    console.log('noncebefore:', nonce1);
-
-                    var commodityCode = $("#commodityCode").val();
-                    var category = $("#category").val();
-                    var subject = $("#subject").val();
-                    var classmen = $("#classmen").val();
-                    var growthEnvironment = $("#growthEnvironment").val();
-                    var growthCycle = $("#growthCycle").val();
-                    var growthManagement = $("#growthManagement").val();
-                    var harvestTime = $("#cztime").val();
-                    var harvestMethod = $("#harvestMethod").val();
-                    var storageMethod = $("#storageMethod").val();
-                    var transportDistance = $("#transportDistance").val();
-                    var transportTool = $("#transportTool").val();
-                    var transportStartTime = $("#kstime").val();
-                    var transportEndTime = $("#jstime").val();
-                    var preservationTime = $("#bxtime").val();
-                    var salesMethod = $("#salesMethod").val();
-                    var processingMethod = $("#processingMethod").val();
-                    var shelfTime = $("#sjtime").val();
-                    var dishName = $("#dishName").val();
-
-                    console.log('commodityCode:', commodityCode);
-                    console.log('category:', category);
-                    console.log('subject:', subject);
-                    console.log('classmen:', classmen);
-                    console.log('growthEnvironment:', growthEnvironment);
-                    console.log('growthCycle:', growthCycle);
-                    console.log('growthManagement:', growthManagement);
-                    console.log('harvestTime:', harvestTime);
-                    console.log('harvestMethod:', harvestMethod);
-                    console.log('storageMethod:', storageMethod);
-                    console.log('transportDistance:', transportDistance);
-                    console.log('transportTool:', transportTool);
-                    console.log('transportStartTime:', transportStartTime);
-                    console.log('transportEndTime:', transportEndTime);
-                    console.log('preservationTime:', preservationTime);
-                    console.log('salesMethod:', salesMethod);
-                    console.log('processingMethod:', processingMethod);
-                    console.log('shelfTime:', shelfTime);
-                    console.log('dishName:', dishName);
-
-                    let transaction = contractInstance.methods.addPlanting(
-                        commodityCode,
-                        category,
-                        subject,
-                        classmen,
-                        growthEnvironment,
-                        growthCycle,
-                        growthManagement,
-                        harvestTime,
-                        harvestMethod,
-                        storageMethod,
-                        transportDistance,
-                        transportTool,
-                        transportStartTime,
-                        transportEndTime,
-                        preservationTime,
-                        salesMethod,
-                        processingMethod,
-                        shelfTime,
-                        dishName
-                    ).encodeABI();
-
-                    let account = '0x877D1E76FAD0EA72263583C147CE8f92f4BF27F5';
-                    console.log('nonceafter:', nonce1);
-
-                    let privateKey = 'c56286692110e5321e4b060d32d55b8516ae21562e222425926b3613f9d242b3'; // Replace with your private key
-
-                    if (!account) {
-                        console.error('Account is not defined');
-                        return;
-                    }
-
-                    web3.eth.getTransactionCount(account)
-                        .then(nonce => {
-                            let rawTransaction = {
-                                from: account,
-                                to: contractInstance.options.address,
-                                data: transaction,
-                                gas: 2000000,
-                                gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
-                                nonce: nonce1  // Use nonce1 here
-                            };
-
-                            return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
-                        })
-                        .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
-                        .then(receipt => console.log('Transaction receipt: ', receipt))
-                        .catch(err => console.error('Error sending transaction: ', err));
-                },
-                error: function (error) {
-                    console.log(error);
+                    console.log('Last code: ' + data.last_code);
+                    console.log('Second last code: ' + data.second_last_code_obj);
                 }
             });
-        };
+            */
 
 
 
-        // Get the number from the input field
-        // Retrieve values from the form
-        /*var commodityCode = $("#commodityCode").val();
-        var category = $("#category").val();
-        var subject = $("#subject").val();
-        var classmen = $("#classmen").val();
-        var growthEnvironment = $("#growthEnvironment").val();
-        var growthCycle = $("#growthCycle").val();
-        var growthManagement = $("#growthManagement").val();
-        var harvestTime = $("#cztime").val();
-        var harvestMethod = $("#harvestMethod").val();
-        var storageMethod = $("#storageMethod").val();
-        var transportDistance = $("#transportDistance").val();
-        var transportTool = $("#transportTool").val();
-        var transportStartTime = $("#kstime").val();
-        var transportEndTime = $("#jstime").val();
-        var preservationTime = $("#bxtime").val();
-        var salesMethod = $("#salesMethod").val();
-        var processingMethod = $("#processingMethod").val();
-        var shelfTime = $("#sjtime").val();
-        var dishName = $("#dishName").val();
-        console.log('commodityCode:', commodityCode);
-        console.log('category:', category);
-        console.log('subject:', subject);
-        console.log('classmen:', classmen);
-        console.log('growthEnvironment:', growthEnvironment);
-        console.log('growthCycle:', growthCycle);
-        console.log('growthManagement:', growthManagement);
-        console.log('harvestTime:', harvestTime);
-        console.log('harvestMethod:', harvestMethod);
-        console.log('storageMethod:', storageMethod);
-        console.log('transportDistance:', transportDistance);
-        console.log('transportTool:', transportTool);
-        console.log('transportStartTime:', transportStartTime);
-        console.log('transportEndTime:', transportEndTime);
-        console.log('preservationTime:', preservationTime);
-        console.log('salesMethod:', salesMethod);
-        console.log('processingMethod:', processingMethod);
-        console.log('shelfTime:', shelfTime);
-        console.log('dishName:', dishName);*/
-
-        //2
-        /*var harvestTime = $("#harvestTime2").val();
-        var harvestMethod = $("#harvestMethod2").val();
-        var storageMethod = $("#storageMethod2").val();
-        var transportDistance = $("#transportDistance2").val();
-        var transportTool = $("#transportTool2").val();
-        var transportStartTime = $("#transportStartTime2").val();
-        var transportEndTime = $("#transportEndTime2").val();
-        var preservationTime = $("#preservationTime2").val();
-        var salesMethod = $("#salesMethod2").val();*/
 
 
-        // Use the number as the argument for the store function
-        /*let transaction = contractInstance.methods.addPlanting(
-            commodityCode,
-            category,
-            subject,
-            classmen,
-            growthEnvironment,
-            growthCycle,
-            growthManagement,
-            harvestTime,
-            harvestMethod,
-            storageMethod,
-            transportDistance,
-            transportTool,
-            transportStartTime,
-            transportEndTime,
-            preservationTime,
-            salesMethod,
-            processingMethod,
-            shelfTime,
-            dishName
-        ).encodeABI();
-        let account = '0x877D1E76FAD0EA72263583C147CE8f92f4BF27F5';
-        var nonce1 = "{{ noncecode.code }}";
-        console.log('nonceaf:', nonce1);
-        let privateKey = 'c56286692110e5321e4b060d32d55b8516ae21562e222425926b3613f9d242b3'; // Replace with your private key
 
-        if (!account) {
-            console.error('Account is not defined');
-            return;
+            // Get the number from the input field
+            // Retrieve values from the form
+            var commodityCode = $("#commodityCode").val();
+            var category = $("#category").val();
+            var subject = $("#subject").val();
+            var classmen = $("#classmen").val();
+            var growthEnvironment = $("#growthEnvironment").val();
+            var growthCycle = $("#growthCycle").val();
+            var growthManagement = $("#growthManagement").val();
+            var harvestTime = $("#cztime").val();
+            var harvestMethod = $("#harvestMethod").val();
+            var storageMethod = $("#storageMethod").val();
+            var transportDistance = $("#transportDistance").val();
+            var transportTool = $("#transportTool").val();
+            var transportStartTime = $("#kstime").val();
+            var transportEndTime = $("#jstime").val();
+            var preservationTime = $("#bxtime").val();
+            var salesMethod = $("#salesMethod").val();
+            var processingMethod = $("#processingMethod").val();
+            var shelfTime = $("#sjtime").val();
+            var dishName = $("#dishName").val();
+            console.log('commodityCode:', commodityCode);
+            console.log('category:', category);
+            console.log('subject:', subject);
+            console.log('classmen:', classmen);
+            console.log('growthEnvironment:', growthEnvironment);
+            console.log('growthCycle:', growthCycle);
+            console.log('growthManagement:', growthManagement);
+            console.log('harvestTime:', harvestTime);
+            console.log('harvestMethod:', harvestMethod);
+            console.log('storageMethod:', storageMethod);
+            console.log('transportDistance:', transportDistance);
+            console.log('transportTool:', transportTool);
+            console.log('transportStartTime:', transportStartTime);
+            console.log('transportEndTime:', transportEndTime);
+            console.log('preservationTime:', preservationTime);
+            console.log('salesMethod:', salesMethod);
+            console.log('processingMethod:', processingMethod);
+            console.log('shelfTime:', shelfTime);
+            console.log('dishName:', dishName);
+
+            //2
+            /*var harvestTime = $("#harvestTime2").val();
+            var harvestMethod = $("#harvestMethod2").val();
+            var storageMethod = $("#storageMethod2").val();
+            var transportDistance = $("#transportDistance2").val();
+            var transportTool = $("#transportTool2").val();
+            var transportStartTime = $("#transportStartTime2").val();
+            var transportEndTime = $("#transportEndTime2").val();
+            var preservationTime = $("#preservationTime2").val();
+            var salesMethod = $("#salesMethod2").val();*/
+
+
+            // Use the number as the argument for the store function
+            let transaction = contractInstance.methods.addPlanting(
+                commodityCode,
+                category,
+                subject,
+                classmen,
+                growthEnvironment,
+                growthCycle,
+                growthManagement,
+                harvestTime,
+                harvestMethod,
+                storageMethod,
+                transportDistance,
+                transportTool,
+                transportStartTime,
+                transportEndTime,
+                preservationTime,
+                salesMethod,
+                processingMethod,
+                shelfTime,
+                dishName
+            ).encodeABI();
+            let account = '0x877D1E76FAD0EA72263583C147CE8f92f4BF27F5';
+            let nonce1 = "{{ last_code.code }}";
+            console.log('nonce:', nonce1);
+            let privateKey = 'c56286692110e5321e4b060d32d55b8516ae21562e222425926b3613f9d242b3'; // Replace with your private key
+
+
+            if (!account) {
+                console.error('Account is not defined');
+                return;
+            }
+
+            web3.eth.getTransactionCount(account)
+                .then(nonce => {
+                    let rawTransaction = {
+                        from: account,
+                        to: contractInstance.options.address,
+                        data: transaction,
+                        gas: 100000000000,
+                        gasPrice: web3.utils.toWei('800', 'gwei'), // 20 Gwei
+                        nonce: 30
+                    };
+
+                    return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
+                })
+                .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
+                .then(receipt => console.log('Transaction receipt: ', receipt))
+                .catch(err => console.error('Error sending transaction: ', err));
+
+
+
+            /*let transaction2 = contractInstance.methods.addPlanting2(
+                commodityCode,
+                harvestTime,
+                harvestMethod,
+                storageMethod,
+                transportDistance,
+                transportTool,
+                transportStartTime,
+                transportEndTime,
+                preservationTime,
+                salesMethod
+            ).encodeABI();
+    
+    
+            web3.eth.getTransactionCount(account)
+                .then(nonce => {
+                    let rawTransaction = {
+                        from: account,
+                        to: contractInstance.options.address,
+                        data: transaction2,
+                        gas: 2000000,
+                        gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
+                        nonce: 34
+                    };
+    
+                    return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
+                })
+                .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
+                .then(receipt => console.log('Transaction receipt: ', receipt))
+                .catch(err => console.error('Error sending transaction: ', err));
+    
+    
+        }*/
+
+
+
+            /*
+            let transaction = contractInstance.methods.store(123).encodeABI();
+    
+            web3.eth.getTransactionCount(account)
+                .then(nonce => {
+                    let rawTransaction = {
+                        from: account,
+                        to: contractInstance.options.address,
+                        data: transaction,
+                        gas: 2000000,
+                        gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
+                        nonce: 21
+                    };
+    
+                    return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
+                })
+                .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
+                .then(receipt => console.log('Transaction receipt: ', receipt))
+                .catch(err => console.error('Error sending transaction: ', err));*/
+
+
+
+
+            /*let rawTransaction = {
+                from: account,
+                to: contractInstance.options.address,
+                data: transaction,
+                gas: 2000000,
+                gasPrice: web3.utils.toWei('20', 'gwei') // 20 Gwei
+    
+    
+            };
+    
+            web3.eth.accounts.signTransaction(rawTransaction, privateKey)
+                .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
+                .then(receipt => console.log('Transaction receipt: ', receipt))
+                .catch(err => console.error('Error sending transaction: ', err));*/
+
+
+
+
+            /*contractInstance.methods.store(123).send({ from: '0x82C07955eD5f47F31B946DC506EF5885a17dD3Cc' }).then(function (result) {
+                console.log("***store(123)***:");
+                console.log(result);
+            });*/
+
+            /*contractInstance.methods.retrievetext().call().then(function (result) {
+                document.getElementById("demo").innerHTML = result;
+            })*/
         }
-
-        web3.eth.getTransactionCount(account)
-            .then(nonce => {
-                let rawTransaction = {
-                    from: account,
-                    to: contractInstance.options.address,
-                    data: transaction,
-                    gas: 2000000,
-                    gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
-                    nonce: 54
-                };
-
-                return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
-            })
-            .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
-            .then(receipt => console.log('Transaction receipt: ', receipt))
-            .catch(err => console.error('Error sending transaction: ', err));*/
-
-
-
-        /*let transaction2 = contractInstance.methods.addPlanting2(
-            commodityCode,
-            harvestTime,
-            harvestMethod,
-            storageMethod,
-            transportDistance,
-            transportTool,
-            transportStartTime,
-            transportEndTime,
-            preservationTime,
-            salesMethod
-        ).encodeABI();
- 
- 
-        web3.eth.getTransactionCount(account)
-            .then(nonce => {
-                let rawTransaction = {
-                    from: account,
-                    to: contractInstance.options.address,
-                    data: transaction2,
-                    gas: 2000000,
-                    gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
-                    nonce: 34
-                };
- 
-                return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
-            })
-            .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
-            .then(receipt => console.log('Transaction receipt: ', receipt))
-            .catch(err => console.error('Error sending transaction: ', err));
- 
- 
-    }*/
-
-
-
-        /*
-        let transaction = contractInstance.methods.store(123).encodeABI();
- 
-        web3.eth.getTransactionCount(account)
-            .then(nonce => {
-                let rawTransaction = {
-                    from: account,
-                    to: contractInstance.options.address,
-                    data: transaction,
-                    gas: 2000000,
-                    gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
-                    nonce: 21
-                };
- 
-                return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
-            })
-            .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
-            .then(receipt => console.log('Transaction receipt: ', receipt))
-            .catch(err => console.error('Error sending transaction: ', err));*/
-
-
-
-
-        /*let rawTransaction = {
-            from: account,
-            to: contractInstance.options.address,
-            data: transaction,
-            gas: 2000000,
-            gasPrice: web3.utils.toWei('20', 'gwei') // 20 Gwei
- 
- 
-        };
- 
-        web3.eth.accounts.signTransaction(rawTransaction, privateKey)
-            .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
-            .then(receipt => console.log('Transaction receipt: ', receipt))
-            .catch(err => console.error('Error sending transaction: ', err));*/
-
-
-
-
-        /*contractInstance.methods.store(123).send({ from: '0x82C07955eD5f47F31B946DC506EF5885a17dD3Cc' }).then(function (result) {
-            console.log("***store(123)***:");
-            console.log(result);
-        });*/
-
-        /*contractInstance.methods.retrievetext().call().then(function (result) {
-            document.getElementById("demo").innerHTML = result;
-        })*/
-
     </script>
 
 

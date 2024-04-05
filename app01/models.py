@@ -11,6 +11,9 @@ class userinfo(models.Model):
 class CommodityCode(models.Model):
     code = models.CharField(max_length=255, blank=True, null=True)
 
+class realCommodityCode(models.Model):
+    plantcode = models.CharField(max_length=255, blank=True, null=True)
+
 
 
 
