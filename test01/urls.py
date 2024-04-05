@@ -41,6 +41,8 @@ urlpatterns = [
     path('blockinput/', views.blockinput),
     path('blockvisual/', views.blockvisual),
     path('trace_copy/', views.trace_copy),
+    path('increment_code/', views.increment_code, name='increment_code'),
+    path('get_codes/', views.get_codes, name='get_codes'),
 
 
 ]

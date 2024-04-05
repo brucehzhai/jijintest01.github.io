@@ -455,7 +455,9 @@
                             <input type="text" class="form-control" id="dishName" placeholder="请输入对应菜品">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="getInfo()">提交</button>
+                    <p>Last code: {{ last_code.code }}</p>
+                    <p>Second last code: {{ second_last_code_obj.code }}</p>
+                    <button type="button" class="btn btn-primary btn-lg btn-block" onclick="getInfo()">提交</button>
                     <button type="button" class="btn btn-secondary btn-lg btn-block"
                         onclick="redirectToBlockVisual();">跳转</button>
                     <!--<input type="button" class="btn" value="提交" onclick="getInfo(); redirectToBlockVisual();">-->
@@ -660,6 +662,8 @@
 
     <script src="../static/js/web3.min.js"></script>
     <script src="../static/js/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <script>
         function redirectToBlockVisual() {
             window.location.href = '../blockvisual/';
@@ -1199,6 +1203,33 @@
 
 
         function getInfo() {
+            /*
+            $.ajax({
+                url: '/increment_code/',
+                method: 'POST',
+                success: function (data) {
+                    if (data.status === 'success') {
+                        alert('Code incremented to ' + data.code);
+                    } else {
+                        alert('Error: ' + data.error);
+                    }
+                }
+            });
+
+
+            $.ajax({
+                url: '{% url "get_codes" %}',
+                method: 'GET',
+                success: function (data) {
+                    console.log('Last code: ' + data.last_code);
+                    console.log('Second last code: ' + data.second_last_code_obj);
+                }
+            });
+            */
+
+
+
+
 
 
             // Get the number from the input field
@@ -1277,7 +1308,8 @@
                 dishName
             ).encodeABI();
             let account = '0x877D1E76FAD0EA72263583C147CE8f92f4BF27F5';
-            let nonce = web3.eth.getTransactionCount(account);
+            let nonce1 = "{{ last_code.code }}";
+            console.log('nonce:', nonce1);
             let privateKey = 'c56286692110e5321e4b060d32d55b8516ae21562e222425926b3613f9d242b3'; // Replace with your private key
 
 
@@ -1292,9 +1324,9 @@
                         from: account,
                         to: contractInstance.options.address,
                         data: transaction,
-                        gas: 2000000,
-                        gasPrice: web3.utils.toWei('100', 'gwei'), // 20 Gwei
-                        nonce: 52
+                        gas: 100000000000,
+                        gasPrice: web3.utils.toWei('800', 'gwei'), // 20 Gwei
+                        nonce: 30
                     };
 
                     return web3.eth.accounts.signTransaction(rawTransaction, privateKey);

@@ -3,12 +3,41 @@ from django.db.models import Q
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
-from django.http import HttpResponse, HttpResponseServerError
+from django.http import HttpResponse, HttpResponseServerError,JsonResponse
 from app01 import models
 from django.db.models import Q
-from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from app01.models import userinfo,CommodityCode
+
+
+
+
+
+@csrf_exempt
+def increment_code(request):
+    if request.method == 'POST':
+        # Get the last code
+        last_code_obj = CommodityCode.objects.order_by('-id').first()
+        if last_code_obj:
+            # Increment the last code by 1
+            new_code = int(last_code_obj.code) + 1
+            # Create a new CommodityCode object with the new code
+            new_code_obj = CommodityCode(code=str(new_code))
+            new_code_obj.save()
+            return JsonResponse({'status': 'success', 'code': new_code})
+        else:
+            return JsonResponse({'status': 'error', 'error': 'No last CommodityCode object found'})
+
+
+
+
+
+
+
+
+
+
 
 # Create your views here.
 def index(request):
@@ -97,7 +126,22 @@ def error(request):
     return render(request,'error.html')
 
 def blockinput(request):
-    if request.method == 'POST':
+    last_code = CommodityCode.objects.order_by('-id').first()
+    second_last_code_obj = CommodityCode.objects.order_by('-id')[1:2].first()
+    return render(request, 'blockinput.html', {'last_code': last_code, 'second_last_code_obj': second_last_code_obj})
+
+
+def get_codes(request):
+    last_code = CommodityCode.objects.order_by('-id').first()
+    second_last_code_obj = CommodityCode.objects.order_by('-id')[1:2].first()
+    return JsonResponse({'last_code': last_code.code, 'second_last_code_obj': second_last_code_obj.code})
+
+
+
+
+
+
+    '''if request.method == 'POST':
         # 如果是POST请求，则执行以下代码
         code = request.POST.get('commoditycode')
         # 在这里进行用户输入的验证逻辑
@@ -106,7 +150,7 @@ def blockinput(request):
         
     else:
         return render(request, 'blockinput.html')
-        # 如果是GET请求，则执行以下代码
+        # 如果是GET请求，则执行以下代码'''
         
     
     '''if request.method == 'POST':
