@@ -7,7 +7,7 @@ from django.http import HttpResponse, HttpResponseServerError,JsonResponse
 from app01 import models
 from django.db.models import Q
 
-from app01.models import userinfo,CommodityCode
+from app01.models import userinfo,CommodityCode,realCommodityCode
 
 from django.views.decorators.csrf import csrf_exempt
 
@@ -117,6 +117,14 @@ def get_codes(request):
 @csrf_exempt
 def increment_code(request):
     if request.method == 'POST':
+        # Get the commodity code from the POST data
+        commodity_code = request.POST.get('commodityCode')
+        print(commodity_code)
+
+        # Save the commodity code to the realCommodityCode model
+        new_real_code = realCommodityCode(plantcode=commodity_code)
+        new_real_code.save()
+        
         # Get the last code
         last_code_obj = CommodityCode.objects.order_by('-id').first()
         if last_code_obj:
@@ -125,7 +133,8 @@ def increment_code(request):
             # Create a new CommodityCode object with the new code
             new_code_obj = CommodityCode(code=str(new_code))
             new_code_obj.save()
-            return JsonResponse({'status': 'success', 'code': new_code})
+            return JsonResponse({'status': 'success', 'new_code': new_code, 'commodity_code': commodity_code})
+            
         else:
             return JsonResponse({'status': 'error', 'error': 'No last CommodityCode object found'})
         
