@@ -19,6 +19,80 @@
             opacity: 0; /* 初始状态为完全透明 */
             animation: fadeIn 10s forwards; /* 应用动画，持续2秒，动画结束后保持最后一帧的状态 */
         }
+
+       table {
+        width: 100%;
+        border-collapse: collapse;
+        display: flex;
+        overflow-y: auto;
+        max-height: 300px;
+        }
+
+        th, td {
+          border: 1px solid #ddd;
+          padding: 8px;
+          text-align: left;
+          flex: 1; /* 平均分配宽度 */
+          min-width: 0; /* 防止宽度过小 */
+          text-align: center;
+        }
+
+        th {
+          background-color: #f2f2f2;
+          position: sticky;
+          text-align: center;
+          top: 0;
+          z-index: 10;
+        }
+
+        .trth{
+          text-align: center;
+        }
+
+        th:first-child, td:first-child {
+            width: 5%;
+        }
+        th:nth-child(2), td:nth-child(2) {
+            width: 15%;
+        }
+        th:nth-child(3), td:nth-child(3) {
+            width: 20%;
+        }
+        th:nth-child(4), td:nth-child(4) {
+            width: 10%;
+        }
+        th:last-child, td:last-child {
+            width: 50%;
+        }
+
+        .pagination {
+          display: flex;
+          justify-content: center;
+          margin-top: 20px;
+        }
+
+        .pagination button {
+          padding: 5px 10px;
+          margin: 0 20px;
+          border: none;
+          background-color: #f1f1f1;
+        }
+
+        .pagination button.active {
+          background-color: #4CAF50;
+          color: white;
+        }
+
+        .pagination button:hover {
+          cursor: pointer;
+        }
+
+
+
+
+
+
+
     </style>
     <link rel="apple-touch-icon" sizes="180x180" href="../static/images/favicons/apple-touch-icon.png"/>
     <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicons/favicon-32x32.png"/>
@@ -253,11 +327,7 @@
     <div class="container">
         <div class='row'>
 
-                <div class="col-xl-12 col-lg-12">
-                    <div class="map_china_1">
-                        <div id="tranmap" class="map_china_2_id"></div>
-                    </div>
-                </div>
+
 
         </div>
     </div>
@@ -265,48 +335,124 @@
         <div class="container">
             <div class="services-details__content">
                 <div class='row'>
-                    <div class="col-xl-4 col-lg-4">
-                        <h3 class="services-details__content-title">国内产值</h3>
-                        <p style="text-indent:2em"> 食用菌因其高营养、高附加值而深受消费者及种植者喜爱。
-                            2014-2021年我国食用菌产值整体增长，产值从2014年的2258.1亿元增长至2021年的3696.2亿元，2014-2021年CAGR为7.29%。</p>
-                    </div>
-                    <div class="col-xl-8 col-lg-8">
+                    <h3 class="services-details__content-title">国内产值 - 松茸</h3>
+                    <p style="text-indent:2em">近年来我国松茸行业快速发展，近几年中国松茸产量逐年增加，2021年中国松茸产量约18358.6万吨。松茸产量较大的省市主要是云南省、四川省、西藏自治区等，其中云南是国内松茸最大的供应省市，产量占比全国比重约73.36%。
+                    </p>
+                    <br>
+                    <br>
+                    <br>
+
+                    <div id="tcharts" style="width: 1200px;height:500px;margin: 0 auto"></div>
+
+                    <h3 class="services-details__content-title">运输路线 - 松茸</h3>
+
+                    <div class="col-xl-12 col-lg-12">
                         <div class="map_china_1">
-                            <div id="productbar" class="map_china_1_id"></div>
+                            <div id="tranmap" class="map_china_2_id"></div>
                         </div>
                     </div>
-                        <h2>全国菌菇品牌信息表</h2>
-                        <table class="table">
-                            <tr>
-                                <th>品牌名称</th>
-                                <th>公司名称</th>
-                                <th>菌菇类别</th>
-                                <th>主要供应地点</th>
-                                <th>年产量</th>
-                                <th>认证资质</th>
-                                <th>联系方式</th>
+
+
+                    <h2>知名品牌 - 松茸</h2>
+                    <br>
+                    <br>
+                        <table class="table" id="dataTable">
+                            <tr class = "trth">
+                                <th>序号</th>
+                                <th>品牌</th>
+                                <th>企业名称</th>
+                                <th>创立时间</th>
+                                <th>简介</th>
                             </tr>
                             <tr>
-                                <td>品牌A</td>
-                                <td>公司A有限公司</td>
-                                <td>香菇</td>
-                                <td>华东地区</td>
-                                <td>10000吨</td>
-                                <td>有机产品认证</td>
-                                <td>电话: 123-4567-8900</td>
+                                <td>1</td>
+                                <td>福丽滋</td>
+                                <td>四川品高农产有限公司</td>
+                                <td>2003年</td>
+                                <td>专注于天然健康食品的加工与开发的企业，生产松露、松茸、羊肚菌、美味牛肝菌、鸡油菌等食用菌产品，在国际市场拥有较高声誉</td>
                             </tr>
                             <tr>
-                                <td>品牌B</td>
-                                <td>公司B股份有限公司</td>
-                                <td>金针菇</td>
-                                <td>华南地区</td>
-                                <td>8000吨</td>
-                                <td>绿色食品认证</td>
-                                <td>电话: 234-5678-9010</td>
+                                <td>2</td>
+                                <td>牧茸</td>
+                                <td>迪庆州对外经济贸易有限责任公司</td>
+                                <td>1974年</td>
+                                <td>云南成立较早的外贸流通企业，主要从事开发冷冻松茸、制品松茸、小包装调味松茸等在内的松茸系列产品，产品在国内外市场有很高的声誉</td>
                             </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td>贡极</td>
+                                <td>甘孜州贡极生态农业有限公司</td>
+                                <td>2019年</td>
+                                <td>专注于松茸全产业链的资源开发，在松茸的黄金产区甘孜藏族自治州拥有稳定的采收渠道，主营高端野生菌产品，以专业和品质在业内及市场亨有盛誉</td>
+                            </tr>
+
+                            <tr class = "trth">
+                                <th>序号</th>
+                                <th>品牌</th>
+                                <th>企业名称</th>
+                                <th>创立时间</th>
+                                <th>简介</th>
+                            </tr>
+
+                            <tr>
+                                <td>4</td>
+                                <td>川野食品</td>
+                                <td>四川川野食品有限公司</td>
+                                <td>2000年</td>
+                                <td>集野生食用菌精深加工/科研/种植观光/美食体验于一体的进出口企业，主要从事食用菌菇食材和菌菇调味料的加工、生产和销售</td>
+                            </tr>
+
+                            <tr>
+                                <td>5</td>
+                                <td>金大洲</td>
+                                <td>成都金大洲实业发展有限公司</td>
+                                <td>2001年</td>
+                                <td>国内休闲食品行业和名品牌，金针菇深加工领域标杆性企业，专门从事以即食香辣金针菇休闲系列食品的研发、生产和销售，产品凭借色泽鲜美、脆嫩爽口的特点深受喜爱</td>
+                            </tr>
+
+                            <tr>
+                                <td>6</td>
+                                <td>云仟味</td>
+                                <td>深圳市达和源实业有限公司</td>
+                                <td>1974年</td>
+                                <td>专注南北干货的研发、生产和销售，主营产品包括菌菇类、豆制品、坚果果干、五谷杂粮和创新产品5大类，拥有独立自主的自控供应链，产品服务于全国各地中高层次零售市</td>
+                            </tr>
+
+                            <tr class = "trth">
+                                <th>序号</th>
+                                <th>品牌</th>
+                                <th>企业名称</th>
+                                <th>创立时间</th>
+                                <th>简介</th>
+                            </tr>
+
+                            <tr>
+                                <td>7</td>
+                                <td>森吉尼达</td>
+                                <td>香格里拉市森吉尼达生物资源开发有限公司</td>
+                                <td>2014年</td>
+                                <td>隶属于香格里拉市国有资产经营投资公司旗下的全资子公司，从事种植、养殖、野生食用菌、农副产品、中药材等生物资源研究与开发及特色工艺产品和特色文化宣传推广，集生产、深加工、包装、销售、宣传推广为一年</td>
+                            </tr>
+
+                            <tr>
+                                <td>8</td>
+                                <td>凡滋</td>
+                                <td>四川述吉农业发展有限公司</td>
+                                <td>-</td>
+                                <td>集制种、种植、生产、销售、技术服务于一体的规模化专业型农业公司，主要从事生产羊肚菌、松茸、水稻、小麦和油菜业务，以“公司+基地+会员”的方式对种植户进行服务，产品销往德国、法国、瑞士等国家</td>
+                            </tr>
+
                             <!-- 更多行和列可以根据实际情况添加 -->
                         </table>
+                        <div class="pagination" >
+                            <button onclick="previousPage()">&laquo; 上一页</button>
+                            <button onclick="nextPage()">下一页 &raquo;</button>
+                        </div>
                 </div>
+
+                <br>
+                <br>
                 <div class='row'>
                     <div class="col-xl-4 col-lg-4">
                         <h3 class="services-details__content-title">对外出口</h3>
@@ -329,41 +475,7 @@
 
                 <h2 class="services-details__content-title "><span class="icon-farm" style="padding-right: 10px"></span>生长区域
                 </h2>
-                <div class="services-details__content-text3">
-                    <div class="box">
-                        <div id="maptt" style="width: 800px;height:700px;"></div>
-                    </div>
-                    <div class="text-box">
-                        <ul>
-                            <li>
-                                <div class="icon">
-                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                </div>
-                                <div class="text">
-                                    <p>Research beyond the business plan work here</p>
-                                </div>
-                            </li>
 
-                            <li>
-                                <div class="icon">
-                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                </div>
-                                <div class="text">
-                                    <p>Marketing options and rates lipsum</p>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="icon">
-                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
-                                </div>
-                                <div class="text">
-                                    <p>The ability to turnaround working on it</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
                 <h2 class="services-details__content-title "><span class="icon-conveyor"
                                                                    style="padding-right: 10px"></span>运输工具</h2>
                 <div class="map_china_1">
@@ -581,11 +693,90 @@
 <script src="../static/js/agriox.js"></script>
 
 <script src="../static/js/tranchart.js"></script>
+<script src="../static/js/tcharts.js"></script>
 <script>
     // 可以使用JavaScript在页面加载后触发动画
     document.querySelector('.slow-appear').style.animationPlayState = 'running';
 </script>
 
+<script>
+let currentPage = 1;
+const rowsPerPage = 4; // 每页显示的行数
+const table = document.getElementById('dataTable');
+const rows = table.getElementsByTagName('tr');
+
+function displayRows(page) {
+  for (let i = 0; i < rows.length; i++) {
+    const row = rows[i];
+    if (i < (page - 1) * rowsPerPage || i >= page * rowsPerPage) {
+      row.style.display = 'none';
+    } else {
+      row.style.display = '';
+    }
+  }
+  document.querySelector('.pagination button').classList.remove('active');
+  document.querySelectorAll('.pagination button')[page - 1].classList.add('active');
+}
+
+function nextPage() {
+  const totalPages = Math.ceil(rows.length / rowsPerPage);
+  if (currentPage < totalPages) {
+    currentPage++;
+    displayRows(currentPage);
+  }
+}
+
+function previousPage() {
+  if (currentPage > 1) {
+    currentPage--;
+    displayRows(currentPage);
+  }
+}
+
+// 初始化显示第一页的数据
+displayRows(currentPage);
+</script>
+
+<script>
+    // 基于准备好的容器初始化 echarts 实例
+    var myChart = echarts.init(document.getElementById('tchart'));
+
+    // 指定图表的配置项和数据
+    var option = {
+      title: {
+        text: '2016-2021年中国松茸产量及增速'
+      },
+      tooltip: {
+        trigger: 'axis'
+      },
+      legend: {
+        data: ['产量', '增速']
+      },
+      xAxis: {
+        type: 'category',
+        data: ['2016', '2017', '2018', '2019', '2020', '2021']
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          name: '产量',
+          type: 'bar',
+          data: [20000, 18000, 16000, 14000, 12000, 10000]
+        },
+        {
+          name: '增速',
+          type: 'line',
+          yAxisIndex: 1,
+          data: [0.7, 0.6, 0.5, 0.4, 0.3, 0.2]
+        }
+      ]
+    };
+
+    // 使用刚指定的配置项和数据显示图表
+    myChart.setOption(option);
+  </script>
 
 </body>
 
