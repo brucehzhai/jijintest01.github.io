@@ -326,7 +326,6 @@ option = {
 myChart.setOption(option);
 })();
 (function () {
-
     var chartDom = document.getElementById('tranmap');
 var myChart = echarts.init(chartDom);
 var option;
@@ -382,6 +381,12 @@ var option;
      '无锡': [120.3442, 31.5527],
      '日照': [119.2786, 35.5023],
      '昆明': [102.9199, 25.4663],
+     '楚雄彝族自治州': [101.3286, 25.3438],
+     '香格里拉市': [99.7008, 27.8297],
+     '甘孜藏族自治州': [101.9625, 30.0493],
+     '阿坝藏族自治州': [102.2247, 31.8994],
+     '林芝': [94.3616, 29.6486],
+        '昌都': [97.1722, 31.1409],
      '杭州': [119.5313, 29.8773],
      '枣庄': [117.323, 34.8926],
      '柳州': [109.3799, 24.9774],
@@ -448,19 +453,29 @@ var option;
      '韶关': [113.7964, 24.7028]
  };
  var dataT = [{
-         name: '成都',
+         name: '林芝',
          value: 95
      },
      {
-         name: '昆明',
+         name: '昌都',
          value: 90
      },
      {
-         name: '长春',
+         name: '香格里拉市',
          value: 80
      },
      {
-         name: '拉萨',
+         name: '楚雄彝族自治州',
+         value: 80
+     }
+     ,
+     {
+         name: '甘孜藏族自治州',
+         value: 80
+     }
+     ,
+     {
+         name: '阿坝藏族自治州',
          value: 80
      }
  ];
@@ -476,7 +491,35 @@ var option;
      var arr = [];
      arr.push(item)
      arr.push({
-         name: '上海'
+         name: '上海',
+
+     })
+     GZData.push(arr)
+ });
+ dataT.map((item, index) => {
+     var arr = [];
+     arr.push(item)
+     arr.push({
+         name: '北京',
+
+     })
+     GZData.push(arr)
+ });
+  dataT.map((item, index) => {
+     var arr = [];
+     arr.push(item)
+     arr.push({
+         name: '广州',
+
+     })
+     GZData.push(arr)
+ });
+   dataT.map((item, index) => {
+     var arr = [];
+     arr.push(item)
+     arr.push({
+         name: '深圳',
+
      })
      GZData.push(arr)
  })
@@ -553,7 +596,7 @@ var option;
          show: true,
          period: 3, //箭头指向速度，值越小速度越快
          trailLength: 0.01, //特效尾迹长度[0,1]值越大，尾迹越长重
-         symbolSize: 4, //图标大小
+         symbolSize: 3, //图标大小
      },
      lineStyle: {
          normal: {
@@ -579,10 +622,7 @@ var option;
 
          }
      },
-      symbolSize: function (val) {
-          console.log(val)
-          return val[2]/2;
-      },
+      symbolSize: 10,
      itemStyle: {
          normal: {
              //                fontSize: 80,
@@ -598,7 +638,7 @@ var option;
      type: 'effectScatter',
      coordinateSystem: 'geo',
      zlevel: 4,
-     symbolSize: 30,
+     symbolSize: 10,
      label: {
          normal: {
              show: true,
@@ -626,7 +666,7 @@ var option;
      type: 'scatter',
      coordinateSystem: 'geo',
      zlevel: 4,
-     symbolSize: 20,
+     symbolSize: 10,
      symbol: 'pin',
      itemStyle: {
          normal: {
@@ -647,9 +687,9 @@ var option;
      tooltip: {
          trigger: 'item',
          formatter: function(params) {
-             if (params.seriesType == "scatter" && params.name != tempData[0]) {
+             if (params.seriesType === "scatter" && params.name !== tempData[0]) {
                  return "<br>" + params.seriesName + " ---> " + params.data.name + "<br />数量：" + params.data.value[2];
-             } else if (params.seriesType == "lines") {
+             } else if (params.seriesType === "lines") {
                  return "<br>" + params.data.fromName + " ---> " + params.data.toName + "<br />数量：" + params.data.value;
              } else {
                  return params.name;
