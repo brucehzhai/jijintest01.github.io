@@ -117,23 +117,16 @@ setTimeout(function () {
     },
     dataset: {
       source: [
-        ['product', '2012', '2013', '2014', '2015', '2016', '2017'],
-        ['Milk Tea', 56.5, 82.1, 88.7, 70.1, 53.4, 85.1],
-        ['Matcha Latte', 51.1, 51.4, 55.1, 53.3, 73.8, 68.7],
-        ['Cheese Cocoa', 40.1, 62.2, 69.5, 36.4, 45.2, 32.5],
-        ['Walnut Brownie', 25.2, 37.1, 41.2, 18, 33.9, 49.1]
+        ['product', '2017', '2018', '2019', '2020', '2021', '2022(1-10)'],
+        ['鲜或冷藏的松茸（吨）', 703.84, 719.45, 638.99, 537.55, 441.84, 161.89],
+        ['冷冻松茸（吨）', 430.34, 597.65, 327.1, 227.8, 147.65, 125.24],
+        ['盐水松茸（吨）', 43.52, 19.78, 22.25, 16.00, 30.41, 9.43]
       ]
     },
     xAxis: { type: 'category' },
     yAxis: { gridIndex: 0 },
     grid: { top: '55%' },
     series: [
-      {
-        type: 'line',
-        smooth: true,
-        seriesLayoutBy: 'row',
-        emphasis: { focus: 'series' }
-      },
       {
         type: 'line',
         smooth: true,
@@ -200,131 +193,322 @@ option && myChart.setOption(option);
   var chartDom = document.getElementById('exportregion');
   var myChart = echarts.init(chartDom);
   var option;
-  var myColor = ['#eb2100', '#eb3600', '#d0570e', '#d0a00e', '#34da62', '#00e9db', '#00c0e9', '#0096f3', '#33CCFF', '#33FFCC'];
-option = {
-    backgroundColor: '#ffffff',
-    grid: {
-        left: '25%',
-        top: '12%',
-        right: '25%',
-        bottom: '8%',
-        containLabel: true
+  option = {
+    backgroundColor: 'transparent',
+    "title": {
+        "text": "",
+        "textStyle": {
+            "color": "#004D00",
+            "fontSize": 25
+        },
+        "x": "center",
+        "top": "0%"
     },
-    xAxis: [{
-        show: false,
-    }],
-    yAxis: [{
-        axisTick: 'none',
-        axisLine: 'none',
-        offset: '27',
-        axisLabel: {
+    "grid": {
+        "top": 200,
+        "bottom": 150
+    },
+    "tooltip": {},
+    "xAxis": {
+        "data": ["日本", "韩国", "中国香港与中国台湾"],
+        "axisTick": {
+            "show": false
+        },
+        "axisLine": {
+            "show": false
+        },
+        "axisLabel": {
+            interval:0,
             textStyle: {
-                color: 'black',
-                fontSize: '16',
-            }
+                color:  '#004D00',
+                fontSize:20,
+            },
+            margin: 80, //刻度标签与轴线之间的距离。
+        }
+    },
+    "yAxis": {
+        "splitLine": {
+            "show": false
         },
-        data: ['南坪', '工贸', '石桥铺', '沙坪坝', '嘉州路', '红旗河沟', '两路口', '观音桥', '光电园', '小什字']
+        "axisTick": {
+            "show": false
+        },
+        "axisLine": {
+            "show": false
+        },
+        "axisLabel": {
+            "show": false
+        },
+        "min": 0,  // 设置 y 轴的最小值
+        "max":400000 // 设置 y 轴的最大值，这里假设您的数据范围最大为 50000
+    },
+    "series": [{
+        "name": "",
+        "type": "pictorialBar",
+        "symbolSize": [100, 45],
+        "symbolOffset": [0, -20],
+        "z": 12,
+        "data": [{
+            "name": "日本",
+            "value": "352400",
+            "trueVal": "98",
+            "symbolPosition": "end",
+            "itemStyle": {
+                "normal": {
+                    "color": "#006600"  //圆柱顶部颜色
+
+                }
+            }
+        }, {
+            "name": "韩国",
+            "value": "26720",
+            "trueVal": "100",
+            "symbolPosition": "end",
+            "itemStyle": {
+                "normal": {
+                    "color": "#006400" //圆柱顶部颜色
+                }
+            }
+        }, {
+            "name": "中国香港与中国台湾",
+            "value": "15500",
+            "trueVal": "90",
+            "symbolPosition": "end",
+            "itemStyle": {
+                "normal": {
+                    "color": "#90ee90" //圆柱顶部颜色
+                }
+            }
+        }]
     }, {
-        axisTick: 'none',
-        axisLine: 'none',
-        axisLabel: {
-            textStyle: {
-                color: '#ffffff',
-                fontSize: '0',
+        "name": "",
+        "type": "pictorialBar",
+        "symbolSize": [100, 45],
+        "symbolOffset": [0, 24],
+        "z": 12,
+        "data": [{
+            "name": "日本",
+            "value": "352400",
+            "trueVal": "98",
+            "itemStyle": {
+                "normal": {
+                    "color": "#004D00" //圆柱底部颜色
+                }
             }
-        },
-        data:[10,9,8,7,6,5,4,3,2,1]
+        }, {
+            "name": "韩国",
+             "value": "26720",
+            "trueVal": "100",
+            "itemStyle": {
+                "normal": {
+                    "color": "#006400" //圆柱底部颜色
+                }
+            }
+        }, {
+            "name": "中国香港与中国台湾",
+            "value": "15500",
+            "trueVal": "90",
+            "itemStyle": {
+                "normal": {
+                    "color": "#90ee90" //圆柱底部颜色
+                }
+            }
+        }]
     }, {
-        name: '工作地TOP 10',
-        nameGap: '30',
-        nameTextStyle: {
-            color: '#ffffff',
-            fontSize: '30',
-        },
-        axisLine: {
-            lineStyle: {
-                color: 'rgba(0,0,0,0)'
+        "name": "",
+        "type": "pictorialBar",
+        "symbolSize": [150, 75],
+        "symbolOffset": [0, 44],
+        "z": 11,
+        "data": [{
+            "name": "日本",
+            "value": "352400",
+            "trueVal": "98",
+            "itemStyle": {
+                "normal": {
+                    "color": "transparent",
+                    "borderColor": "#004D00", //底部内圆圈颜色
+                    "borderWidth": 5
+                }
+            }
+        }, {
+            "name": "韩国",
+            "value": "26720",
+            "trueVal": "100",
+            "itemStyle": {
+                "normal": {
+                    "color": "transparent",
+                    "borderColor": "#006400", //底部内圆圈颜色
+                    "borderWidth": 5
+                }
+            }
+        }, {
+            "name": "中国香港与中国台湾",
+            "value": "15500",
+            "trueVal": "90",
+            "itemStyle": {
+                "normal": {
+                    "color": "transparent",
+                    "borderColor": "#90ee90", //底部内圆圈颜色
+                    "borderWidth": 5
+                }
+            }
+        }]
+    }, {
+        "name": "",
+        "type": "pictorialBar",
+        "symbolSize": [200, 100],
+        "symbolOffset": [0, 62],
+        "z": 10,
+        "data": [{
+            "name": "日本",
+            "value": "352400",
+            "trueVal": "98",
+            "itemStyle": {
+                "normal": {
+                    "color": "transparent",
+                    "borderColor": "#004D00",  //底部外圆圈颜色
+                    "borderType": "dashed",
+                    "borderWidth": 5
+                }
+            }
+        }, {
+            "name": "韩国",
+             "value": "26720",
+            "trueVal": "100",
+            "itemStyle": {
+                "normal": {
+                    "color": "transparent",
+                    "borderColor": "#006400", //底部外圆圈颜色
+                    "borderType": "dashed",
+                    "borderWidth": 5
+                }
+            }
+        }, {
+            "name": "中国香港与中国台湾",
+            "value": "15500",
+            "trueVal": "90",
+            "itemStyle": {
+                "normal": {
+                    "color": "transparent",
+                    "borderColor": "#90ee90", //底部外圆圈颜色
+                    "borderType": "dashed",
+                    "borderWidth": 5
+                }
+            }
+        }]
+    }, {
+
+        "type": "bar",
+        "silent": true,
+        "barWidth": 100,
+        "barGap": "-100%",
+
+        "data": [{
+            "name": "日本",
+            "value": "352400",
+            "trueVal": "98",
+            "label": {
+            "normal": {
+                "show": true,
+                "position": "top",
+                "distance": 40,
+                "textStyle": {
+                    "color": "#003800", //柱子对应数值颜色
+                    "fontSize": 40
+                }
             }
         },
-        data: [],
-    }],
-    series: [{
-            name: '条',
-            type: 'bar',
-            yAxisIndex: 0,
-            data: [6647, 7473, 8190, 8488, 9491, 11726, 12745, 13170, 21319, 24934],
-            label: {
-                normal: {
-                    show: true,
-                    position: 'right',
-                    textStyle: {
-                        color: '#ffffff',
-                        fontSize: '16',
+            "itemStyle": {
+                "normal": {
+                    "color": {
+                        "x": 0,
+                        "y": 0,
+                        "x2": 0,
+                        "y2": 1,
+                        "type": "linear",
+                        "global": false,
+                        "colorStops": [{
+                            "offset": 0,
+                            "color": "#006600"
+                        }, {
+                            "offset": 1,
+                            "color": "#004D00" //底部渐变颜色
+                        }]
                     }
                 }
-            },
-            barWidth: 12,
-            itemStyle: {
-                normal: {
-                    color: function(params) {
-                        var num = myColor.length;
-                        return myColor[params.dataIndex % num]
-                    },
-                }
-            },
-            z: 2
+            }
         }, {
-            name: '白框',
-            type: 'bar',
-            yAxisIndex: 1,
-            barGap: '-100%',
-            data: [99, 99.5, 99.5, 99.5, 99.5, 99.5, 99.5, 99.5, 99.5, 99.5],
-            barWidth: 20,
-            itemStyle: {
-                normal: {
-                    color: '#0e2147',
-                    barBorderRadius: 5,
+            "name": "韩国",
+            "value": "26720",
+            "trueVal": "100",
+            "label": {
+            "normal": {
+                "show": true,
+                "position": "top",
+                "distance": 40,
+                "textStyle": {
+                    "color": "#006400", //柱子对应数值颜色
+                    "fontSize": 40
                 }
-            },
-            z: 1
-        }, {
-            name: '外框',
-            type: 'bar',
-            yAxisIndex: 2,
-            barGap: '-100%',
-            data: [100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
-            barWidth: 24,
-            itemStyle: {
-                normal: {
-                    color: function(params) {
-                        var num = myColor.length;
-                        return myColor[params.dataIndex % num]
-                    },
-                    barBorderRadius: 5,
-                }
-            },
-            z: 0
+            }
         },
-        {
-            name: '外圆',
-            type: 'scatter',
-            hoverAnimation: false,
-            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            yAxisIndex: 2,
-            symbolSize: 35,
-            itemStyle: {
-                normal: {
-                    color: function(params) {
-                        var num = myColor.length;
-                        return myColor[params.dataIndex % num]
-                    },
-                    opacity: 1,
+            "itemStyle": {
+                "normal": {
+                    "color": {
+                        "x": 0,
+                        "y": 0,
+                        "x2": 0,
+                        "y2": 1,
+                        "type": "linear",
+                        "global": false,
+                        "colorStops": [{
+                            "offset": 0,
+                            "color": "rgba(255,204,0,0.5)"
+                        }, {
+                            "offset": 1,
+                            "color": "#ff7800" //底部渐变颜色
+                        }]
+                    }
                 }
-            },
-            z: 2
-        }
-    ]
-};
+            }
+        }, {
+            "name": "中国香港与中国台湾",
+            "value": "15500",
+            "trueVal": "90",
+            "label": {
+            "normal": {
+                "show": true,
+                "position": "top",
+                "distance": 40,
+                "textStyle": {
+                    "color": "#90ee90", //柱子对应数值颜色
+                    "fontSize": 40
+                }
+            }
+        },
+            "itemStyle": {
+                "normal": {
+                    "color": {
+                        "x": 0,
+                        "y": 0,
+                        "x2": 0,
+                        "y2": 1,
+                        "type": "linear",
+                        "global": false,
+                        "colorStops": [{
+                            "offset": 0,
+                            "color": "rgba(185,183,255,0.5)"
+                        }, {
+                            "offset": 1,
+                            "color": "#e9a5ff" //底部渐变颜色
+                        }]
+                    }
+                }
+            }
+        }]
+    }]
+}
 myChart.setOption(option);
 })();
 (function () {
@@ -720,12 +904,12 @@ var option;
          roam: false, //是否允许缩放
          itemStyle: {
              normal: {
-                 areaColor: '#214278',
-                 borderColor: '#195BB9', //省市边界线00fcff 516a89
+                 areaColor: ' #008000',
+                 borderColor: '#003800', //省市边界线00fcff 516a89
 
              },
              emphasis: {
-                 color: '#112246' //悬浮背景
+                 color: '#00FF7F' //悬浮背景
              }
          },
      },
@@ -756,12 +940,6 @@ const labelSetting = {
   fontSize: 16
 };
 option = {
-  title: {
-    text: 'Vehicles in X City'
-  },
-  legend: {
-    data: ['2015', '2016']
-  },
   tooltip: {
     trigger: 'axis',
     axisPointer: {
@@ -773,7 +951,7 @@ option = {
     left: 20
   },
   yAxis: {
-    data: [ 'ship', 'plane', 'train', 'car'],
+    data: [ '船运', '空运', '铁路', '公路'],
     inverse: true,
     axisLine: { show: false },
     axisTick: { show: false },
@@ -796,7 +974,7 @@ option = {
   },
   series: [
     {
-      name: '2015',
+      name: '估计百分比（下限）',
       type: 'pictorialBar',
       label: labelSetting,
       symbolRepeat: true,
@@ -805,25 +983,25 @@ option = {
       data: [
 
         {
-          value: 21,
+          value: 10,
           symbol: pathSymbols.ship
         },
         {
-          value: 66,
+          value: 25,
           symbol: pathSymbols.plane
         },
         {
-          value: 78,
+          value: 30,
           symbol: pathSymbols.train
         },
         {
-          value: 123,
+          value: 15,
           symbol: pathSymbols.car
         }
       ]
     },
     {
-      name: '2016',
+      name: '估计百分比（上限）',
       type: 'pictorialBar',
       barGap: '10%',
       label: labelSetting,
@@ -832,19 +1010,19 @@ option = {
       data: [
 
         {
-          value: 29,
+          value: 20,
           symbol: pathSymbols.ship
         },
         {
-          value: 73,
+          value: 40,
           symbol: pathSymbols.plane
         },
         {
-          value: 91,
+          value: 40,
           symbol: pathSymbols.train
         },
         {
-          value: 95,
+          value: 25,
           symbol: pathSymbols.car
         }
       ]
