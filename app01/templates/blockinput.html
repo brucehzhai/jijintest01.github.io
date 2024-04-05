@@ -174,12 +174,14 @@
 
 
             <div class="container">
-                <form method="post" action="">
+                <form method="post" action="/blockinput/">
+                    {% csrf_token %}
                     <div class="form-control">
                         <h1>种植</h1>
                         <div class="col-lg-5" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">商品码</label>
-                            <input type="text" id="commodityCode" class="form-control" placeholder="请输入商品码">
+                            <input type="text" id="commodityCode" class="form-control" placeholder="请输入商品码"
+                                name="commoditycode">
                         </div>
                         <div class="col-lg-5" style="display: inline-block">
                             <label style="margin-top: 10px;margin-bottom: 5px">品类</label>
@@ -453,7 +455,9 @@
                             <input type="text" class="form-control" id="dishName" placeholder="请输入对应菜品">
                         </div>
                     </div>
-                    <input type="button" class="btn" value="提交" onclick="getInfo();">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" onclick="getInfo()">提交</button>
+                    <button type="button" class="btn btn-secondary btn-lg btn-block"
+                        onclick="redirectToBlockVisual();">跳转</button>
                     <!--<input type="button" class="btn" value="提交" onclick="getInfo(); redirectToBlockVisual();">-->
 
                 </form>
@@ -1062,15 +1066,15 @@
             // Create a mapping from English to Chinese
             let mapping = {
                 'commodityCode': '商品代码',
-                'category': '类别',
-                'subject': '主题',
-                'classmen': '班级',
-                'region': '区域',
-                'growthEnvironment': '生长环境',
+                'category': '品类',
+                'subject': '所属科目',
+                'classmen': '所属门类',
+                'region': '所属地区',
+                'growthEnvironment': '培育环境',
                 'growthCycle': '生长周期',
                 'growthManagement': '生长管理',
-                'harvestTime': '收获时间',
-                'harvestMethod': '收获方法',
+                'harvestTime': '采摘时间',
+                'harvestMethod': '采摘方法',
                 'storageMethod': '存储方法',
                 'startPoint': '起点',
                 'endPoint': '终点',

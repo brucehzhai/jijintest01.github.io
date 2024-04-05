@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponse, HttpResponseServerError
 from app01 import models
 from django.db.models import Q
+from django.http import JsonResponse
 
 from app01.models import userinfo,CommodityCode
 
@@ -101,6 +102,8 @@ def blockinput(request):
         code = request.POST.get('commoditycode')
         # 在这里进行用户输入的验证逻辑
         CommodityCode.objects.create(code=code)
+        return render(request, 'blockinput.html')
+        
     else:
         return render(request, 'blockinput.html')
         # 如果是GET请求，则执行以下代码

@@ -199,13 +199,11 @@
                                 <!--Start Faq One Single-->
                                 <div class="accrodion wow fadeInUp" data-wow-delay="100ms" data-wow-duration="1000ms">
                                     <div class="accrodion-title">
-                                        <h4>Home Improvement Works are Expensive?</h4>
+                                        <h4>运输详情</h4>
                                     </div>
                                     <div class="accrodion-content">
                                         <div class="inner">
-                                            <p>Suspendisse finibus urna mauris, vitae consequat quam vel. Vestibulum leo
-                                                ligula, vitae commodo nisl. Lorem ipsum is simply free text available in
-                                                the market adipisi cing elit.</p>
+                                            <p id='transport2'></p>
                                         </div>
                                     </div>
                                 </div>
@@ -214,13 +212,11 @@
                                 <!--Start Faq One Single-->
                                 <div class="accrodion wow fadeInUp" data-wow-delay="200ms" data-wow-duration="1000ms">
                                     <div class="accrodion-title">
-                                        <h4>Home Improvement Works are Expensive?</h4>
+                                        <h4>加工详情</h4>
                                     </div>
                                     <div class="accrodion-content">
                                         <div class="inner">
-                                            <p>Suspendisse finibus urna mauris, vitae consequat quam vel. Vestibulum leo
-                                                ligula, vitae commodo nisl. Lorem ipsum is simply free text available in
-                                                the market adipisi cing elit.</p>
+                                            <p id='processing'></p>
                                         </div>
                                     </div>
                                 </div>
@@ -1241,15 +1237,15 @@
             // Create a mapping from English to Chinese
             let mapping = {
                 'commodityCode': '商品代码',
-                'category': '类别',
-                'subject': '主题',
-                'classmen': '班级',
-                'region': '区域',
-                'growthEnvironment': '生长环境',
+                'category': '品类',
+                'subject': '所属科目',
+                'classmen': '所属门类',
+                'region': '所属地区',
+                'growthEnvironment': '培育环境',
                 'growthCycle': '生长周期',
                 'growthManagement': '生长管理',
-                'harvestTime': '收获时间',
-                'harvestMethod': '收获方法',
+                'harvestTime': '采摘时间',
+                'harvestMethod': '采摘方法',
                 'storageMethod': '存储方法',
                 'startPoint': '起点',
                 'endPoint': '终点',
@@ -1291,7 +1287,47 @@
             html += '</table>';
 
             $("#growth").html(html);
-            $("#demo2").html(html); // Display the formatted result
+
+
+
+            let keysToOutput2 = [
+                'harvestTime', 'harvestMethod', 'storageMethod', 'startPoint', 'endPoint',
+                'transportDistance', 'transportTool', 'transportStartTime', 'transportEndTime',
+                'preservationTime', 'salesMethod'
+            ];
+
+            // Create an HTML string
+            let html2 = '<table style="width:100%; border;">';
+            for (let key in result) {
+                if (result.hasOwnProperty(key) && isNaN(key) && keysToOutput2.includes(key)) {
+                    let chineseKey = mapping[key] || key;
+                    html2 += `<tr><td>${chineseKey}</td><td>${result[key]}</td></tr>`; // Table row for each key-value pair
+                }
+            }
+            html2 += '</table>';
+
+            $("#transport2").html(html2);
+
+
+
+            let keysToOutput3 = [
+                'processingMethod', 'shelfTime', 'shelfArea', 'dishName'
+            ];
+
+            // Create an HTML string
+            let html3 = '<table style="width:100%; border;">';
+            for (let key in result) {
+                if (result.hasOwnProperty(key) && isNaN(key) && keysToOutput3.includes(key)) {
+                    let chineseKey = mapping[key] || key;
+                    html3 += `<tr><td>${chineseKey}</td><td>${result[key]}</td></tr>`; // Table row for each key-value pair
+                }
+            }
+            html3 += '</table>';
+
+            $("#processing").html(html3);
+
+
+
         });
     </script>
 
