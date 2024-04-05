@@ -372,8 +372,7 @@ option && myChart.setOption(option);
                         map: 'China',
                         data: Object.keys(provinceData).map(function (key) {
                             return {
-                                name: key,
-                                value: provinceData[key],
+                                name: key
                             };
                         }),
                         label: {
@@ -387,7 +386,7 @@ option && myChart.setOption(option);
                     }],
                     tooltip: {
                         trigger: 'item',
-                        formatter: '{b}<br/>{c} (种菌菇)'
+                        formatter: '{b}'
                     }
                 };
             }else{
@@ -417,7 +416,7 @@ option && myChart.setOption(option);
                     tooltip: {
                         trigger: 'item',
                         formatter: function (params) {
-                            return params.name + '<br/>' + params.value + ' (种菌菇)' + '<br/>' + params.data.text; // 显示文本内容
+                            return params.name + '<br/>'  + params.data.text; // 显示文本内容
                         }
                     },
 
