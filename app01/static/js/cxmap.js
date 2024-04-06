@@ -1,5 +1,4 @@
 
-
 (function () {
   var chartDom = document.getElementById('cxmap');
 var myChart = echarts.init(chartDom);
@@ -61,27 +60,16 @@ $.get('../static/json/楚雄彝族自治州.json', function (geoJson) {
                                 text: cxdata[key],
                             };
                         }),
-          // 自定义名称映射
-          nameMap: {
-            'Central and Western': '中西区',
-            Eastern: '东区',
-            Islands: '离岛',
-            'Kowloon City': '九龙城',
-            'Kwai Tsing': '葵青',
-            'Kwun Tong': '观塘',
-            North: '北区',
-            'Sai Kung': '西贡',
-            'Sha Tin': '沙田',
-            'Sham Shui Po': '深水埗',
-            Southern: '南区',
-            'Tai Po': '大埔',
-            'Tsuen Wan': '荃湾',
-            'Tuen Mun': '屯门',
-            'Wan Chai': '湾仔',
-            'Wong Tai Sin': '黄大仙',
-            'Yau Tsim Mong': '油尖旺',
-            'Yuen Long': '元朗'
+          itemStyle: {
+              normal: {areaColor: '#f0f0f0'}
+              },
+          emphasis: {
+              itemStyle: {
+              color: '#4caf50',
+              borderColor: '#4caf50', // 鼠标悬浮时的边框颜色，也设置为绿色
+              borderWidth: 1}
           }
+
         }
       ]
     })
@@ -91,7 +79,6 @@ $.get('../static/json/楚雄彝族自治州.json', function (geoJson) {
 option && myChart.setOption(option);
 })();
 
-(function () {
 (function () {
 var chartDom = document.getElementById('cxpie');
 var myChart = echarts.init(chartDom);
@@ -131,16 +118,30 @@ option = {
         { value: 40, name: '姚安县：100.67 亿元' },
         { value: 36, name: '双柏县：80.76 亿元' },
         { value: 32, name: '永仁县：69.81 亿元' },
-      ]
+      ],
+      emphasis: {
+        itemStyle: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: 'rgba(0, 0, 0, 0.5)'
+        }
+      },
+      label: {
+        show: true
+      },
+      labelLine: {
+        show: false
+      }
     }
+  ],
+  color: [
+    '#83a48e', '#5d7e6f', '#3e5d5d', '#1e3d3d',
+    '#004040', '#005a32', '#007a4e', '#009b5a',
+    '#40bf7a', '#70db8c', '#a0e0a8'
   ]
 };
 
-option && myChart.setOption(option);
-
-})();
-
-})();
+option && myChart.setOption(option);})();
 
 (function () {
   // 引入 ECharts 主模块
