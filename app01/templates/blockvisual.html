@@ -219,6 +219,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label" for="block1chain1data">数据:</label>
                                 <div class="col-sm-10">
+
                                     <textarea class="form-control" id="block1chain1data" rows="10"></textarea>
                                 </div>
                             </div>
@@ -970,17 +971,16 @@
                     contractInstance.methods.retrieve(data.plantcodes[i]).call().then(function (result) {
                         console.log(result); // Log the result to the console
 
-                        // Create an HTML string
-                        let html = '<ul>';
+                        // Create a text string
+                        let text = '';
                         for (let key in result) {
                             if (result.hasOwnProperty(key) && isNaN(key)) { // Ignore numeric keys and __length__
                                 let chineseKey = mapping[key] || key; // Use the Chinese key if it exists, otherwise use the English key
-                                html += `<li>${chineseKey}: ${result[key]}</li>`;
+                                text += `${chineseKey}: ${result[key]}\n`;
                             }
                         }
-                        html += '</ul>';
 
-                        $(`#block${i + 1}chain1data`).val(html); // Display the formatted result
+                        $(`#block${i + 1}chain1data`).val(text); // Display the formatted result
                     });
                 }
             });
