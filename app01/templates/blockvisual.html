@@ -938,51 +938,53 @@
                 console.log("***contractInstance.abi***:");
                 console.log(contractInstance.options.jsonInterface);
 
-                contractInstance.methods.retrieve(data.plantcodes[1]).call().then(function (result) {
-                    console.log(result); // Log the result to the console
+                // Create a mapping from English to Chinese
+                let mapping = {
+                    'commodityCode': '商品代码',
+                    'category': '类别',
+                    'subject': '主题',
+                    'classmen': '班级',
+                    'region': '区域',
+                    'growthEnvironment': '生长环境',
+                    'growthCycle': '生长周期',
+                    'growthManagement': '生长管理',
+                    'harvestTime': '收获时间',
+                    'harvestMethod': '收获方法',
+                    'storageMethod': '存储方法',
+                    'startPoint': '起点',
+                    'endPoint': '终点',
+                    'transportDistance': '运输距离',
+                    'transportTool': '运输工具',
+                    'transportStartTime': '运输开始时间',
+                    'transportEndTime': '运输结束时间',
+                    'preservationTime': '保鲜时间',
+                    'salesMethod': '销售方式',
+                    'processingMethod': '加工方式',
+                    'shelfTime': '上架时间',
+                    'shelfArea': '上架区域',
+                    'dishName': '菜品名称'
+                };
 
-                    // Create a mapping from English to Chinese
-                    let mapping = {
-                        'commodityCode': '商品代码',
-                        'category': '类别',
-                        'subject': '主题',
-                        'classmen': '班级',
-                        'region': '区域',
-                        'growthEnvironment': '生长环境',
-                        'growthCycle': '生长周期',
-                        'growthManagement': '生长管理',
-                        'harvestTime': '收获时间',
-                        'harvestMethod': '收获方法',
-                        'storageMethod': '存储方法',
-                        'startPoint': '起点',
-                        'endPoint': '终点',
-                        'transportDistance': '运输距离',
-                        'transportTool': '运输工具',
-                        'transportStartTime': '运输开始时间',
-                        'transportEndTime': '运输结束时间',
-                        'preservationTime': '保鲜时间',
-                        'salesMethod': '销售方式',
-                        'processingMethod': '加工方式',
-                        'shelfTime': '上架时间',
-                        'shelfArea': '上架区域',
-                        'dishName': '菜品名称'
-                    };
+                // Retrieve and display data for each plant code
+                for (let i = 0; i < 3; i++) {
+                    contractInstance.methods.retrieve(data.plantcodes[i]).call().then(function (result) {
+                        console.log(result); // Log the result to the console
 
-                    // Create an HTML string
-                    let html = '<ul>';
-                    for (let key in result) {
-                        if (result.hasOwnProperty(key) && isNaN(key)) { // Ignore numeric keys and __length__
-                            let chineseKey = mapping[key] || key; // Use the Chinese key if it exists, otherwise use the English key
-                            html += `<li>${chineseKey}: ${result[key]}</li>`;
+                        // Create an HTML string
+                        let html = '<ul>';
+                        for (let key in result) {
+                            if (result.hasOwnProperty(key) && isNaN(key)) { // Ignore numeric keys and __length__
+                                let chineseKey = mapping[key] || key; // Use the Chinese key if it exists, otherwise use the English key
+                                html += `<li>${chineseKey}: ${result[key]}</li>`;
+                            }
                         }
-                    }
-                    html += '</ul>';
+                        html += '</ul>';
 
-                    $("#block1chain1data").val(html); // Display the formatted result
-                });
+                        $(`#block${i + 1}chain1data`).val(html); // Display the formatted result
+                    });
+                }
             });
         });
-
 
         /*contractInstance.methods.retrieve('111').call().then(function (result) {
             console.log(result); // Log the result to the console
@@ -1086,7 +1088,7 @@
     <script>
         $(document).ready(function () {
             $.get('/get_plantcodes/', function (data) {
-                console.log('ts',data.plantcodes[1]);  // This will log the plantcodes to the console
+                console.log('ts', data.plantcodes[0]);  // This will log the plantcodes to the console
             });
         });
     </script>
