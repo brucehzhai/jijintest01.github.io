@@ -44,6 +44,7 @@ urlpatterns = [
     path('increment_code/', views.increment_code, name='increment_code'),
     path('get_codes/', views.get_codes, name='get_codes'),
     path('get_plantcodes/', views.get_plantcodes, name='get_plantcodes'),
+    path('zhishitupu/',views.zhishitupu)
 
 
 

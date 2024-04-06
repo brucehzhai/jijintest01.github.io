@@ -105,7 +105,8 @@ def blockvisual(request):
     return render(request,'blockvisual.html')
 def click_detail(request):
     return render(request,'click_detail.html')
-
+def zhishitupu(request):
+    return render(request,'zhishitupu.html')
 
 
 def get_codes(request):

@@ -902,16 +902,16 @@ var option;
              },
          },
          roam: false, //是否允许缩放
-         itemStyle: {
-             normal: {
-                 areaColor: ' #008000',
-                 borderColor: '#003800', //省市边界线00fcff 516a89
+itemStyle: {
+    normal: {
+        areaColor: ' #91CC75',
+        borderColor: '#003800', //省市边界线00fcff 516a89
 
-             },
-             emphasis: {
-                 color: '#00FF7F' //悬浮背景
-             }
-         },
+    },
+    emphasis: {
+        color: '#2ECC71' //悬浮背景
+    }
+},
      },
      series: series
  };
