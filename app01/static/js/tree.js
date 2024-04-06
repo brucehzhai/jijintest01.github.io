@@ -128,6 +128,12 @@ option && myChart.setOption(option);
     //设置初始地图
     var mapname = chinaMap;
     //设置省份的json 这里注意名字要和中国地图上的名字一致
+    var mapdata={
+
+        '楚雄彝族自治州': '../click_detail',
+        '南华县': '../click_detail'
+        // ... 可以继续添加其他市和对应的链接 ...
+    };
     var mapJson = [
         {
             name: "台湾省",
@@ -259,37 +265,9 @@ option && myChart.setOption(option);
         },
     ];
     var provinceData = {
-        '台湾省': Math.random() * 100,
-        '海南省': Math.random() * 100,
-        '安徽省': Math.random() * 100,
-        '江西省': Math.random() * 100,
-        '湖南省': Math.random() * 100,
-        '云南省': Math.random() * 100,
-        '贵州省': Math.random() * 100,
-        '广东省': Math.random() * 100,
-        '福建省': Math.random() * 100,
-        '浙江省': Math.random() * 100,
-        '江苏省': Math.random() * 100,
-        '四川省': Math.random() * 100,
-        '重庆市': Math.random() * 100,
-        '湖北省': Math.random() * 100,
-        '河南省': Math.random() * 100,
-        '山东省': Math.random() * 100,
-        '吉林省': Math.random() * 100,
-        '辽宁省': Math.random() * 100,
-        '天津市': Math.random() * 100,
-        '北京市': Math.random() * 100,
-        '河北省': Math.random() * 100,
-        '山西省': Math.random() * 100,
-        '陕西省': Math.random() * 100,
-        '宁夏回族自治区': Math.random() * 100,
-        '青海省': Math.random() * 100,
-        '西藏自治区': Math.random() * 100,
-        '黑龙江省': Math.random() * 100,
-        '内蒙古自治区': Math.random() * 100,
-        '甘肃省': Math.random() * 100,
-        '新疆维吾尔自治区': Math.random() * 100,
-        '广西壮族自治区': Math.random() * 100,
+        '云南省':80,
+        '四川省': 45,
+        '西藏自治区':30
     };
     //设置每个市的数据
     var citydata = {
@@ -309,6 +287,9 @@ option && myChart.setOption(option);
         if (clickedMap) {
             mapname = clickedMap.json;
             mapInit();
+        }
+        if (mapdata[clickedName]) {
+            window.open(mapdata[clickedName]);
         }
         //添加一个返回按键
         $('<div class="back"><button type="button">返回</button></div>').appendTo($('#maptt'));
@@ -378,16 +359,17 @@ option && myChart.setOption(option);
                     }],
                     tooltip: {
                         trigger: 'item',
-                        formatter: '{b}<br/>{c} (种菌菇)'
+                        formatter: '{b}'
                     },
-                    visualMap: {
+                     visualMap: {
+                        show:false,
                         min: 10,
                         max: 100,
                         text: ['High', 'Low'],
                         realtime: false,
                         calculable: true,
                         inRange: {
-                            color: ['orange', 'green']
+                            color: ['lightgreen', 'green']
                         }
                     },
                 };
@@ -421,16 +403,7 @@ option && myChart.setOption(option);
                             return params.name + '<br/>' + params.value + ' (种菌菇)' + '<br/>' + params.data.text; // 显示文本内容
                         }
                     },
-                    visualMap: {
-                        min: 10,
-                        max: 100,
-                        text: ['High', 'Low'],
-                        realtime: false,
-                        calculable: true,
-                        inRange: {
-                            color: ['orange', 'purple', 'red']
-                        }
-                    },
+
                 };
 
             };
