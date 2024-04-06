@@ -276,10 +276,8 @@
                     - 松茸</h2>
                 <p class="services-details__content-text1" style="text-indent:2em">
 
-松茸是一种具有多种健康益处的食用菌，其营养成分和生物活性物质对一些疾病具有潜在的辅助治疗作用。具体而言，松茸含有的多糖类物质和抗氧化成分可以增强免疫系统功能，有助于预防和辅助治疗免疫系统疾病、癌症、心血管疾病、消化系统疾病以及糖尿病等。</p>
+                    松茸是一种具有多种健康益处的食用菌，其营养成分和生物活性物质对一些疾病具有潜在的辅助治疗作用。具体而言，松茸含有的多糖类物质和抗氧化成分可以增强免疫系统功能，有助于预防和辅助治疗免疫系统疾病、癌症、心血管疾病、消化系统疾病以及糖尿病等。</p>
                 <div id="sjt" style="width: 1200px;height: 600px;margin:0 auto "></div>
-
-
 
 
             </div>
@@ -813,120 +811,258 @@
 
 </script>
 <!--词云-->
-  <script type="text/javascript">
-        var myChart = echarts.init(document.getElementById('wordcloud'));
+<script type="text/javascript">
+    var myChart = echarts.init(document.getElementById('wordcloud'));
 
-        var option = {
-            series: [{
-                type: 'wordCloud',
-                data: [
-                    {"name": "松茸醇", "value": 45},
-        {"name": "松茸多糖", "value": 30},
-        {"name": "氨基酸", "value": 25},
-        {"name": "氨基酸", "value": 26},
-        {"name": "氨基酸", "value": 23},
-        {"name": "氨基酸", "value": 29},
-        {"name": "氨基酸", "value": 26},
-        {"name": "蛋白质", "value": 34},
-        {"name": "蛋白质", "value": 18},
-        {"name": "蛋白质", "value": 15},
-        {"name": "蛋白质", "value": 25},
-        {"name": "蛋白质", "value": 36},
-        {"name": "松茸酸", "value": 35},
-        {
-  "name": "亚麻酸",
-  "value": 36
-},
-{
-  "name": "α-亚麻酸",
-  "value": 36
-},
-{
-  "name": "油酸",
-  "value": 36
-},
-{
-  "name": "棕榈酸",
-  "value": 36
-},
-{
-  "name": "硬脂酸",
-  "value": 36
-},
-        {
-  "name": "维生素B1",
-  "value": 34
-},
-{
-  "name": "维生素B2",
-  "value": 24
-},
-{
-  "name": "维生素B3",
-  "value": 26
-},
-{
-  "name": "维生素B5",
-  "value": 29
-},
-{
-  "name": "维生素B6",
-  "value": 24
-},
-                    {
-  "name": "赖氨酸",
-  "value": 25
-},
-{
-  "name": "亮氨酸",
-  "value": 33
-},
-{
-  "name": "异亮氨酸",
-  "value": 43
-},
-{
-  "name": "苏氨酸",
-  "value": 36
-}
-,
-                    {
-  "name": "维生素C",
-  "value": 18
-},
-{
-  "name": "维生素E",
-  "value": 24
-},
-{
-  "name": "糖蛋白1",
-  "value": 16
-},
-{
-  "name": "糖蛋白2",
-  "value": 36
-},
-{
-  "name": "膳食纤维",
-  "value": 25
-}
-                    // 更多数据...
-                ],
-                textStyle: {
-                    color: function () {
-                        // 返回一个在颜色列表中随机选择的颜色
-                        return 'rgb(' + [
-                            Math.round(Math.random() * 160),
-                            Math.round(Math.random() * 160),
-                            Math.round(Math.random() * 160)
-                        ].join(',') + ')';
+    var option = {
+        series: [{
+            type: 'wordCloud',
+            data: [
+                {"name": "松茸醇", "value": 45},
+                {"name": "松茸多糖", "value": 30},
+                {"name": "氨基酸", "value": 25},
+                {"name": "氨基酸", "value": 26},
+                {"name": "氨基酸", "value": 23},
+                {"name": "氨基酸", "value": 29},
+                {"name": "氨基酸", "value": 26},
+                {"name": "蛋白质", "value": 34},
+                {"name": "蛋白质", "value": 18},
+                {"name": "蛋白质", "value": 15},
+                {"name": "蛋白质", "value": 25},
+                {"name": "蛋白质", "value": 36},
+                {"name": "松茸酸", "value": 35},
+                {
+                    "name": "亚麻酸",
+                    "value": 36
+                },
+                {
+                    "name": "α-亚麻酸",
+                    "value": 36
+                },
+                {
+                    "name": "油酸",
+                    "value": 36
+                },
+                {
+                    "name": "棕榈酸",
+                    "value": 36
+                },
+                {
+                    "name": "硬脂酸",
+                    "value": 36
+                },
+                {
+                    "name": "维生素B1",
+                    "value": 34
+                },
+                {
+                    "name": "维生素B2",
+                    "value": 24
+                },
+                {
+                    "name": "维生素B3",
+                    "value": 26
+                },
+                {
+                    "name": "维生素B5",
+                    "value": 29
+                },
+                {
+                    "name": "维生素B6",
+                    "value": 24
+                },
+                {
+                    "name": "赖氨酸",
+                    "value": 25
+                },
+                {
+                    "name": "亮氨酸",
+                    "value": 33
+                },
+                {
+                    "name": "异亮氨酸",
+                    "value": 43
+                },
+                {
+                    "name": "苏氨酸",
+                    "value": 36
+                }
+                ,
+                {
+                    "name": "维生素C",
+                    "value": 18
+                },
+                {
+                    "name": "维生素E",
+                    "value": 24
+                },
+                {
+                    "name": "糖蛋白1",
+                    "value": 16
+                },
+                {
+                    "name": "糖蛋白2",
+                    "value": 36
+                },
+                {
+                    "name": "膳食纤维",
+                    "value": 25
+                }
+                // 更多数据...
+            ],
+            textStyle: {
+                color: function randomGreenYellowColor() {
+                    // 随机决定生成黄色还是绿色
+                    const isYellow = Math.random() < 0.5; // 有50%的概率生成黄色
+
+                    let r, g, b;
+
+                    if (isYellow) {
+                        // 生成黄色
+                        r = Math.round(Math.random() * 100); // 随机红色分量，黄色的红色较高
+                        g = Math.round(Math.random() * 200) + 51; // 随机绿色分量，保证黄色的基本特征
+                        b = Math.random() * 100; // 随机蓝色分量，黄色的蓝色较低
+                    } else {
+                        // 生成绿色
+                        r = Math.random() * 100; // 随机红色分量，绿色的红色较低
+                        g = Math.round(Math.random() * 200) + 51; // 随机绿色分量，保证绿色的基本特征
+                        b = Math.random() * 100; // 随机蓝色分量，绿色的蓝色较低
+                    }
+
+                    // 返回生成的颜色值
+                    return 'rgb(' + [r, g, b].join(',') + ')';
+                },
+                shadowColor: '#000',
+                shadowBlur: 10,
+                width: 200,  // 设置一个初始宽度
+                height: 200,  // 设置一个初始高度
+                fontSize: [20, 100],  // 设置一个变化范围
+                fontStyle: 'normal',
+                fontWeight: 'bold',
+                padding: [0, 0, 0, 0],
+                rotationRange: [-90, 90],  // 设置旋转角度范围
+                animation: {
+                    type: 'scale',
+                    duration: 2000,  // 动画持续时间
+                    easing: 'linear',
+                    delay: function (idx) {
+                        return Math.random() * 100;  // 随机延迟
                     }
                 }
-            }]
-        };
+            },
+            // ... 其他配置项
+        }]
+    };
 
-        myChart.setOption(option);
-    </script>
+    // 动态更新数据的函数
+    function updateData() {
+        // 模拟数据更新
+        var newData = [
+            {"name": "松茸醇", "value": 45},
+            {"name": "松茸多糖", "value": 30},
+            {"name": "氨基酸", "value": 25},
+            {"name": "氨基酸", "value": 26},
+            {"name": "氨基酸", "value": 23},
+            {"name": "氨基酸", "value": 29},
+            {"name": "氨基酸", "value": 26},
+            {"name": "蛋白质", "value": 34},
+            {"name": "蛋白质", "value": 18},
+            {"name": "蛋白质", "value": 15},
+            {"name": "蛋白质", "value": 25},
+            {"name": "蛋白质", "value": 36},
+            {"name": "松茸酸", "value": 35},
+            {
+                "name": "亚麻酸",
+                "value": 36
+            },
+            {
+                "name": "α-亚麻酸",
+                "value": 36
+            },
+            {
+                "name": "油酸",
+                "value": 36
+            },
+            {
+                "name": "棕榈酸",
+                "value": 36
+            },
+            {
+                "name": "硬脂酸",
+                "value": 36
+            },
+            {
+                "name": "维生素B1",
+                "value": 34
+            },
+            {
+                "name": "维生素B2",
+                "value": 24
+            },
+            {
+                "name": "维生素B3",
+                "value": 26
+            },
+            {
+                "name": "维生素B5",
+                "value": 29
+            },
+            {
+                "name": "维生素B6",
+                "value": 24
+            },
+            {
+                "name": "赖氨酸",
+                "value": 25
+            },
+            {
+                "name": "亮氨酸",
+                "value": 33
+            },
+            {
+                "name": "异亮氨酸",
+                "value": 43
+            },
+            {
+                "name": "苏氨酸",
+                "value": 36
+            }
+            ,
+            {
+                "name": "维生素C",
+                "value": 18
+            },
+            {
+                "name": "维生素E",
+                "value": 24
+            },
+            {
+                "name": "糖蛋白1",
+                "value": 16
+            },
+            {
+                "name": "糖蛋白2",
+                "value": 36
+            },
+            {
+                "name": "膳食纤维",
+                "value": 25
+            }
+
+        ];
+        // 使用setOption更新数据
+        myChart.setOption({
+            series: [{
+                data: newData
+            }]
+        });
+    }
+
+    // 每隔一段时间调用updateData函数更新数据
+    setInterval(updateData, 5000);  // 每5秒更新一次数据
+
+    myChart.setOption(option);
+</script>
 
 
 </body>
