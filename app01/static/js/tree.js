@@ -275,7 +275,6 @@ option && myChart.setOption(option);
         '达州市': { value: 30, text: '海南省的文本内容' },
         '广元市':   { value: 30, text: '海南省的文本内容' },
         '楚雄彝族自治州': { value: 30, text: '楚雄拥有丰富的食用菌资源' },
-        '南华县': { value: 30, text: '楚雄拥有丰富的食用菌资源' },
     }
     //加载时的文字提示
     myChart.showLoading({ text: '正在加载数据' });  //增加等待提示
