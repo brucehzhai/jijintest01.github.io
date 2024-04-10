@@ -400,7 +400,7 @@ option && myChart.setOption(option);
                     tooltip: {
                         trigger: 'item',
                         formatter: function (params) {
-                            return params.name + '<br/>' + params.value + ' (种菌菇)' + '<br/>' + params.data.text; // 显示文本内容
+                            return params.name + '<br/>' + params.data.text; // 显示文本内容
                         }
                     },
 
