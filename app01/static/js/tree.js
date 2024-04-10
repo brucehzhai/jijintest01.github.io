@@ -383,7 +383,6 @@ option && myChart.setOption(option);
                         data: Object.keys(citydata).map(function (key) {
                             return {
                                 name: key,
-                                value: citydata[key].value,
                                 text: citydata[key].text
                             };
                         }),
