@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'test01.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',   #Django的引擎，还可以用Oracle等
-        'NAME': 'test01',   # 数据库名
+        'NAME': '1448',   # 数据库名
         'USER': 'root',		# 用户名
         'PASSWORD': '20172018Kfc',       #密码
         'HOST': '127.0.0.1',			# 数据库服务器地址本机

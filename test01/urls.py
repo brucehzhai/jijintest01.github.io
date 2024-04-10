@@ -40,10 +40,12 @@ urlpatterns = [
     path('error/', views.error),
     path('blockinput/', views.blockinput),
     path('blockvisual/', views.blockvisual),
+    path('click_detail/', views.click_detail),
     path('trace_copy/', views.trace_copy),
     path('increment_code/', views.increment_code, name='increment_code'),
     path('get_codes/', views.get_codes, name='get_codes'),
     path('get_plantcodes/', views.get_plantcodes, name='get_plantcodes'),
+    path('click_detail/', views.click_detail),
     path('zhishitupu/',views.zhishitupu)
 
 
