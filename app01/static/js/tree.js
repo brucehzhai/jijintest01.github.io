@@ -131,7 +131,6 @@ option && myChart.setOption(option);
     var mapdata={
 
         '楚雄彝族自治州': '../click_detail',
-        '南华县': '../click_detail'
         // ... 可以继续添加其他市和对应的链接 ...
     };
     var mapJson = [
