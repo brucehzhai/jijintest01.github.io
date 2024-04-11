@@ -46,7 +46,8 @@ urlpatterns = [
     path('get_codes/', views.get_codes, name='get_codes'),
     path('get_plantcodes/', views.get_plantcodes, name='get_plantcodes'),
     path('click_detail/', views.click_detail),
-    path('zhishitupu/',views.zhishitupu)
+    path('zhishitupu/',views.zhishitupu),
+    path('safety_detail/',views.safety_detail),
 
 
 
