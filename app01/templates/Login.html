@@ -238,8 +238,8 @@
                                 {% csrf_token %}
                                 <div class="row">
                                     <div class="col-xl-12 col-lg-12">
-                                        <div class="form-select">
-                                            <select name="character">
+                                        <div class="noSelect" style="padding-bottom: 20px">
+                                            <select name="character" class="form-control bootstrap-select form-select" style="background-color: #f6f4ec">
                                                 <option value="admin">管理员</option>
                                                 <option value="user">用户</option>
                                             </select>
