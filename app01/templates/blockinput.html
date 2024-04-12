@@ -184,6 +184,7 @@
 <div class="row">
     <div class="col-lg-1">
 <form>
+    {% csrf_token %}
     <label for="stage1">种植</label>
     <input type="radio" id="stage1_selector"  name="stage" value="stage1" checked>
     <label for="stage2">运输</label>
