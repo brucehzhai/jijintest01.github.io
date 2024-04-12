@@ -153,7 +153,8 @@
                                                 {{ request.session.info.name }}
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li style="margin-bottom: 10px"><a class="dropdown-item" href="/login" id="logout">注销</a></li>
+                                                <li style="margin-bottom: 10px"><a class="dropdown-item" href="/login"
+                                                        id="logout">注销</a></li>
                                                 <li style="margin-bottom: 10px"><a class="dropdown-item"
                                                         href="#">个人中心</a></li>
                                             </ul>
@@ -928,6 +929,8 @@
 
 
         $(document).ready(function () {
+            let text1 = '', text2 = '', text3 = ''; // Move the text variables here
+
             $.get('/get_plantcodes/', function (data) {
                 console.log(data.plantcodes);
 
@@ -980,13 +983,83 @@
                                 let chineseKey = mapping[key] || key; // Use the Chinese key if it exists, otherwise use the English key
                                 text += `${chineseKey}: ${result[key]}\n`;
                             }
+                            if (i === 0) {
+                                text1 = text;
+                            } else if (i === 1) {
+                                text2 = text;
+                            } else if (i === 2) {
+                                text3 = text;
+                            }
+
                         }
 
                         $(`#block${i + 1}chain1data`).val(text); // Display the formatted result
                     });
                 }
             });
+            $("#block1chain1mineButton").click(function () {
+                // 获取textarea的值
+                let data1 = $("#block1chain1data").val();
+
+
+                function generateHash(data) {
+                    let hash = 0, i, chr;
+                    if (data.length === 0) return hash;
+                    for (i = 0; i < data.length; i++) {
+                        chr = data.charCodeAt(i);
+                        hash = ((hash << 5) - hash) + chr;
+                        hash |= 0; // Convert to 32bit integer
+                    }
+                    return hash;
+                }
+
+
+                let ohash1 = generateHash(text1)
+                console.log(ohash1);
+                // 生成一个基于textarea值的哈希码
+                let hash1 = generateHash(data1);
+                console.log(hash1);
+
+                // Set the hash value in the input field
+                $("#block1chain1hash").val(hash1);
+
+
+                if (hash1 === ohash1) {
+                    $(this).closest(".well").css("background-color", "#dff0d8");
+                } else {
+                    $(this).closest(".well").css("background-color", "#fadcdc");
+                }
+            });
+            $("#block2chain1mineButton").click(function () {
+                // Generate a random number for the hash
+                let hash = Math.floor(Math.random() * 1000000);
+
+                // Set the hash value in the input field
+                $("#block2chain1hash").val(hash);
+
+                // Change the color of the well to green
+                $(this).closest(".well").css("background-color", "#dff0d8");
+            });
+            $("#block3chain1mineButton").click(function () {
+                // Generate a random number for the hash
+                let hash = Math.floor(Math.random() * 1000000);
+
+                // Set the hash value in the input field
+                $("#block3chain1hash").val(hash);
+
+                // Change the color of the well to green
+                $(this).closest(".well").css("background-color", "#dff0d8");
+            });
+
+
+
         });
+
+
+
+
+
+
 
         /*contractInstance.methods.retrieve('111').call().then(function (result) {
             console.log(result); // Log the result to the console
@@ -1097,44 +1170,9 @@
 
 
 
-    <script>
-        $(document).ready(function () {
-            $("#block1chain1mineButton").click(function () {
-                // Generate a random number for the hash
-                let hash = Math.floor(Math.random() * 1000000);
-
-                // Set the hash value in the input field
-                $("#block1chain1hash").val(hash);
-
-                // Change the color of the well to green
-                $(this).closest(".well").css("background-color", "#dff0d8");
-            });
-            $("#block2chain1mineButton").click(function () {
-                // Generate a random number for the hash
-                let hash = Math.floor(Math.random() * 1000000);
-
-                // Set the hash value in the input field
-                $("#block2chain1hash").val(hash);
-
-                // Change the color of the well to green
-                $(this).closest(".well").css("background-color", "#dff0d8");
-            });
-            $("#block3chain1mineButton").click(function () {
-                // Generate a random number for the hash
-                let hash = Math.floor(Math.random() * 1000000);
-
-                // Set the hash value in the input field
-                $("#block3chain1hash").val(hash);
-
-                // Change the color of the well to green
-                $(this).closest(".well").css("background-color", "#dff0d8");
-            });
-        });
 
 
-    </script>
 
-   
 
 
 
