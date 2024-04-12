@@ -47,7 +47,7 @@ urlpatterns = [
     path('get_plantcodes/', views.get_plantcodes, name='get_plantcodes'),
     path('click_detail/', views.click_detail),
     path('zhishitupu/',views.zhishitupu),
-    path('safety_detail/',views.safety_detail),
+    path('safety_details/',views.safety_details),
 
 
 

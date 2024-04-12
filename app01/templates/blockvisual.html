@@ -254,6 +254,8 @@
                         </form>
                     </div>
                 </div>
+
+
                 <div class="col-xl-4">
                     <div class="well well-success" id="block2chain1well">
                         <form class="form-horizontal">
@@ -306,6 +308,8 @@
                         </form>
                     </div>
                 </div>
+
+
                 <div class="col-xl-4">
                     <div class="well well-success" id="block3chain1well">
                         <form class="form-horizontal">
@@ -1041,14 +1045,37 @@
                 $(this).closest(".well").css("background-color", "#dff0d8");
             });
             $("#block3chain1mineButton").click(function () {
-                // Generate a random number for the hash
-                let hash = Math.floor(Math.random() * 1000000);
+                // 获取textarea的值
+                let data3 = $("#block3chain1data").val();
+
+
+                function generateHash(data) {
+                    let hash = 0, i, chr;
+                    if (data.length === 0) return hash;
+                    for (i = 0; i < data.length; i++) {
+                        chr = data.charCodeAt(i);
+                        hash = ((hash << 5) - hash) + chr;
+                        hash |= 0; // Convert to 32bit integer
+                    }
+                    return hash;
+                }
+
+
+                let ohash3 = generateHash(text3)
+                console.log(ohash3);
+                // 生成一个基于textarea值的哈希码
+                let hash3 = generateHash(data3);
+                console.log(hash3);
 
                 // Set the hash value in the input field
-                $("#block3chain1hash").val(hash);
+                $("#block3chain1hash").val(hash3);
 
-                // Change the color of the well to green
-                $(this).closest(".well").css("background-color", "#dff0d8");
+
+                if (hash3 === ohash3) {
+                    $(this).closest(".well").css("background-color", "#dff0d8");
+                } else {
+                    $(this).closest(".well").css("background-color", "#fadcdc");
+                }
             });
 
 
