@@ -1053,7 +1053,7 @@
              console.log("***Current Block Number***:")
              console.log(results)
          });
-
+ 
          // to test if web3.eth.Contract works
          console.log("***contractInstance.abi***:");
          console.log(contractInstance.options.jsonInterface);*/
@@ -1448,8 +1448,8 @@
             preservationTime,
             salesMethod
         ).encodeABI();
-
-
+ 
+ 
         web3.eth.getTransactionCount(account)
             .then(nonce => {
                 let rawTransaction = {
@@ -1460,21 +1460,21 @@
                     gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
                     nonce: 34
                 };
-
+ 
                 return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
             })
             .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
             .then(receipt => console.log('Transaction receipt: ', receipt))
             .catch(err => console.error('Error sending transaction: ', err));
-
-
+ 
+ 
     }*/
 
 
 
         /*
         let transaction = contractInstance.methods.store(123).encodeABI();
-
+ 
         web3.eth.getTransactionCount(account)
             .then(nonce => {
                 let rawTransaction = {
@@ -1485,7 +1485,7 @@
                     gasPrice: web3.utils.toWei('20', 'gwei'), // 20 Gwei
                     nonce: 21
                 };
-
+ 
                 return web3.eth.accounts.signTransaction(rawTransaction, privateKey);
             })
             .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
@@ -1501,10 +1501,10 @@
             data: transaction,
             gas: 2000000,
             gasPrice: web3.utils.toWei('20', 'gwei') // 20 Gwei
-
-
+ 
+ 
         };
-
+ 
         web3.eth.accounts.signTransaction(rawTransaction, privateKey)
             .then(signedTx => web3.eth.sendSignedTransaction(signedTx.rawTransaction))
             .then(receipt => console.log('Transaction receipt: ', receipt))
