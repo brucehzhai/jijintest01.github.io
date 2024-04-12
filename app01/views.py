@@ -26,8 +26,6 @@ def register(request):
 
         name = request.POST.get('name')
         password = request.POST.get('password')
-
-
         email = request.POST.get('email')
 
         # 在这里进行用户输入的验证逻辑
@@ -50,18 +48,21 @@ def login(request):
         return render(request, "Login.html")
 
     # 如果是POST请求，获取用户提交的数据
+    character = request.POST.get('character')
+    print(character)
+
     name = request.POST.get('name')
     password = request.POST.get('password')
     if models.userinfo.objects.filter(
             Q(name=name) & Q(password=password)
     ):
-        # 网站生成随机字符串; 写到用户浏览器的cookie中；在写入到session中；
-        request.session["info"] = {'name': name}
-        # session可以保存7天
-        print(request.session["info"])
-        request.session.set_expiry(60 * 60 * 24 * 7)
-
-        return redirect('/index/')
+        if character == "admin":
+            return redirect('/blockinput/')
+        else:
+            return redirect('/')
+    else:
+        # 用户名或密码错误的处理逻辑
+        return HttpResponse("用户名或密码错误")
 def contact(request):
     return  render(request, 'contact.html')
 def trace(request):

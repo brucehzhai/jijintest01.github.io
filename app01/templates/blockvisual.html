@@ -116,7 +116,9 @@
                                             <li class="dropdown">
                                                 <a href="http://127.0.0.1:5502/app01/templates/zhishitupu.html">识海星图</a>
                                                 <ul>
-                                                    <li><a href="http://127.0.0.1:5502/app01/templates/zhishitupu.html">菌菇类作物</a></li>
+                                                    <li><a
+                                                            href="http://127.0.0.1:5502/app01/templates/zhishitupu.html">菌菇类作物</a>
+                                                    </li>
                                                     <li><a href="../information">News Two</a></li>
                                                     <li><a href="../news-details">News Details</a></li>
                                                 </ul>
@@ -151,10 +153,10 @@
                                                 {{ request.session.info.name }}
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li style="margin-bottom: 10px"><a class="dropdown-item" href="#">注销</a>
-                                                </li>
+                                                <li style="margin-bottom: 10px"><a class="dropdown-item" href="/login" id="logout">注销</a></li>
                                                 <li style="margin-bottom: 10px"><a class="dropdown-item"
                                                         href="#">个人中心</a></li>
+                                            </ul>
 
                                             </ul>
                                         </div>
@@ -1132,6 +1134,7 @@
 
     </script>
 
+   
 
 
 
