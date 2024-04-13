@@ -744,137 +744,43 @@
     }
 
     // 随机生成食材营养成分数据
-    const nutritionRandomData = {
-        '三菌炒饭': {
-            '蛋白质': Math.floor(Math.random() * 15) + 12, // 15-30g
-            '脂肪': Math.floor(Math.random() * 0.8) + 0.2, // 0.1-0.9g
-            '碳水化合物': Math.floor(Math.random() * 5) + 5, // 5-10g
-            '纤维素': Math.floor(Math.random() * 5) + 5, // 5-10g
-            '维生素D': Math.floor(Math.random() * 10) + 10, // 10-20μg
-            '钾': Math.floor(Math.random() * 150) + 200, // 200-350mg
-            '钠': Math.floor(Math.random() * 20) + 10, // 10-30mg
-            '钙': Math.floor(Math.random() * 10) + 10, // 10-20mg
-            '铁': Math.floor(Math.random() * 1) + Math.random(0.6), // 0-1mg
-            '磷': Math.floor(Math.random() * 50) + 30, // 50-100mg
-        },
-        // 可以添加更多食材数据
-        '松茸清汤': {
-            '蛋白质': Math.floor(Math.random() * 15) + 12, // 15-30g
-            '脂肪': Math.floor(Math.random() * 0.8) + 0.2, // 0.1-0.9g
-            '碳水化合物': Math.floor(Math.random() * 5) + 5, // 5-10g
-            '纤维素': Math.floor(Math.random() * 5) + 5, // 5-10g
-            '维生素D': Math.floor(Math.random() * 10) + 10, // 10-20μg
-            '钾': Math.floor(Math.random() * 150) + 200, // 200-350mg
-            '钠': Math.floor(Math.random() * 20) + 10, // 10-30mg
-            '钙': Math.floor(Math.random() * 10) + 10, // 10-20mg
-            '铁': Math.floor(Math.random() * 1) + Math.random(0.6), // 0-1mg
-            '磷': Math.floor(Math.random() * 50) + 30, // 50-100mg
-        },
-         '松茸炒虾仁': {
-            '蛋白质': Math.floor(Math.random() * 15) + 12, // 15-30g
-            '脂肪': Math.floor(Math.random() * 0.8) + 0.2, // 0.1-0.9g
-            '碳水化合物': Math.floor(Math.random() * 5) + 5, // 5-10g
-            '纤维素': Math.floor(Math.random() * 5) + 5, // 5-10g
-            '维生素D': Math.floor(Math.random() * 10) + 10, // 10-20μg
-            '钾': Math.floor(Math.random() * 150) + 200, // 200-350mg
-            '钠': Math.floor(Math.random() * 20) + 10, // 10-30mg
-            '钙': Math.floor(Math.random() * 10) + 10, // 10-20mg
-            '铁': Math.floor(Math.random() * 1) + Math.random(0.6), // 0-1mg
-            '磷': Math.floor(Math.random() * 50) + 30, // 50-100mg
-        },
-         '松茸蒸鸡': {
-            '蛋白质': Math.floor(Math.random() * 15) + 12, // 15-30g
-            '脂肪': Math.floor(Math.random() * 0.8) + 0.2, // 0.1-0.9g
-            '碳水化合物': Math.floor(Math.random() * 5) + 5, // 5-10g
-            '纤维素': Math.floor(Math.random() * 5) + 5, // 5-10g
-            '维生素D': Math.floor(Math.random() * 10) + 10, // 10-20μg
-            '钾': Math.floor(Math.random() * 150) + 200, // 200-350mg
-            '钠': Math.floor(Math.random() * 20) + 10, // 10-30mg
-            '钙': Math.floor(Math.random() * 10) + 10, // 10-20mg
-            '铁': Math.floor(Math.random() * 1) + Math.random(0.6), // 0-1mg
-            '磷': Math.floor(Math.random() * 50) + 30, // 50-100mg
-        }
-        ,
-         '松茸意面': {
-            '蛋白质': Math.floor(Math.random() * 15) + 12, // 15-30g
-            '脂肪': Math.floor(Math.random() * 0.8) + 0.2, // 0.1-0.9g
-            '碳水化合物': Math.floor(Math.random() * 5) + 5, // 5-10g
-            '纤维素': Math.floor(Math.random() * 5) + 5, // 5-10g
-            '维生素D': Math.floor(Math.random() * 10) + 10, // 10-20μg
-            '钾': Math.floor(Math.random() * 150) + 200, // 200-350mg
-            '钠': Math.floor(Math.random() * 20) + 10, // 10-30mg
-            '钙': Math.floor(Math.random() * 10) + 10, // 10-20mg
-            '铁': Math.floor(Math.random() * 1) + Math.random(0.6), // 0-1mg
-            '磷': Math.floor(Math.random() * 50) + 30, // 50-100mg
-        }
-        ,
-         '松茸烤鸡胸': {
-            '蛋白质': Math.floor(Math.random() * 15) + 12, // 15-30g
-            '脂肪': Math.floor(Math.random() * 0.8) + 0.2, // 0.1-0.9g
-            '碳水化合物': Math.floor(Math.random() * 5) + 5, // 5-10g
-            '纤维素': Math.floor(Math.random() * 5) + 5, // 5-10g
-            '维生素D': Math.floor(Math.random() * 10) + 10, // 10-20μg
-            '钾': Math.floor(Math.random() * 150) + 200, // 200-350mg
-            '钠': Math.floor(Math.random() * 20) + 10, // 10-30mg
-            '钙': Math.floor(Math.random() * 10) + 10, // 10-20mg
-            '铁': Math.floor(Math.random() * 1) + Math.random(0.6), // 0-1mg
-            '磷': Math.floor(Math.random() * 50) + 30, // 50-100mg
-        }
-        ,
-         '松茸奶油汤': {
-            '蛋白质': Math.floor(Math.random() * 15) + 12, // 15-30g
-            '脂肪': Math.floor(Math.random() * 0.8) + 0.2, // 0.1-0.9g
-            '碳水化合物': Math.floor(Math.random() * 5) + 5, // 5-10g
-            '纤维素': Math.floor(Math.random() * 5) + 5, // 5-10g
-            '维生素D': Math.floor(Math.random() * 10) + 10, // 10-20μg
-            '钾': Math.floor(Math.random() * 150) + 200, // 200-350mg
-            '钠': Math.floor(Math.random() * 20) + 10, // 10-30mg
-            '钙': Math.floor(Math.random() * 10) + 10, // 10-20mg
-            '铁': Math.floor(Math.random() * 1) + Math.random(0.6), // 0-1mg
-            '磷': Math.floor(Math.random() * 50) + 30, // 50-100mg
-        }
-        ,
-         '松茸牛油果沙拉': {
-            '蛋白质': Math.floor(Math.random() * 15) + 12, // 15-30g
-            '脂肪': Math.floor(Math.random() * 0.8) + 0.2, // 0.1-0.9g
-            '碳水化合物': Math.floor(Math.random() * 5) + 5, // 5-10g
-            '纤维素': Math.floor(Math.random() * 5) + 5, // 5-10g
-            '维生素D': Math.floor(Math.random() * 10) + 10, // 10-20μg
-            '钾': Math.floor(Math.random() * 150) + 200, // 200-350mg
-            '钠': Math.floor(Math.random() * 20) + 10, // 10-30mg
-            '钙': Math.floor(Math.random() * 10) + 10, // 10-20mg
-            '铁': Math.floor(Math.random() * 1) + Math.random(0.6), // 0-1mg
-            '磷': Math.floor(Math.random() * 50) + 30, // 50-100mg
-        }
-        ,
-         '松茸鸡肉卷': {
-            '蛋白质': Math.floor(Math.random() * 15) + 12, // 15-30g
-            '脂肪': Math.floor(Math.random() * 0.8) + 0.2, // 0.1-0.9g
-            '碳水化合物': Math.floor(Math.random() * 5) + 5, // 5-10g
-            '纤维素': Math.floor(Math.random() * 5) + 5, // 5-10g
-            '维生素D': Math.floor(Math.random() * 10) + 10, // 10-20μg
-            '钾': Math.floor(Math.random() * 150) + 200, // 200-350mg
-            '钠': Math.floor(Math.random() * 20) + 10, // 10-30mg
-            '钙': Math.floor(Math.random() * 10) + 10, // 10-20mg
-            '铁': Math.floor(Math.random() * 1) + Math.random(2) , // 0-1mg
-            '磷': Math.floor(Math.random() * 50) + Math.random(30), // 50-100mg
-        }
-        ,
-         '松茸蛋汤': {
-            '蛋白质': Math.floor(Math.random() * 15) + 12, // 15-30g
-            '脂肪': Math.floor(Math.random() * 0.8) + 0.2, // 0.1-0.9g
-            '碳水化合物': Math.floor(Math.random() * 5) + 5, // 5-10g
-            '纤维素': Math.floor(Math.random() * 5) + 5, // 5-10g
-            '维生素D': Math.floor(Math.random() * 10) + 10, // 10-20μg
-            '钾': Math.floor(Math.random() * 150) + 200, // 200-350mg
-            '钠': Math.floor(Math.random() * 20) + 10, // 10-30mg
-            '钙': Math.floor(Math.random() * 10) + 10, // 10-20mg
-            '铁': Math.floor(Math.random() * 1) + Math.random(0.6), // 0-1mg
-            '磷': Math.floor(Math.random() * 50) + 30, // 50-100mg
-        }
+    function loadNutritionData() {
+  return fetch('../static/json/nur.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      return data;
+    })
+    .catch(error => {
+      console.error('There has been a problem with your fetch operation:', error);
+    });
+}
+
+// 初始化食材选择列表的函数，现在会从 JSON 文件加载数据
+function initFoodSelect() {
+  loadNutritionData().then(nutritionDataFromJson => {
+    nutritionData = {};
+    Object.keys(nutritionDataFromJson).forEach((food) => {
+      nutritionData[food] = nutritionDataFromJson[food];
+      const option = document.createElement('option');
+      option.text = food;
+      option.value = food;
+      foodSelect.add(option);
+    });
+  });
+}
 
 
-    };
+
+// 确保在文档加载完成后调用 initFoodSelect 函数
+document.addEventListener('DOMContentLoaded', function() {
+  initFoodSelect();
+});
+
 
     // 绘制图表
     function drawChart(nutritionData, type, weight) {
