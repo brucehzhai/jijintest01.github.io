@@ -335,6 +335,10 @@ option && myChart.setOption(option);
                 //地图开始
                 option = {
                     //设置背景颜色
+                     title: {
+
+                    subtext: '审图号：GS京(2022)1061号' + '\n' + '数据来源：国家地理信息公共服务平台'
+                },
                     backgroundColor: 'white',
                     series: [{
                         name: '数据',
@@ -374,6 +378,10 @@ option && myChart.setOption(option);
             }else{
                 option = {
                     //设置背景颜色
+                     title: {
+
+                    subtext: '审图号：GS京(2022)1061号' + '\n' + '数据来源：国家地理信息公共服务平台'
+                },
                     backgroundColor: 'white',
                     series: [{
                         name: '数据',
